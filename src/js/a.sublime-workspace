@@ -520,81 +520,27 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
+			"file": "/C/Users/chenxiaoxiao/Desktop/bootstrap-3.3.7/less/grid.less",
 			"settings":
 			{
-				"buffer_size": 1742,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/gulpfile.js",
-			"settings":
-			{
-				"buffer_size": 945,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "toast.js",
-			"settings":
-			{
-				"buffer_size": 2429,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/grid.less",
-			"settings":
-			{
-				"buffer_size": 12014,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/button.less",
-			"settings":
-			{
-				"buffer_size": 1474,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
-			"settings":
-			{
-				"buffer_size": 2123,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/dist/css/esp.css",
-			"settings":
-			{
-				"buffer_size": 69746,
-				"encoding": "UTF-8",
+				"buffer_size": 1387,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/esp.less",
+			"file": "/C/Users/chenxiaoxiao/Desktop/bootstrap-3.3.7/less/mixins/grid.less",
 			"settings":
 			{
-				"buffer_size": 263,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"buffer_size": 3120,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/bootstrap-3.3.7/less/variables.less",
+			"settings":
+			{
+				"buffer_size": 27472,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -605,13 +551,17 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 81.0,
+		"height": 288.0,
 		"last_filter": "js",
 		"selected_items":
 		[
 			[
 				"js",
-				"Project: Save As"
+				"Set Syntax: JavaScript"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
 			],
 			[
 				"less",
@@ -644,10 +594,6 @@
 			[
 				"forma",
 				"Format: Javascript"
-			],
-			[
-				"css",
-				"Set Syntax: CSS"
 			],
 			[
 				"",
@@ -854,7 +800,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 392.0
+		"width": 528.0
 	},
 	"console":
 	{
@@ -873,19 +819,21 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/Users/chenxiaoxiao/Desktop/esp-less",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist/js",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/src",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/js",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/test"
-	],
 	"file_history":
 	[
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/gulpfile.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/js/b.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist/js/bundle.min.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/button.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/grid.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/js/a.js",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/package.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/js/toast.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist/css/esp.css",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/esp.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist/js/bundle.js",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/accord/readme.md",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/dist/ajv.bundle.js",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/dist/ajv.min.js",
@@ -994,24 +942,13 @@
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/accepts/HISTORY.md",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/test/js/jquery-1.9.1.min.js",
 		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/mixins.less",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
-		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
 		"/C/Users/chenxiaoxiao/Desktop/eps/static/css/balloon.css",
 		"/C/Users/chenxiaoxiao/Desktop/eps/identify-step1.html",
 		"/C/Users/chenxiaoxiao/Desktop/eps/static/js/app.js",
 		"/C/Users/chenxiaoxiao/Desktop/eps/static/css/app.css",
 		"/C/Users/chenxiaoxiao/Desktop/Java/Java.java",
 		"/C/Users/chenxiaoxiao/Desktop/Java/Java.class",
-		"/C/Users/chenxiaoxiao/Desktop/Phoenix Startup UI Kit Free Samples/Phoenix Samples HTML5/Phoenix_simple/css/main.css",
-		"/C/Users/chenxiaoxiao/Desktop/framework7/src/less/ios/framework7.ios.colors.less",
-		"/C/Users/chenxiaoxiao/Desktop/reactDemo/webpack.config.js",
-		"/C/Users/chenxiaoxiao/Desktop/reactDemo/app/index.jsx",
-		"/G/视频、源码及讲义/第17章：Java数据库编程/031704_【第17章：Java数据库编程】_JDBC操作步骤及数据库连接操作/代码/ConnectionDemo01.java",
-		"/C/Users/chenxiaoxiao/Desktop/java/Java.java",
-		"/C/Users/chenxiaoxiao/Desktop/java/Message_zh_CN.java",
-		"/C/Users/chenxiaoxiao/Desktop/java/Message_fr_FR.properties",
-		"/C/Users/chenxiaoxiao/Desktop/java/Message_en_US.properties",
-		"/C/Users/chenxiaoxiao/Desktop/java/Message_zh_CN.properties"
+		"/C/Users/chenxiaoxiao/Desktop/Phoenix Startup UI Kit Free Samples/Phoenix Samples HTML5/Phoenix_simple/css/main.css"
 	],
 	"find":
 	{
@@ -1034,6 +971,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"make-row",
+			"white-space",
 			"less",
 			"connect",
 			"add",
@@ -1159,9 +1098,7 @@
 			"Super",
 			"constructor",
 			"SHOW_ACTIVE",
-			"show",
-			"SHOW_CROSSED",
-			"SHOW_CRO"
+			"show"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1182,274 +1119,103 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
+					"file": "/C/Users/chenxiaoxiao/Desktop/bootstrap-3.3.7/less/grid.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1742,
+						"buffer_size": 1387,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1289,
-								1289
+								696,
+								688
 							]
 						],
 						"settings":
 						{
-							"is_xml": false,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 497.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "/C/Users/chenxiaoxiao/Desktop/bootstrap-3.3.7/less/mixins/grid.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3120,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14,
+								14
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
+					"file": "/C/Users/chenxiaoxiao/Desktop/bootstrap-3.3.7/less/variables.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 27472,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								10761,
+								10762
+							],
+							[
+								10935,
+								10923
 							]
 						],
 						"settings":
 						{
-							"default_dir": "C:\\Users\\chenxiaoxiao\\Desktop\\esp-less\\src\\js",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/LESS/LESS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5945.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/gulpfile.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 945,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								117,
-								117
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "toast.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2429,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								6
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/grid.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12014,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								64,
-								64
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"is_xml": false,
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/button.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1474,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1472,
-								1472
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 780.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2123,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								952,
-								939
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 180.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/dist/css/esp.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 69746,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								6
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 240.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/esp.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 263,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								192,
-								192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1472,11 +1238,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1540,7 +1313,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

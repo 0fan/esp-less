@@ -22,6 +22,15 @@ gulp.task('js', function() {
       }))
       .pipe(gulp.dest('./dist/js/'))
       .pipe(connect.reload());
+
+  gulp.src('./src/js/vendor/*.js')
+      .pipe(concat('vendor.bundle.js'))
+      // .pipe(uglify())
+      .pipe(rename({
+        suffix: '.min'
+      }))
+      .pipe(gulp.dest('./dist/js/'))
+      .pipe(connect.reload());
 });
 
 /* less */
@@ -42,7 +51,7 @@ gulp.task('connect', function() {
 /* 文件监听 */
 gulp.task('watch', function() {
   gulp.watch('./src/less/*.less', ['less']);
-  gulp.watch('./src/js/*.js', ['js']);
+  gulp.watch('./src/js/**/*.js', ['js']);
   gulp.watch('./test/*.html', ['html']);
 })
 

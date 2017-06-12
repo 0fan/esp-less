@@ -1,3 +1,3 @@
 ;(function() {
-  console.log('this is module B!');
+  console.log('this is module B!!!!');
 })();

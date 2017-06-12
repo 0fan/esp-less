@@ -1,3 +1,3 @@
 ;(function() {
-  console.log('this is package A!!!');
+  console.log('this is package A!');
 })();
