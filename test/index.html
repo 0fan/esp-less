@@ -1,67 +1,68 @@
 <!DOCTYPE html>
-<html lang="zh-cmn-Hans">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="../dist/css/esp.css">
-</head>
-<body style="padding-top: 120px">
-  <div class="esp-bar">
-    <div class="left">
-      <img src="../src/img/brand_white.png">
-      <img src="../src/img/bankBrand_xingye_white.png">
-    </div>
-    <div class="right">
-      <a href="#">
-        <i class="icon icon-material icon-arrowback"></i>
-        <span>返回</span>
-      </a>
-      <a href="#">
-        <i class="icon icon-material icon-home"></i>
-        <span>首页</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="esp-container" style="padding: 300px 100px;">
-    <div class="esp-row">
-      <div class="esp-col-12 esp-col-offset-12">
-        <div class="esp-row gutter-20">
-          <div class="esp-col-16">
-            <div class="esp-form-control">
-              <i class="icon icon-material icon-home"></i>
-              <input type="text" placeholder="身份证号">
-            </div>
-          </div>
-          <div class="esp-col-8">
-            <a href="#" class="esp-btn esp-btn-link esp-btn-valid">获取验证码</a>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS, iOS Theme -->
+    <link rel="stylesheet" href="../dist/css/vendor.min.css">
+    <link rel="stylesheet" href="../dist/css/esp.css">
+    <!-- Path to Framework7 color related styles, iOS Theme -->
+    <!-- <link rel="stylesheet" href="path/to/framework7.ios.colors.min.css"> -->
+    <!-- Path to your custom app styles-->
+    <!-- <link rel="stylesheet" href="path/to/my-app.css"> -->
+  </head>
+  <body>
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Top Navbar-->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+            <div class="center sliding">Awesome App</div>
           </div>
         </div>
-        
+        <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-through toolbar-through">
+          <!-- Page, "data-page" contains page name -->
+          <div data-page="index" class="page">
+            <!-- Scrollable page content -->
+            <div class="page-content">
+              <p>Page content goes here</p>
+              <!-- Link to another page -->
+              <a href="about.html">About app</a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom Toolbar-->
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <!-- Toolbar links -->
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-<script src="../dist/js/vendor.bundle.min.js"></script>
-<script src="../dist/js/bundle.min.js"></script>
-<script>
-  $('.esp-btn').on('click', function(e) {
+    <!-- Path to Framework7 Library JS-->
+    <script src="../dist/js/vendor.bundle.min.js"></script>
+    <script src="../dist/js/bundle.min.js"></script>
+    <script>
+      
+      var myApp = new Framework7();
+      
+    </script>
 
-    $(e.target).attr('disabled', '').addClass('disabled');
-
-    Toast('验证码发送成功');
-
-
-    $('.esp-form-control')
-      .attr('data-esp-tip-pos', 'left')
-      .attr('data-esp-tip', '密码错误!')
-      .attr('data-esp-tip-hasIcon', '')
-      .addClass('hasWarming');
-
-    setTimeout(function() {
-      $('.esp-form-control').attr('data-esp-tip-visible', '');
-    }, 0);
-
-  });
-</script>
-</html>
+    <!-- <script type="text/javascript" src="path/to/framework7.min.js"></script> -->
+    <!-- Path to your app js-->
+    <!-- <script type="text/javascript" src="path/to/my-app.js"></script> -->
+  </body>
+</html> 

@@ -1,10 +1,11 @@
 /* 引入包 */
-var gulp    = require('gulp');
-var connect = require('gulp-connect');
-var concat  = require('gulp-concat');
-var uglify  = require('gulp-uglify');
-var less    = require('gulp-less');
-var rename  = require('gulp-rename');
+var gulp      = require('gulp');
+var connect   = require('gulp-connect');
+var concat    = require('gulp-concat');
+var uglify    = require('gulp-uglify');
+var minifyCSS = require('gulp-minify-css');
+var less      = require('gulp-less');
+var rename    = require('gulp-rename');
 
 /* html */
 gulp.task('html', function() {
@@ -33,6 +34,15 @@ gulp.task('js', function() {
       .pipe(connect.reload());
 });
 
+/* css */
+gulp.task('css', function() {
+  gulp.src('./src/css/**/*.css')
+      .pipe(concat('vendor.min.css'))
+      .pipe(minifyCSS())
+      .pipe(gulp.dest('./dist/css/'))
+      .pipe(connect.reload());
+})
+
 /* less */
 gulp.task('less', function() {
   gulp.src('./src/less/esp.less')
@@ -50,10 +60,11 @@ gulp.task('connect', function() {
 
 /* 文件监听 */
 gulp.task('watch', function() {
-  gulp.watch('./src/less/*.less', ['less']);
+  gulp.watch('./src/less/**/*.less', ['less']);
+  gulp.watch('./src/css/**/*.css', ['css']);
   gulp.watch('./src/js/**/*.js', ['js']);
-  gulp.watch('./test/*.html', ['html']);
+  gulp.watch('./test/**/*.html', ['html']);
 })
 
 /* 默认任务 */
-gulp.task('default', ['html', 'js', 'less', 'watch', 'connect']);
+gulp.task('default', ['html', 'js', 'css', 'less', 'watch', 'connect']);
