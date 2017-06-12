@@ -1,0 +1,45 @@
+.esp-form-control{
+  display: block;
+  
+  background: #edf2f5;
+  padding: 17px 18px;
+  border-radius: 8px;
+  position: relative;
+
+  > input[type=text],
+  > input[type=password] {
+    background: transparent;
+    font-size: 42px;
+    padding: 9px 10px 9px 76px;
+    border: none;
+    line-height: 1;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    outline: 0;
+  }
+
+  > .icon {
+    position: absolute;
+    width: 66px;
+    height: 66px;
+    line-height: 66px;
+    text-align: center;
+    font-size: 52px;
+    .transition(all .15s);
+    color: @brand-primary;
+  }
+
+  &.hasWarming {
+    > .icon {
+      color: @brand-warming;
+    }
+  }
+
+  &.hasDanger {
+    > .icon {
+      color: @brand-danger;
+    }
+  }
+
+}

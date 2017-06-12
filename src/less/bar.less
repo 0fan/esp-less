@@ -1,0 +1,66 @@
+@bar-default-color : #fff;
+@bar-default-bg    : #008ce3;
+@bar-default-height: 120px;
+
+.esp-bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: @bar-default-height;
+  color: @bar-default-color;
+  background: @bar-default-bg;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 40px;
+  padding-left: 40px;
+
+  .left,
+  .right {
+    font-size: 0;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: center;
+
+    img + img {
+      margin-left: 40px;
+    }
+
+    a {
+      font-size: @font-size-base;
+      color: @bar-default-color;
+      text-decoration: none;
+      font-size: 0;
+      height: 60px;
+      line-height: 60px;
+      display: inline-block;
+      padding: 0 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255, 0);
+      transition: all .3s;
+
+      &:active,
+      &.active{
+        background: rgba(255, 255, 255, .1);
+      }
+
+      .icon{
+        font-size: 40px;
+        margin-right: 10px;
+      }
+
+      span{
+        font-size: 24px;
+      }
+
+      .icon,
+      span{
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+    }
+  }
+}

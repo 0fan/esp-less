@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="../dist/css/esp.css">
+</head>
+<body style="padding-top: 120px">
+  <div class="esp-bar">
+    <div class="left">
+      <img src="../src/img/brand_white.png">
+      <img src="../src/img/bankBrand_xingye_white.png">
+    </div>
+    <div class="right">
+      <a href="#">
+        <i class="icon icon-material icon-arrowback"></i>
+        <span>返回</span>
+      </a>
+      <a href="#">
+        <i class="icon icon-material icon-home"></i>
+        <span>首页</span>
+      </a>
+    </div>
+  </div>
+  <p>
+    <div class="esp-form-control" style="margin: 200px 500px;" >
+      <i class="icon icon-material icon-home"></i>
+      <input type="text" placeholder="身份证号">
+    </div>
+    <button>add tips</button>
+  </p>
+</body>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+  $('button').on('click', function(e) {
+    
+    $('.esp-form-control')
+      .attr('data-esp-tip-pos', 'left')
+      .attr('data-esp-tip', '密码错误!')
+      .attr('data-esp-tip-hasIcon', '')
+      .addClass('hasWarming');
+
+    setTimeout(function() {
+      $('.esp-form-control').attr('data-esp-tip-visible', '');
+    }, 0);
+
+  });
+</script>
+</html>

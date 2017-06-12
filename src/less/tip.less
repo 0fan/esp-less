@@ -1,0 +1,228 @@
+//
+// Variables
+// -----------------------------------------
+
+@esp-tip-bg         : fade(@brand-warming, 90%);
+@esp-tip-font-size  : 36px;
+@esp-tip-arrow-size : 12px;
+
+
+//
+// Mixins
+// -----------------------------------------
+
+.mixin-svg-arrow(@width, @height, @degrees) {
+    @arrow-width: @width;
+    @arrow-height: @height;
+    @svg-arrow: ~'<svg xmlns="http://www.w3.org/2000/svg" width="@{arrow-width}" height="@{arrow-height}"><path fill="@{color}" transform="rotate(@{degrees})" d="M2.658,0.000 C-13.615,0.000 50.938,0.000 34.662,0.000 C28.662,0.000 23.035,12.002 18.660,12.002 C14.285,12.002 8.594,0.000 2.658,0.000 Z"/></svg>';
+    @-svg-code: escape(~'@{svg-arrow}');
+    background: url('data:image/svg+xml;charset=utf-8,@{-svg-code}') no-repeat;
+    background-size: 100% auto;
+    height: @height;
+    width: @width;
+}
+
+.svg-arrow(@color, @position) {
+    & when (@position = up) {
+        @width: @esp-tip-arrow-size * 3;
+        @height: @esp-tip-arrow-size;
+        @degrees: 0;
+        .mixin-svg-arrow(@width, @height, @degrees);
+    }
+    & when (@position = down) {
+        @width: @esp-tip-arrow-size * 3;
+        @height: @esp-tip-arrow-size;
+        @degrees: 180 18 6;
+        .mixin-svg-arrow(@width, @height, @degrees);
+    }
+    & when (@position = left) {
+        @width: @esp-tip-arrow-size;
+        @height: @esp-tip-arrow-size * 3;
+        @degrees: -90 18 18;
+        .mixin-svg-arrow(@width, @height, @degrees);
+    }
+    & when (@position = right) {
+        @width: @esp-tip-arrow-size;
+        @height: @esp-tip-arrow-size * 3;
+        @degrees: 90 6 6;
+        .mixin-svg-arrow(@width, @height, @degrees);
+    }
+}
+
+.transition(@args) {
+    -webkit-transition: @args;
+            transition: @args;
+}
+
+.transform (@val) {
+    -webkit-transform: @val;
+        -ms-transform: @val;
+            transform: @val;
+}
+
+.transform-origin(@val) {
+    -webkit-transform-origin: @val;
+        -ms-transform-origin: @val;
+            transform-origin: @val;
+}
+
+.opacity(@trans) {
+    @multiply: @trans * 100;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{multiply})";
+        filter: alpha(opacity=@multiply);
+    -khtml-opacity: @trans;
+      -moz-opacity: @trans;
+           opacity: @trans;
+}
+
+.base-effects() {
+    .opacity(0);
+    pointer-events: none;
+    .transition(all .18s ease-out .18s);
+}
+
+
+//
+// Styles
+// -----------------------------------------
+
+// IE 11 button bugfix
+button[data-esp-tip] {
+    overflow: visible;
+}
+
+[data-esp-tip] {
+    position: relative; // alt. absolute or fixed
+    &:before,
+    &:after {
+        .base-effects();
+        bottom: 100%;
+        left: 50%;
+        position: absolute;
+        z-index: 10;
+        .transform(translate(-50%, 10px));
+        .transform-origin(top);
+    }
+    &:after {
+        background: @esp-tip-bg;
+        border-radius: @esp-tip-font-size / 3.6;
+        color: #fff;
+        content: attr(data-esp-tip);
+        font-size: @esp-tip-font-size;
+        padding: .5em 1em;
+        white-space: nowrap;
+        margin-bottom: @esp-tip-arrow-size + 11;
+    }
+    &:before {
+        .svg-arrow(@esp-tip-bg, up);
+        content: "";
+        margin-bottom: @esp-tip-arrow-size - 1;
+    }
+    &:hover, &[data-esp-tip-visible] {
+        &:before,
+        &:after {
+            .opacity(1);
+            pointer-events: auto;
+            .transform(translate(-50%, 0));
+        }
+    }
+
+    &.font-awesome:after {
+        font-family: FontAwesome;
+    }
+
+    &[data-esp-tip-break] {
+        &:after {
+            white-space: pre;
+        }
+    }
+}
+
+[data-esp-tip-pos="down"] {
+    &:before,
+    &:after {
+        bottom: auto;
+        left: 50%;
+        top: 100%;
+        .transform(translate(-50%, -10px));
+    }
+    &:after {
+        margin-top: @esp-tip-arrow-size + 11;
+    }
+    &:before {
+        .svg-arrow(@esp-tip-bg, down);
+        margin-top: @esp-tip-arrow-size - 1;
+        margin-bottom: 0;
+    }
+    &:hover, &[data-esp-tip-visible] {
+        &:before,
+        &:after {
+          .transform(translate(-50%, 0));
+        }
+    }
+}
+
+[data-esp-tip-pos="left"] {
+    &:before,
+    &:after {
+        bottom: auto;
+        left: auto;
+        right: 100%;
+        top: 50%;
+        .transform(translate(10px, -50%));
+    }
+    &:after {
+        margin-right: @esp-tip-arrow-size + 11;
+    }
+    &:before {
+        .svg-arrow(@esp-tip-bg, left);
+        margin-right: @esp-tip-arrow-size - 1;
+        margin-bottom: 0;
+    }
+    &:hover, &[data-esp-tip-visible] {
+        &:before,
+        &:after {
+          .transform(translate(0, -50%));
+        }
+    }
+}
+
+[data-esp-tip-pos="right"] {
+    &:before,
+    &:after {
+        bottom: auto;
+        left: 100%;
+        top: 50%;
+        .transform(translate(-10px, -50%));
+    }
+    &:after {
+        margin-left: @esp-tip-arrow-size + 11;
+    }
+    &:before {
+        .svg-arrow(@esp-tip-bg, right);
+        margin-bottom: 0;
+        margin-left: @esp-tip-arrow-size - 1;
+    }
+    &:hover, &[data-esp-tip-visible] {
+        &:before,
+        &:after {
+          .transform(translate(0, -50%));
+        }
+    }
+}
+
+:after {
+    [data-esp-tip-length]&          { white-space: normal; }
+    [data-esp-tip-length="small"]&  { width: 80px; }
+    [data-esp-tip-length="medium"]& { width: 150px; }
+    [data-esp-tip-length="large"]&  { width: 260px; }
+    [data-esp-tip-length="xlarge"]& { width: 90vw;
+        @media screen and (min-width: 768px) { width: 380px; }
+    }
+    [data-esp-tip-length="fit"]&    { width: 100%; }
+}
+
+[data-esp-tip-hasIcon]:after {
+    background: @esp-tip-bg  url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px"><path fill-rule="evenodd"  fill="rgb(255, 255, 255)" d="M25.000,50.000 C11.193,50.000 -0.000,38.807 -0.000,25.000 C-0.000,11.193 11.193,-0.000 25.000,-0.000 C38.807,-0.000 50.000,11.193 50.000,25.000 C50.000,38.807 38.807,50.000 25.000,50.000 ZM25.000,3.000 C12.850,3.000 3.000,12.850 3.000,25.000 C3.000,37.150 12.850,47.000 25.000,47.000 C37.150,47.000 47.000,37.150 47.000,25.000 C47.000,12.850 37.150,3.000 25.000,3.000 ZM23.000,34.000 L27.000,34.000 L27.000,39.000 L23.000,39.000 L23.000,34.000 ZM23.000,11.000 L27.000,11.000 L27.000,31.000 L23.000,31.000 L23.000,11.000 Z"/></svg>') no-repeat left .5em center;
+    padding-left: @esp-tip-font-size + 50px;
+}

@@ -1,0 +1,74 @@
+/* ========== colors ========== */
+
+@grey-base     : #000;
+@grey-darker   : lighten(@grey-base, 20%); // #333
+@grey-dark     : lighten(@grey-base, 40%); // #666
+@grey-light    : lighten(@grey-base, 60%); // #999
+@grey-lighter  : lighten(@grey-base, 87%); // #ddd
+
+@brand-primary : #00abfb;
+@brand-success : #00ce00;
+@brand-warming : #ffba01;
+@brand-danger  : #f44336;
+
+
+/* ========== scaffolding ========== */
+
+@body-bg               : #fff;
+@text-color            : @grey-darker;
+@link-color            : @brand-primary;
+@link-hover-color      : darken(@brand-primary, 15%);
+@link-hover-decoration : none;
+
+
+/* ========== scaffolding ========== */
+
+@font-family-base : "DIN", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-base   : 24px;
+@line-height-base : 1.666666666666667; // 40
+@font-size-h1     : floor((@font-size-base * 2));    // ~48px
+@font-size-h2     : floor((@font-size-base * 1.75)); // ~42px
+@font-size-h3     : ceil((@font-size-base * 1.583333333333333)); // ~38x
+@font-size-h4     : ceil((@font-size-base * 1.416666666666667));  // ~34px
+@font-size-h5     : ceil((@font-size-base * 1.166666666666667)); // ~28px
+@font-size-h6     : @font-size-base;
+
+
+/* ========== components ========== */
+
+@padding-base-vertical   : 19px;
+@padding-base-horizontal : 80px;
+
+//== buttons
+@btn-font-weight          : normal;
+@btn-default-color        : #fff;
+@btn-default-bg           : @brand-primary;
+@btn-default-border       : transparent;
+@btn-border-radius-base   : 55px;
+
+@font-size-small          : @font-size-h4;
+@line-height-small        : @line-height-base;
+@padding-small-vertical   : 10px;
+@padding-small-horizontal : @padding-base-horizontal;
+@btn-border-radius-small  : 40px;
+
+body {
+  font-family: @font-family-base; 
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+}
+
+*{margin: 0;padding: 0;}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:#aaa;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:#aaa;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:#aaa;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:#aaa;
+}
