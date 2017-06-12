@@ -22,18 +22,36 @@
       </a>
     </div>
   </div>
-  <p>
-    <div class="esp-form-control" style="margin: 200px 500px;" >
-      <i class="icon icon-material icon-home"></i>
-      <input type="text" placeholder="身份证号">
+
+  <div class="esp-container" style="padding: 300px 100px;">
+    <div class="esp-row">
+      <div class="esp-col-12 esp-col-offset-12">
+        <div class="esp-row gutter-20">
+          <div class="esp-col-16">
+            <div class="esp-form-control">
+              <i class="icon icon-material icon-home"></i>
+              <input type="text" placeholder="身份证号">
+            </div>
+          </div>
+          <div class="esp-col-8">
+            <a href="#" class="esp-btn esp-btn-link esp-btn-valid">获取验证码</a>
+          </div>
+        </div>
+        
+      </div>
     </div>
-    <button>add tips</button>
-  </p>
+  </div>
 </body>
 <script src="js/jquery-1.9.1.min.js"></script>
+<script src="../dist/js/bundle.min.js"></script>
 <script>
-  $('button').on('click', function(e) {
-    
+  $('.esp-btn').on('click', function(e) {
+
+    $(e.target).attr('disabled', '').addClass('disabled');
+
+    Toast('验证码发送成功');
+
+
     $('.esp-form-control')
       .attr('data-esp-tip-pos', 'left')
       .attr('data-esp-tip', '密码错误!')

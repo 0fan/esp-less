@@ -1,0 +1,1556 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Date",
+				"DateFormat"
+			],
+			[
+				"con",
+				"console.log"
+			],
+			[
+				"component",
+				"componentDidMount\t Life Cycle"
+			],
+			[
+				"fr",
+				"frRes"
+			],
+			[
+				"en",
+				"enRes"
+			],
+			[
+				"zh",
+				"zhRes"
+			],
+			[
+				"eN",
+				"enLoc"
+			],
+			[
+				"HANDLE",
+				"handleCrossed"
+			],
+			[
+				"handle",
+				"handleShowActive"
+			],
+			[
+				"show",
+				"handleShowAll"
+			],
+			[
+				"GET",
+				"getVar"
+			],
+			[
+				"imp",
+				"import\t x from 'x'"
+			],
+			[
+				"requir",
+				"require\tvar x = require('x')"
+			],
+			[
+				"Cus",
+				"Consumer"
+			],
+			[
+				"The",
+				"ThreadDeadLook"
+			],
+			[
+				"print",
+				"printInfo"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"per",
+				"person2"
+			],
+			[
+				"po",
+				"petshop"
+			],
+			[
+				"pets",
+				"pets"
+			],
+			[
+				"n",
+				"nav-active.png\tw:81 h:81"
+			],
+			[
+				"win",
+				"windowImpl"
+			],
+			[
+				"Wi",
+				"WindowImpl"
+			],
+			[
+				"Wind",
+				"WindowAdapter"
+			],
+			[
+				"br",
+				"browse"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"get",
+				"getContent"
+			],
+			[
+				"pers",
+				"person1"
+			],
+			[
+				"r",
+				"return"
+			],
+			[
+				"Re",
+				"reverseArray"
+			],
+			[
+				"set",
+				"setName"
+			],
+			[
+				"delet",
+				"deleteNode"
+			],
+			[
+				"new",
+				"newNode"
+			],
+			[
+				"prin",
+				"printNode"
+			],
+			[
+				"noo",
+				"nood3"
+			],
+			[
+				"person",
+				"person2"
+			],
+			[
+				"perso",
+				"person"
+			],
+			[
+				"pl",
+				"pl\tprintln"
+			],
+			[
+				"child",
+				"child"
+			],
+			[
+				"setP",
+				"setPerson"
+			],
+			[
+				"St",
+				"Student"
+			],
+			[
+				"lastDate",
+				"lastDateOfLastMonth"
+			],
+			[
+				"firstDay",
+				"firstDayWeekDay"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"rsul",
+				"result_1"
+			],
+			[
+				"p",
+				"p\tprint"
+			],
+			[
+				"background-",
+				"background-image"
+			],
+			[
+				"ofv",
+				"overflow-y"
+			],
+			[
+				"table",
+				"table-cell"
+			],
+			[
+				"paddi",
+				"padding"
+			],
+			[
+				"over",
+				"overflow-x"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"border-b",
+				"border-bottom"
+			],
+			[
+				"border-bo",
+				"border-bottom-color"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"transla",
+				"translateX()"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"text-o",
+				"text-overflow"
+			],
+			[
+				"tablce",
+				"table-cell"
+			],
+			[
+				"tab",
+				"table-row"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"tranfor",
+				"transform"
+			],
+			[
+				"tran",
+				"transform-origin"
+			],
+			[
+				"trans",
+				"transform"
+			],
+			[
+				"margi",
+				"margin-right"
+			],
+			[
+				"align",
+				"align-items"
+			],
+			[
+				"flex",
+				"flex-start"
+			],
+			[
+				"backgroundc",
+				"background-color"
+			],
+			[
+				"curc",
+				"currentColor"
+			],
+			[
+				"alig",
+				"align-items"
+			],
+			[
+				"spa",
+				"space-around"
+			],
+			[
+				"fle",
+				"flex-basis"
+			],
+			[
+				"flex-",
+				"flex-shrink"
+			],
+			[
+				"ali",
+				"align-items"
+			],
+			[
+				"bacl",
+				"background-color"
+			],
+			[
+				"backgrdo",
+				"background"
+			],
+			[
+				"flwe",
+				"flex-grow"
+			],
+			[
+				"bac",
+				"background-size"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"space-",
+				"space-between"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"bakground-c",
+				"background-clip"
+			],
+			[
+				"co",
+				"cover"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"ad",
+				"ad-l"
+			],
+			[
+				"pa",
+				"placeholder\tAttr"
+			],
+			[
+				"border-bot",
+				"border-bottom"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"inli",
+				"inline"
+			],
+			[
+				"repea",
+				"repeat-x"
+			],
+			[
+				"backgru",
+				"background-repeat"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"background",
+				"background"
+			],
+			[
+				"avat",
+				"default-user-avata"
+			],
+			[
+				"flash",
+				"flash_index"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"side",
+				"sideFlash"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"border-ri",
+				"border-right-color"
+			],
+			[
+				"te",
+				"preview-temp.png\tw:320 h:200"
+			],
+			[
+				"tex-t",
+				"text-align"
+			],
+			[
+				"footer-main",
+				"footer-main-about.png\tw:12 h:12"
+			],
+			[
+				"backgor",
+				"background-image"
+			],
+			[
+				"js",
+				"jquery-1.8.3.min.js"
+			],
+			[
+				"inlne",
+				"inline-block"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"bak",
+				"background-color"
+			],
+			[
+				"ui",
+				"ui-window.js"
+			],
+			[
+				"re",
+				"removeClass"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"border-le",
+				"border-left-color"
+			],
+			[
+				"sc",
+				"scroll"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"max",
+				"maxlength\tAttr"
+			],
+			[
+				"borderr",
+				"border-radius"
+			],
+			[
+				"font-s",
+				"font-style"
+			],
+			[
+				"tetxt",
+				"text-indent"
+			],
+			[
+				"footer-f",
+				"footer-findWork.png\tw:20 h:20"
+			],
+			[
+				"quick",
+				"quick-output.png\tw:20 h:20"
+			],
+			[
+				"backl",
+				"background-color"
+			],
+			[
+				"border-t",
+				"border-top-color"
+			],
+			[
+				"D",
+				"datepicker"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
+			"settings":
+			{
+				"buffer_size": 1742,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 945,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "toast.js",
+			"settings":
+			{
+				"buffer_size": 2429,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/grid.less",
+			"settings":
+			{
+				"buffer_size": 12014,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/button.less",
+			"settings":
+			{
+				"buffer_size": 1474,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
+			"settings":
+			{
+				"buffer_size": 2123,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/dist/css/esp.css",
+			"settings":
+			{
+				"buffer_size": 69746,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/esp.less",
+			"settings":
+			{
+				"buffer_size": 263,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"last_filter": "js",
+		"selected_items":
+		[
+			[
+				"js",
+				"Project: Save As"
+			],
+			[
+				"less",
+				"Set Syntax: LESS"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"format",
+				"SQL Beautifier: Format Current SQL File"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"text",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"JAVA",
+				"Set Syntax: Java"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"for",
+				"Tag: Auto-Format Tags on Document"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"mini",
+				"View: Toggle Minimap"
+			],
+			[
+				"f",
+				"Format: Javascript"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"tab",
+				"View: Toggle Tabs"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"jsva",
+				"Project: Save As"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"css com",
+				"Run CSScomb"
+			],
+			[
+				"css co",
+				"Run CSScomb"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"INSTALL",
+				"Package Control: Install Package"
+			],
+			[
+				"insstal",
+				"Git: Reset (unstage) All"
+			],
+			[
+				"open file",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"wrao",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wraop",
+				"Word Wrap: Toggle"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"align",
+				"Preferences: Alignment File Settings – Syntax Specific – User"
+			],
+			[
+				"vie",
+				"View: Toggle Menu"
+			],
+			[
+				"anto",
+				"Tag: Auto-Format Tags on Document"
+			],
+			[
+				"cssco",
+				"Run CSScomb"
+			],
+			[
+				"csscom",
+				"Run CSScomb"
+			],
+			[
+				"csscon",
+				"Format CSS: Compact (No Spaces)"
+			],
+			[
+				"tag",
+				"Tag: Auto-Format Tags on Document"
+			],
+			[
+				"TAG",
+				"Tag: Get CSS Classes"
+			],
+			[
+				"insall",
+				"Package Control: Install Package"
+			],
+			[
+				"css combo",
+				"Format CSS: Compact (Break Selectors)"
+			],
+			[
+				"HTML",
+				"Set Syntax: HTML"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"ins",
+				"Tag: Insert as Tag"
+			],
+			[
+				"Js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"h",
+				"Set Syntax: HTML"
+			],
+			[
+				"mi",
+				"View: Toggle Minimap"
+			],
+			[
+				"fa",
+				"Format: Javascript"
+			],
+			[
+				"ja",
+				"Format: Javascript"
+			],
+			[
+				"JS",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"famat",
+				"Format: Javascript"
+			],
+			[
+				"men",
+				"View: Toggle Menu"
+			],
+			[
+				"foir",
+				"Snippet: for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"form",
+				"Format: Javascript"
+			],
+			[
+				"l",
+				"Set Syntax: LESS"
+			],
+			[
+				"eme",
+				"Emmet: Expand Abbreviation"
+			],
+			[
+				"view",
+				"View: Toggle Menu"
+			],
+			[
+				"emmet",
+				"Emmet: Balance (inward)"
+			],
+			[
+				"git",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/chenxiaoxiao/Desktop/esp-less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/dist/js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/test"
+	],
+	"file_history":
+	[
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/package.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/esp.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/accord/readme.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/dist/ajv.bundle.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/dist/ajv.min.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/dist/ajv.min.js.map",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/dist/regenerator.min.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/lib/ajv.d.ts",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/lib/compile/index.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/lib/dot/dependencies.jst",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/lib/dot/errors.def",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/lib/dotjs/dependencies.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/ajv/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/body-parser/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/cliui/test/cliui.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/commander/Readme.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/compressible/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/compression/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/connect-timeout/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/connect/History.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/cookie-parser/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/csrf/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/csurf/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/dashdash/CHANGES.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/dashdash/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/deprecated/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/errorhandler/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/errorhandler/node_modules/accepts/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/etag/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/express-session/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/express-session/node_modules/uid-safe/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/extend/CHANGELOG.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/extend/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/extsprintf/.gitmodules",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/extsprintf/Makefile",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/extsprintf/Makefile.deps",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/extsprintf/Makefile.targ",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/finalhandler/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/forever-agent/package.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/forever-agent/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/getpass/.npmignore",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/glob-stream/node_modules/readable-stream/lib/_stream_readable.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/glob-stream/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/glob-watcher/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/globule/node_modules/graceful-fs/graceful-fs.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/globule/node_modules/graceful-fs/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/gulp-connect/index.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/gulp-connect/src/index.coffee",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/gulp-uglify/node_modules/uglify-js/tools/domprops.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/gulp-util/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/gulp/CHANGELOG.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/http-errors/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/http-signature/.npmignore",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/http-signature/http_signing.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/isarray/build/build.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/json-stringify-safe/test/stringify_test.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/lazy-cache/package.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/lazy-cache/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/CONTRIBUTING.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/dist/less.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/dist/less.min.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/lib/less/data/colors.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/lib/less/tree/node.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/lib/source-map/source-map-0.1.31.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/test/browser/less.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/test/css/url-args/urls.css",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/less/test/css/urls.css",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/method-override/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/mime-db/db.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/mime-types/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/mime/types.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/morgan/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/on-finished/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/orchestrator/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/raw-body/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/readable-stream/lib/_stream_readable.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/rechoir/.travis.yml",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/replace-ext/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/request/node_modules/qs/CHANGELOG.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/response-time/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/safe-buffer/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/send/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/serve-favicon/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/serve-index/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/serve-static/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/sshpk/.npmignore",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/stream-consume/package.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/stream-counter/package.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/through2/node_modules/readable-stream/lib/_stream_readable.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/tiny-lr/node_modules/body-parser/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/tough-cookie/lib/cookie.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/tough-cookie/lib/pubsuffix.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/type-is/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/uglify-js/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/uglify-js/tools/domprops.json",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/uid-safe/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/verror/Makefile.targ",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/vinyl-fs/node_modules/readable-stream/lib/_stream_readable.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/vinyl-fs/node_modules/vinyl/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/vinyl-fs/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/vinyl/README.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/which/CHANGELOG.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/wordwrap/test/idleness.txt",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/yargs/lib/usage.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/bar.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/form.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/accord/contributing.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/node_modules/accepts/HISTORY.md",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/test/js/jquery-1.9.1.min.js",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/mixins.less",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
+		"/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
+		"/C/Users/chenxiaoxiao/Desktop/eps/static/css/balloon.css",
+		"/C/Users/chenxiaoxiao/Desktop/eps/identify-step1.html",
+		"/C/Users/chenxiaoxiao/Desktop/eps/static/js/app.js",
+		"/C/Users/chenxiaoxiao/Desktop/eps/static/css/app.css",
+		"/C/Users/chenxiaoxiao/Desktop/Java/Java.java",
+		"/C/Users/chenxiaoxiao/Desktop/Java/Java.class",
+		"/C/Users/chenxiaoxiao/Desktop/Phoenix Startup UI Kit Free Samples/Phoenix Samples HTML5/Phoenix_simple/css/main.css",
+		"/C/Users/chenxiaoxiao/Desktop/framework7/src/less/ios/framework7.ios.colors.less",
+		"/C/Users/chenxiaoxiao/Desktop/reactDemo/webpack.config.js",
+		"/C/Users/chenxiaoxiao/Desktop/reactDemo/app/index.jsx",
+		"/G/视频、源码及讲义/第17章：Java数据库编程/031704_【第17章：Java数据库编程】_JDBC操作步骤及数据库连接操作/代码/ConnectionDemo01.java",
+		"/C/Users/chenxiaoxiao/Desktop/java/Java.java",
+		"/C/Users/chenxiaoxiao/Desktop/java/Message_zh_CN.java",
+		"/C/Users/chenxiaoxiao/Desktop/java/Message_fr_FR.properties",
+		"/C/Users/chenxiaoxiao/Desktop/java/Message_en_US.properties",
+		"/C/Users/chenxiaoxiao/Desktop/java/Message_zh_CN.properties"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Users\\chenxiaoxiao\\Desktop\\esp-less",
+			"C:\\Users\\chenxiaoxiao\\Desktop\\framework7\\src\\less",
+			"C:\\Users\\chenxiaoxiao\\Desktop\\framework7\\src\\less\\ios",
+			"C:\\Users\\chenxiaoxiao\\Desktop\\SUI-Mobile",
+			"C:\\Users\\chenxiaoxiao\\Desktop\\wechat-1m2"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"less",
+			"connect",
+			"add",
+			"thi",
+			"valid",
+			"paddinesp",
+			",\n",
+			"paddi",
+			"paddinesp",
+			"eps",
+			"esp-btn",
+			"guide",
+			"g-",
+			"warming",
+			"rever",
+			"hasIcon",
+			"edf2f5",
+			"node_modules",
+			"connect",
+			"gulp",
+			"less",
+			"index",
+			"fucntion",
+			"wtach",
+			"watch",
+			"()",
+			"connect",
+			"realaod",
+			"less",
+			"watch",
+			"server",
+			"directiry",
+			"gulp",
+			"webSer",
+			"transition",
+			"@font-size-base",
+			"@font-size-base ",
+			"connect",
+			"funtion",
+			"webserver",
+			"connen",
+			"connect",
+			"buildLess",
+			"conne",
+			"build",
+			"test",
+			"_height",
+			"_fontSize",
+			"rgba",
+			"ne",
+			"~",
+			"SimpleDateFormate",
+			"1",
+			"Second",
+			"YEAR_FIELD",
+			"format",
+			"date",
+			"Date",
+			"YAE",
+			"DAsE",
+			"T",
+			"Month",
+			"YEAR",
+			"page-content",
+			"navbar",
+			"height",
+			"Blue theme",
+			"navbar",
+			"white",
+			"red",
+			"defa",
+			"RETURN",
+			"acion",
+			"completed",
+			"co",
+			"compo",
+			"return",
+			"assgin",
+			"TODO",
+			"RETUd",
+			"addTodo",
+			"setVisib",
+			"i",
+			"ReduxReact",
+			"redux",
+			"assign",
+			"ACTION",
+			"functio",
+			"secondElapsed",
+			"scon",
+			"()",
+			"interval",
+			".\n",
+			"intarval",
+			"sta",
+			"const",
+			"cons",
+			"const",
+			"Lean",
+			"gargs",
+			"static",
+			"ConnectionDemo01",
+			"mm",
+			"gjt",
+			"tati",
+			"男",
+			"admin",
+			"nmam",
+			"inse",
+			"carchar",
+			"Message",
+			"class",
+			"linfan",
+			"zhRes",
+			"\"",
+			"发育",
+			"CN",
+			"getSring",
+			"r",
+			"ResurceB",
+			"css",
+			"super",
+			"Super",
+			"constructor",
+			"SHOW_ACTIVE",
+			"show",
+			"SHOW_CROSSED",
+			"SHOW_CRO"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"esp",
+			"<meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\n\t<meta name=\"format-detection\" content=\"telephone=no\">",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/test/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1742,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1289,
+								1289
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\Users\\chenxiaoxiao\\Desktop\\esp-less\\src\\js",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								117,
+								117
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "toast.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2429,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/grid.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12014,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								64,
+								64
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"is_xml": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/button.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1474,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1472,
+								1472
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/variables.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2123,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								952,
+								939
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/dist/css/esp.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 69746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/chenxiaoxiao/Desktop/esp-less/src/less/esp.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								192,
+								192
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 106.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.nodejs":
+	{
+		"height": 30.0
+	},
+	"pinned_build_system": "",
+	"project": "a.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"o",
+				"C:\\Users\\chenxiaoxiao\\Dropbox\\通信领地\\web\\css\\layout.css"
+			],
+			[
+				"html",
+				"C:\\Users\\chenxiaoxiao\\Desktop\\一平方\\index.html"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

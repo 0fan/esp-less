@@ -10,6 +10,10 @@
   white-space: nowrap;
   text-decoration: none;
   outline: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   .transition(all .15s);
   .user-select(none);
   .box-shadow(0 20px 26px rgba(0, 171, 251, .5));
@@ -17,15 +21,15 @@
   .btn-size(@padding-base-vertical; @padding-base-horizontal; @font-size-h2; @line-height-base; @btn-border-radius-base);
 }
 
-.eps-btn-default {
+.esp-btn-default {
   .btn-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
 
-.eps-btn-sm {
+.esp-btn-sm {
   .btn-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
 }
 
-.eps-btn-link {
+.esp-btn-link {
   border-width: 2px;
   .box-shadow(none);
 
@@ -35,7 +39,8 @@
   &:active,
   &.active {
     background-color: @link-color;
-    .scale(.9);
+    color: #fff;
+    .scale(1);
   }
 
   &.disabled,
@@ -54,4 +59,18 @@
       .scale(1);
     }
   }
+}
+
+.esp-btn-block{
+  display: block;
+  width: 100%;
+}
+
+.esp-btn-valid {
+  font-size: @font-size-h3;
+  display: block;
+  width: 100%;
+  line-height: 1.65;
+  padding-top: 17px;
+  padding-bottom: 17px;
 }

@@ -23,7 +23,7 @@
     flex-shrink: 0;
     justify-content: flex-start;
     align-items: center;
-
+    
     img + img {
       margin-left: 40px;
     }
@@ -61,6 +61,20 @@
         vertical-align: middle;
       }
 
+    }
+  }
+}
+
+.esp-bar.esp-bar-reverse {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+
+  a {
+    color: @link-color;
+
+    &:active,
+    &.active{
+      background: fade(@link-color, 10%);
     }
   }
 }
