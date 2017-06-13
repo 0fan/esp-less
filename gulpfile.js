@@ -9,8 +9,9 @@ var rename    = require('gulp-rename');
 
 /* html */
 gulp.task('html', function() {
-  gulp.src('./test/*.html')
-      .pipe(connect.reload());
+  gulp.src(['./src/html/**/*.html', './test/*.html'])
+    .pipe(gulp.dest('./dist/'))
+    .pipe(connect.reload());
 });
 
 /* js */
@@ -51,6 +52,12 @@ gulp.task('less', function() {
       .pipe(connect.reload());
 });
 
+/* font */
+gulp.task('font', function() {
+  gulp.src('./src/font/**')
+      .pipe(gulp.dest('./dist/font/'));
+});
+
 /* 服务器 */
 gulp.task('connect', function() {
   connect.server({
@@ -63,8 +70,8 @@ gulp.task('watch', function() {
   gulp.watch('./src/less/**/*.less', ['less']);
   gulp.watch('./src/css/**/*.css', ['css']);
   gulp.watch('./src/js/**/*.js', ['js']);
-  gulp.watch('./test/**/*.html', ['html']);
+  gulp.watch(['./src/html/**/*.html','./test/**/*.html'], ['html']);
 })
 
 /* 默认任务 */
-gulp.task('default', ['html', 'js', 'css', 'less', 'watch', 'connect']);
+gulp.task('default', ['html', 'js', 'css', 'less', 'font', 'watch', 'connect']);
