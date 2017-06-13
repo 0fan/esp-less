@@ -17,7 +17,7 @@ gulp.task('html', function() {
 gulp.task('js', function() {
   gulp.src('./src/js/*.js')
       .pipe(concat('bundle.js'))
-      // .pipe(uglify())
+      .pipe(uglify())
       .pipe(rename({
         suffix: '.min'
       }))
@@ -26,7 +26,7 @@ gulp.task('js', function() {
 
   gulp.src('./src/js/vendor/*.js')
       .pipe(concat('vendor.bundle.js'))
-      // .pipe(uglify())
+      .pipe(uglify())
       .pipe(rename({
         suffix: '.min'
       }))
