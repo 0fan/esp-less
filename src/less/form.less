@@ -1,6 +1,6 @@
 .esp-form-control{
   display: block;
-  
+  margin-bottom: 70px;
   background: #edf2f5;
   padding: 17px 18px;
   border-radius: 8px;
@@ -36,17 +36,17 @@
     border-radius: 7px;
     overflow: hidden;
     font-size: 38px;
-    width: 274px;
+    width: 275px;
     height: 100px;
     position: absolute;
+    right: -300px;
+    top:0;
     line-height: 101px;
     text-align: center;
-    box-sizing: border-box;
-    top: 0;
-    outline: 0;
-    right: -300px;
-    border:2px solid @brand-primary;
+    outline: none;
     transition: all .15s linear;
+    border: 2px solid @brand-primary;
+    box-sizing: border-box;
     &:active,
     &.active {
       background: @body-bg;
@@ -64,6 +64,7 @@
       &.active {
         background: @body-bg;
         color: @brand-primary;
+       .scale(1)
       }
     }
   }

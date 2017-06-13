@@ -1,5 +1,3 @@
-// $(function() {
-
 var app  = new Framework7({ // 应用初始化
       activeState: false,
       init: false,
@@ -39,5 +37,3 @@ app.onPageInit('switch-project', function(page) {
 /* /switch-project */
 
 app.init();
-
-// });
