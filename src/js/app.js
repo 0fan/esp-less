@@ -6,9 +6,16 @@ $(function() {
         swipeBackPage: false,
         preloadPreviousPage: false,
         pushState: true,
-        pushStateNoAnimation: true
-      }),
-      view = app.addView('.view-main', { // 视图初始化
+        pushStateNoAnimation: true,
+        onAjaxStart: function() {
+          app.showIndicator();
+        },
+        onAjaxComplete: function() {
+          app.hideIndicator()
+        }
+      });
+
+  var view = app.addView('.view-main', { // 视图初始化
         dynamicNavbar: true
       });
 
@@ -33,7 +40,9 @@ $(function() {
     // handle
     $('.j-inner').on('click', function() {
       console.log('hello');
-      view.router.loadPage('switch-project.html');
+      view.router.loadPage('switch-project.html', {
+        ignoreCache: true
+      });
     });
     new IScroll('.j-sidebar');
   });
@@ -51,7 +60,9 @@ $(function() {
     });
     // handle
     $('.switchProject-items_item').on('click', function(e) {
-      view.router.loadPage('identify-step1.html');
+      view.router.loadPage('identify-step1.html', {
+        ignoreCache: true
+      });
       console.log('hello')
     });
 
