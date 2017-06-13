@@ -48,29 +48,24 @@ $(function() {
   });
   /* /page switch-project */
 
-  /* /page deposit-step1 */
-  app.onPageInit('save-step1', function(page) {
+  /* /page identify-step1 */
+  app.onPageInit('identify-step1', function(page) {
     $('.navbar').addClass('navbar-brand no-border');
-    mainView.showSidebar();
     $('.steps .steps-item:eq(0)').addClass('active')
       .siblings().removeClass('active');
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
-      // mainView.hideSidebar();
-      mainView.router.back();
     });
-    $('#btn-sure-save').click(function (e) {
+    $('#toI2').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('save-step2.html?'+Math.random());
+      mainView.router.loadPage('identify-step2.html?'+Math.random());
     })
   });
-  /* /page deposit-step1 */
+  /* /page identify-step1 */
 
   /* /page identify-step2 */
   app.onPageInit('identify-step2', function(page) {
-
     $('.navbar').addClass('navbar-brand no-border');
-    mainView.showSidebar();
     $('.steps .steps-item:eq(1)').addClass('active')
       .siblings().removeClass('active');
     $('.eps-back').on('click', function() {
@@ -85,9 +80,7 @@ $(function() {
 
   /* /page identify-step3 */
   app.onPageInit('identify-step3', function(page) {
-
     $('.navbar').addClass('navbar-brand no-border');
-    mainView.showSidebar();
     $('.steps .steps-item:eq(2)').addClass('active')
       .siblings().removeClass('active');
     $('.eps-back').on('click', function() {
@@ -104,7 +97,6 @@ $(function() {
   app.onPageInit('identify-step4', function(page) {
 
     $('.navbar').addClass('navbar-brand no-border');
-    mainView.showSidebar();
     $('.steps .steps-item:eq(3)').addClass('active')
       .siblings().removeClass('active');
     $('.eps-back').on('click', function() {
@@ -120,7 +112,6 @@ $(function() {
   /* /page identify-step4-succ */
   app.onPageInit('identify-step4-succ', function(page) {
     $('.navbar').addClass('navbar-brand no-border');
-    mainView.showSidebar();
     $('.steps .steps-item:eq(0)').addClass('active')
       .siblings().removeClass('active');
     $('.eps-back').on('click', function() {

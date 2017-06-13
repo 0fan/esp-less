@@ -36,15 +36,22 @@
     border-radius: 7px;
     overflow: hidden;
     font-size: 38px;
-    width: 274px;
-    height: 154px;
-    line-height: 155px;
+    width: 275px;
+    height: 100px;
+    position: absolute;
+    right: -300px;
+    top:0;
+    line-height: 101px;
     text-align: center;
+    outline: none;
+    transition: all .15s linear;
+    border: 2px solid @brand-primary;
+    box-sizing: border-box;
     &:active,
     &.active {
       background: @body-bg;
       color: @brand-primary;
-      .scale(1);
+      .scale(.9);
     }
 
     &.disabled,
@@ -55,12 +62,9 @@
       &.focus,
       &:active,
       &.active {
-        background: transparent;
-        color: #ccc;
-        border-color: #ccc;
-
-        .box-shadow(none);
-        .scale(1);
+        background: @body-bg;
+        color: @brand-primary;
+       .scale(1)
       }
     }
   }
