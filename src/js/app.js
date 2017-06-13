@@ -30,12 +30,20 @@ $(function() {
     $('.j-inner').on('click', function() {
       view.router.loadPage('switch-project.html');
     });
+    new IScroll('.j-sidebar');
   });
   /* /index */
 
   /* switch-project */
   app.onPageInit('switch-project', function(page) {
     // handle
+    new IScroll('.j-switchProject-items', {
+      scrollbars: true,
+      mouseWheel: true,
+      shrinkScrollbars: 'scale',
+      fadeScrollbars: true
+    });
+
   });
   /* /switch-project */
 
