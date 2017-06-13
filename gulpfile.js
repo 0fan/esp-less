@@ -9,7 +9,7 @@ var rename    = require('gulp-rename');
 
 /* html */
 gulp.task('html', function() {
-  gulp.src(['./src/html/**/*.html', './test/*.html'])
+  gulp.src(['./test/*.html', './src/html/**/*.html'])
     .pipe(gulp.dest('./dist/'))
     .pipe(connect.reload());
 });
@@ -18,7 +18,7 @@ gulp.task('html', function() {
 gulp.task('js', function() {
   gulp.src('./src/js/*.js')
       .pipe(concat('bundle.js'))
-      .pipe(uglify())
+      // .pipe(uglify())
       .pipe(rename({
         suffix: '.min'
       }))
