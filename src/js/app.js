@@ -48,6 +48,137 @@ $(function() {
   });
   /* /page switch-project */
 
+  /* /page deposit-step1 */
+  app.onPageInit('save-step1', function(page) {
+    $('.navbar').addClass('navbar-brand no-border');
+    mainView.showSidebar();
+    $('.steps .steps-item:eq(0)').addClass('active')
+      .siblings().removeClass('active');
+    $('.eps-back').on('click', function() {
+      $('.navbar').removeClass('navbar-brand no-border');
+      // mainView.hideSidebar();
+      mainView.router.back();
+    });
+    $('#btn-sure-save').click(function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('save-step2.html?'+Math.random());
+    })
+  });
+  /* /page deposit-step1 */
+
+  /* /page identify-step2 */
+  app.onPageInit('identify-step2', function(page) {
+
+    $('.navbar').addClass('navbar-brand no-border');
+    mainView.showSidebar();
+    $('.steps .steps-item:eq(1)').addClass('active')
+      .siblings().removeClass('active');
+    $('.eps-back').on('click', function() {
+      $('.navbar').removeClass('navbar-brand no-border');
+    });
+    $('#toI3').click(function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('identify-step3.html?'+Math.random());
+    })
+  });
+  /* /page identify-step2 */
+
+  /* /page identify-step3 */
+  app.onPageInit('identify-step3', function(page) {
+
+    $('.navbar').addClass('navbar-brand no-border');
+    mainView.showSidebar();
+    $('.steps .steps-item:eq(2)').addClass('active')
+      .siblings().removeClass('active');
+    $('.eps-back').on('click', function() {
+      $('.navbar').removeClass('navbar-brand no-border');
+    });
+    $('#toI4').click(function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('identify-step4.html?'+Math.random());
+    })
+  });
+  /* /page identify-step3 */
+
+  /* /page identify-step4 */
+  app.onPageInit('identify-step4', function(page) {
+
+    $('.navbar').addClass('navbar-brand no-border');
+    mainView.showSidebar();
+    $('.steps .steps-item:eq(3)').addClass('active')
+      .siblings().removeClass('active');
+    $('.eps-back').on('click', function() {
+      $('.navbar').removeClass('navbar-brand no-border');
+    });
+    $('#btn-open-account').click(function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('identify-step4-succ.html?'+Math.random());
+    })
+  });
+  /* /page identify-step4 */
+
+  /* /page identify-step4-succ */
+  app.onPageInit('identify-step4-succ', function(page) {
+    $('.navbar').addClass('navbar-brand no-border');
+    mainView.showSidebar();
+    $('.steps .steps-item:eq(0)').addClass('active')
+      .siblings().removeClass('active');
+    $('.eps-back').on('click', function() {
+      $('.navbar').removeClass('navbar-brand no-border');
+    });
+    $('#btn-succ').on('click',function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('save-step1.html?'+Math.random());
+    })
+  });
+  /* /page identify-step4-succ */
+
+  /* page deposit-step2 */
+  app.onPageInit('deposit-step2', function(page) {
+
+    $('.popup-about').on('open', function() {
+      var wrapper = document.getElementById("sign"),
+        canvas  = wrapper.querySelector("canvas"),
+        sign;
+
+      function resizeCanvas() {
+        var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+        canvas.width = canvas.offsetWidth * ratio;
+        canvas.height = canvas.offsetHeight * ratio;
+        canvas.getContext("2d").scale(ratio, ratio);
+      }
+
+      window.onresize = resizeCanvas;
+
+      resizeCanvas();
+      sign = new SignaturePad(canvas, {
+        minWidth: 2,
+        maxWidth: 4
+      });
+
+      $('.sign-btn.reset').on('click', function() {
+        sign.clear();
+        $('.icon', this).addClass('active');
+        $('.icon', this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oAnimationend animationend', function() {
+          $(this).removeClass('active');
+        });
+      });
+
+      $('.sign-btn.done').on('click', function() {
+        Toast({
+          text: '签名成功',
+          timer: 2000
+        })
+        app.closeModal();
+      });
+
+    });
+  });
+  /* /page deposit-step2 */
+
+
+
+
 
 
 
