@@ -1,6 +1,6 @@
 .esp-form-control{
   display: block;
-  
+  margin-bottom: 70px;
   background: #edf2f5;
   padding: 17px 18px;
   border-radius: 8px;
@@ -37,21 +37,14 @@
     overflow: hidden;
     font-size: 38px;
     width: 274px;
-    height: 100px;
-    position: absolute;
-    line-height: 101px;
+    height: 154px;
+    line-height: 155px;
     text-align: center;
-    box-sizing: border-box;
-    top: 0;
-    outline: 0;
-    right: -300px;
-    border:2px solid @brand-primary;
-    transition: all .15s linear;
     &:active,
     &.active {
       background: @body-bg;
       color: @brand-primary;
-      .scale(.9);
+      .scale(1);
     }
 
     &.disabled,
@@ -62,8 +55,12 @@
       &.focus,
       &:active,
       &.active {
-        background: @body-bg;
-        color: @brand-primary;
+        background: transparent;
+        color: #ccc;
+        border-color: #ccc;
+
+        .box-shadow(none);
+        .scale(1);
       }
     }
   }
