@@ -58,6 +58,12 @@ gulp.task('font', function() {
       .pipe(gulp.dest('./dist/font/'));
 });
 
+/* img */
+gulp.task('img', function() {
+  gulp.src('./src/img/**')
+      .pipe(gulp.dest('./dist/img/'));
+});
+
 /* 服务器 */
 gulp.task('connect', function() {
   connect.server({
@@ -74,4 +80,4 @@ gulp.task('watch', function() {
 })
 
 /* 默认任务 */
-gulp.task('default', ['html', 'js', 'css', 'less', 'font', 'watch', 'connect']);
+gulp.task('default', ['html', 'js', 'css', 'less', 'font', 'img', 'watch', 'connect']);
