@@ -1,0 +1,92 @@
+@steps-default-color        : #c9caca; // 默认颜色
+@steps-default-active-color : @brand-primary; // 当前step颜色
+@steps-default-ed-color     : @steps-default-active-color; // 已完成step颜色
+
+@steps-line-width        : 4px;
+@steps-head-width        : 60px;
+@steps-head-height       : @steps-head-width;
+@steps-line-height       : 50px;
+@steps-head-default-bg   : @steps-default-color;
+@steps-title-font-size   : 26px;
+@steps-title-line-height : 1.35;
+
+.esp-steps {
+  display: block;
+
+  .esp-steps-item {
+    display: block;
+    position: relative;
+    padding-bottom: @steps-line-height;
+  
+    .esp-steps-tail {
+      position: absolute;
+      overflow: hidden;
+      width: @steps-line-width;
+      top: @steps-head-height;
+      background: @steps-head-default-bg;
+      left: (@steps-head-width / 2) - (@steps-line-width / 2);
+      bottom: 0;
+    }
+
+    &:last-child .esp-steps-tail{
+      display: none;
+    }
+
+    .esp-steps-step {
+      overflow: hidden;
+
+      .esp-steps-head{
+        float: left;
+
+        .esp-steps-head-inner {
+          width: @steps-head-width;
+          height: @steps-head-height;
+          line-height: @steps-head-height;
+          background: @steps-head-default-bg;
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          border-radius: 50%;
+          font-size: 0;
+          position: relative;
+
+          .transition(all .3s);
+
+          .icon {
+            font-size: 36px;
+            color: #fff;
+            z-index: 999;
+          }
+        }
+      }
+
+      .esp-steps-main {
+        margin-left: @steps-head-width + 20;
+        padding-top: (@steps-head-height - (@steps-title-line-height * @steps-title-font-size)) / 2;
+
+        .esp-steps-main-title{
+          color: @steps-default-color;
+          line-height: @steps-title-line-height;
+          font-size: @steps-title-font-size;
+          .transition(all .3s);
+        }
+      }
+    }
+  }
+}
+
+.esp-steps-item.active {
+  .esp-steps-step {
+    .esp-steps-head {
+      .esp-steps-head-inner{
+        background: @steps-default-active-color;
+      }
+    }
+    .esp-steps-main {
+      .esp-steps-main-title{
+        color: @steps-default-active-color;
+      }
+    }
+  }
+}
