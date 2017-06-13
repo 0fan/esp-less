@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- Your app title -->
+  <title>My App</title>
+  <!-- Path to Framework7 Library CSS, iOS Theme -->
+  <link rel="stylesheet" href="../dist/css/vendor.min.css">
+  <link rel="stylesheet" href="../dist/css/esp.css">
+  <!-- Path to Framework7 color related styles, iOS Theme -->
+  <!-- <link rel="stylesheet" href="path/to/framework7.ios.colors.min.css"> -->
+  <!-- Path to your custom app styles-->
+  <!-- <link rel="stylesheet" href="path/to/my-app.css"> -->
+</head>
+<body>
+<!-- Status bar overlay for full screen mode (PhoneGap) -->
+<div class="statusbar-overlay"></div>
+<!-- Views -->
+<div class="views">
+  <!-- Your main view, should have "view-main" class -->
+  <div class="view view-main">
+    <!-- Top Navbar-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
+        <div class="center sliding">Awesome App</div>
+      </div>
+    </div>
+    <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+    <div class="pages navbar-through toolbar-through">
+      <!-- Page, "data-page" contains page name -->
+      <div data-page="index" class="page" style="background: #fff;">
+        <!-- Scrollable page content -->
+        <div class="page-content">
+          <div class="esp-form-control" style="margin: 50px">
+            <i class="icon icon-material icon-accountbalance"></i>
+            <input type="text" id='ipt-phone'>
+          </div>
+          <div class="esp-card">
+            <div class="esp-card-header">
+              <img src="../src/img/bankBrand_xingye_white.png" alt="">
+              <div class="esp-card-header-right">E卡</div>
+            </div>
+            <div class="esp-card-main">
+              <div class="esp-card-group">
+                <div class="esp-card-group-title"><i>sad</i></div>
+                <div class="esp-card-group-content">sad<button class="esp-card-btn">修改</button></div>
+              </div>
+            </div>
+          </div>
+          <div><button class="esp-btn esp-btn-sm">确认</button></div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Toolbar-->
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <!-- Toolbar links -->
+        <a href="#" class="link">dddsds 1</a>
+        <a href="#" class="link">Link 2</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Path to Framework7 Library JS-->
+<script src="../dist/js/vendor.bundle.min.js"></script>
+<script src="../dist/js/bundle.min.js"></script>
+<script>
+
+  var myApp = new Framework7();
+
+  var cleave = new Cleave('#ipt-phone', {
+    // delimiter: '',
+    blocks: [3, 4, 4]
+  });
+
+</script>
+
+<!-- <script type="text/javascript" src="path/to/framework7.min.js"></script> -->
+<!-- Path to your app js-->
+<!-- <script type="text/javascript" src="path/to/my-app.js"></script> -->
+</body>
+</html>
