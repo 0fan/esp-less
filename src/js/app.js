@@ -2,7 +2,11 @@ $(function() {
   var app  = new Framework7({ // 应用初始化
         activeState: false,
         init: false,
-        pushState: true
+        cache: false,
+        swipeBackPage: false,
+        preloadPreviousPage: false,
+        pushState: true,
+        pushStateNoAnimation: true
       }),
       view = app.addView('.view-main', { // 视图初始化
         dynamicNavbar: true
@@ -28,6 +32,7 @@ $(function() {
   app.onPageInit('index', function(page) {
     // handle
     $('.j-inner').on('click', function() {
+      console.log('hello');
       view.router.loadPage('switch-project.html');
     });
     new IScroll('.j-sidebar');
@@ -36,16 +41,30 @@ $(function() {
 
   /* switch-project */
   app.onPageInit('switch-project', function(page) {
-    // handle
+    // init
+    $('.esp-steps').steps(0);
     new IScroll('.j-switchProject-items', {
       scrollbars: true,
       mouseWheel: true,
       shrinkScrollbars: 'scale',
       fadeScrollbars: true
     });
+    // handle
+    $('.switchProject-items_item').on('click', function(e) {
+      view.router.loadPage('identify-step1.html');
+      console.log('hello')
+    });
 
   });
   /* /switch-project */
+
+  /* identify-step1 */
+  app.onPageInit('identify-step1', function(page) {
+    // init
+    $('.esp-steps').steps(1);
+
+  });
+  /* /identify-step1 */
 
   app.init();
 })
