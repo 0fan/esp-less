@@ -17,5 +17,8 @@
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "cleave.js": "^0.7.17"
   }
 }
