@@ -51,7 +51,7 @@ $(function() {
         icon: 'stayprimaryportrait'
       },
       {
-        text: '手机号',
+        text: 'E卡开户',
         icon: 'openinbrowser'
       }
     ]
@@ -115,6 +115,7 @@ $(function() {
   /* identify-step2 */
   app.onPageInit('identify-step2', function(page) {
     // init
+    $.steps(steps2);
     $('.esp-steps').steps(1);
   });
   /* /identify-step2 */
@@ -122,6 +123,7 @@ $(function() {
   /* identify-step3 */
   app.onPageInit('identify-step3', function(page) {
     // init
+    $.steps(steps2);
     $('.esp-steps').steps(2);
   });
   /* /identify-step3 */
@@ -129,6 +131,7 @@ $(function() {
   /* identify-4 */
   app.onPageInit('identify-step4', function(page) {
     // init
+    $.steps(steps2);
     $('.esp-steps').steps(3);
   });
   /* /identify-4 */

@@ -1,3 +1,5 @@
+@dot-width: 4px;
+
 .esp-card{
   display: block;
   border-radius: 20px;
@@ -14,66 +16,207 @@
     align-items: center;
     padding: 0 30px;
     min-height: 130px;
+    overflow: hidden;
+    position: relative;
 
     .esp-card-header-right{
       font-size: 34px;
       text-align: right;
       flex-grow: 1;
+      font-weight: 100;
+    }
+
+    &:after {
+      content: 'ECARD';
+      text-transform: uppercase;
+      position: absolute;
+      line-height: 1;
+      right: 10px;
+      letter-spacing: 1px;
+      bottom: -10px;
+      font-size: 90px;
+      color: #000;
+      opacity: .04;
+      transform: skewX(-10deg);
     }
   }
   .esp-card-main{
     padding:40px 20px;
     background: #fff;
 
-    .esp-card-group{
-      margin-bottom: 30px;
-      font-size: 30px;
-      line-height: 1.5;
+    .esp-card-status-view {
+      .esp-card-group{
+        margin-bottom: 30px;
+        font-size: 30px;
+        line-height: 1.5;
 
-      .clr();
-      
-      &:last-child{
-        margin-bottom: 0;
-      }
+        .clr();
+        
+        &:last-child{
+          margin-bottom: 0;
+        }
 
-      .esp-card-group-title{
-        width: 150px;
-        float: left;
-        font-weight: 100;
-        color:#aaa;
-      }
-      .esp-card-group-content{
-        margin-left: 150px;
-        padding-left: 20px;
-        word-wrap:break-word;
-        color: #2e3032;
-        position: relative;
+        .esp-card-group-title{
+          width: 150px;
+          float: left;
+          font-weight: 100;
+          color:#aaa;
+        }
+        .esp-card-group-content{
+          margin-left: 150px;
+          padding-left: 20px;
+          word-wrap:break-word;
+          color: #2e3032;
+          position: relative;
 
-        .esp-card-btn{
-          position: absolute;
-          outline: 0;
-          right: 0;
-          top: -3px;
-          line-height: 52px;
-          border-radius: 5px;
-          border: 2px solid @brand-primary;
-          box-sizing: border-box;
-          padding: 0 40px;
-          font-size: 28px;
-          color: @brand-primary;
-          box-sizing: border-box;
-          background-color: @body-bg;
-          transition: all .15s linear;
-          cursor: pointer;
-          .user-select(none);
+          .esp-card-btn{
+            display: none;
+            position: absolute;
+            outline: 0;
+            right: 0;
+            top: -3px;
+            line-height: 52px;
+            border-radius: 5px;
+            border: 2px solid @brand-primary;
+            box-sizing: border-box;
+            padding: 0 40px;
+            font-size: 28px;
+            color: @brand-primary;
+            box-sizing: border-box;
+            background-color: @body-bg;
+            transition: all .15s linear;
+            cursor: pointer;
+            .user-select(none);
 
-          &:active{
-            background: @brand-primary;
-            color: #fff;
-            .scale(.9);
+            &:active{
+              background: @brand-primary;
+              color: #fff;
+              .scale(.9);
+            }
           }
         }
       }
     }
+    
+    .esp-card-status-loading {
+      display: none;
+      text-align: center;
+
+      .preloader{
+        width: 60px;
+        height: 60px;
+      }
+
+      .esp-card-loading-text {
+        margin-top: 20px;
+        font-weight: 100;
+        text-align: center;
+        font-size: @font-size-h4;
+        color: @brand-primary;
+        width: 100%;
+
+        .dot {
+          display: inline-block;
+          min-width: @dot-width;
+          min-height: @dot-width;
+          box-shadow: @dot-width 0 @brand-primary, (@dot-width * 3) 0 @brand-primary, (@dot-width * 5) 0 @brand-primary; 
+          animation: dot 4s infinite step-start both;
+
+        }
+      }
+    }
+
+    .esp-card-status-success {
+      display: none;
+      .esp-card-status-success-icon {
+        text-align: center;
+        color: @brand-success;
+        margin-bottom: 10px;
+
+        .icon {
+          font-size: 120px;
+          line-height: 1;
+        }
+      }
+      .esp-card-status-success-title {
+        text-align: center;
+        font-size: 36px;
+        color: #2e3032;
+        margin: 10px 0;
+
+        em {
+          margin-left: 15px;
+          font-style: normal;
+          color: @brand-success;
+        }
+      }
+      .esp-card-status-success-info {
+        text-align: center;
+        font-size: 30px;
+        color: #aaa;
+        font-weight: 100;
+
+        em {
+          margin-left: 15px;
+          font-style: normal;
+          font-weight: bolder;
+          font-size: 46px;
+          color: @brand-primary;
+          vertical-align: -3px;
+        }
+      }
+    }
+
+    .esp-cars-status-error {
+      display: none;
+    }
+    
+  }
+  
+}
+
+@keyframes dot {
+  25% { box-shadow: none; }
+  50% { box-shadow: @dot-width 0 @brand-primary; }
+  75% { box-shadow: @dot-width 0 @brand-primary, (@dot-width * 3) 0 @brand-primary; }
+}
+
+.esp-card.hasLoading{
+  .esp-card-status-loading {
+    display: block !important;
+  }
+  .esp-card-status-view {
+    display: none !important;
+  }
+  .esp-card-status-success {
+    display: none !important;
+  }
+}
+
+.esp-card.hasSuccess{
+  .esp-card-status-success {
+    display: block !important;
+  }
+  .esp-card-status-loading {
+    display: none !important;
+  }
+  .esp-card-status-view {
+    display: none !important;
+  }
+}
+
+.esp-card.hasError{
+  .esp-card-status-view {
+    display: block !important;
+    .esp-card-btn {
+      display: block !important;
+    }
+
+  }
+  .esp-card-status-success {
+    display: none !important;
+  }
+  .esp-card-status-loading {
+    display: none !important;
   }
 }
