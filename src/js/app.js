@@ -93,6 +93,7 @@ $(function() {
     new IScroll('.j-switchProject-items', {
       scrollbars: true,
       mouseWheel: true,
+      click: true,
       shrinkScrollbars: 'scale',
       fadeScrollbars: true
     });
