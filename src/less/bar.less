@@ -1,3 +1,4 @@
+/* ========== navbar ========== */
 @logo-width       : 410px;
 @logo-height      : 70px;
 
@@ -10,9 +11,13 @@
 
 @link-height: 60px;
 
+/* ========== sidebar ========== */
+@sidebar-width: 340px;
+@sidebar-default-bg: #fff;
+
 .navbar {
   background: #fff;
-  .transition(all .3s);
+  .transition(all .4s);
 
   .navbar-inner {
     padding-right: 40px;
@@ -147,11 +152,28 @@
         font-weight: 'Medium';
         font-family: 'DIN';
       }
+      /* &.name .icon {
+        top: 2px;
+      }
+      &.notice .icon {
+        top: 2px; 
+      }
+      &.tel .icon {
+        top: 2px;
+      } */
     }
 
     .icon{
       font-size: 38px;
       margin-right: 10px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  &.toolbar-hidden ~ .pages {
+    .page-content {
+      padding-bottom: 0;
     }
   }
 }
@@ -181,4 +203,29 @@
 }
 .rt{
   float: right;
+}
+
+/* ========== sidebar ========== */
+.sidebar {
+  overflow: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 40px 30px;
+  top: 120px;
+  left: 0;
+  bottom: 0;
+  width: @sidebar-width;
+  background: @sidebar-default-bg;
+  border-right: 1px solid #ddd;
+  z-index: 500;
+  .transform(translate(-100%, 0));
+
+  &.active {
+    .transition(all .4s);
+    .transform(translate(0, 0));    
+  }
+}
+.sidebar-fixed .page-content,
+.sidebar-through .page-content {
+  padding-left: @sidebar-width;
 }
