@@ -83,6 +83,10 @@ $(function() {
   /* /page identify-step2 */
   app.onPageInit('identify-step2', function(page) {
     $('.esp-steps').steps(1);
+    var cleave = new Cleave('#bankNum1', {
+      // delimiter: '',
+      blocks: [2, 4, 4, 4]
+    });
     $('#toI3').click(function (e) {
       e.preventDefault();
       view.router.loadPage('identify-step3.html?'+Math.random());
@@ -93,6 +97,10 @@ $(function() {
   /* /page identify-step3 */
   app.onPageInit('identify-step3', function(page) {
     $('.esp-steps').steps(2);
+    var cleave = new Cleave('#phoneNum1', {
+      // delimiter: '',
+      blocks: [3, 4, 4]
+    });
     $('#toI4').click(function (e) {
       e.preventDefault();
       view.router.loadPage('identify-step4.html?'+Math.random());
@@ -124,7 +132,7 @@ $(function() {
     $('.esp-steps').steps(0);
     $('#btn-sure-save').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('save-step2.html?'+Math.random());
+      view.router.loadPage('save-step2.html?'+Math.random());
     })
   });
   /* /page save-step1 */
@@ -134,7 +142,7 @@ $(function() {
     $('.esp-steps').steps(1);
     $('#btn-right-save').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('deposit-step2.html?'+Math.random());
+      view.router.loadPage('deposit-step2.html?'+Math.random());
     })
   });
   /* /page save-step2 */
