@@ -189,21 +189,6 @@
     }
   }
 }
-.esp-block{
-  padding: 50px 70px;
-}
-.esp-guide{
-  width: 600px;
-  height: 600px;
-  border-radius: 7px;
-  background: #d4efff;
-}
-.lf{
-  float: left;
-}
-.rt{
-  float: right;
-}
 
 /* ========== sidebar ========== */
 .sidebar {
@@ -219,6 +204,12 @@
   border-right: 1px solid #ddd;
   z-index: 500;
   .transform(translate(-100%, 0));
+
+  .sidebar-title{
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #444;
+  }
 
   &.active {
     .transition(all .4s);

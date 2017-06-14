@@ -1,7 +1,45 @@
-.esp-content{
+.esp-content,
+.esp-block{
   padding: 0 70px;
   margin: 50px 0;
 }
 .page-content{
   .transition(all .4s);
+}
+
+.esp-guide{
+  padding: 50%;
+  border-radius: 7px;
+  overflow: hidden;
+  background: #d4efff;
+  position: relative;
+
+  .esp-guide-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+.lf{
+  float: left;
+}
+.rt{
+  float: right;
+}
+
+.clr() {
+  &:before,
+  &:after {
+    display: table;
+  }
+
+  &:after {
+    overflow: both; 
+  }
 }

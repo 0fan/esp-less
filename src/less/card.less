@@ -1,79 +1,60 @@
 .esp-card{
   display: block;
-  margin: 0 auto;
+  border-radius: 20px;
+  width: 760px;
   border-radius: 20px;
   overflow: hidden;
-  width: 760px;
-  box-shadow: 0px 20px 32.3px 1.7px rgba(0, 140, 227, 0.24);
-  .icon{
-    color: @brand-success;
-    font-size: 100px;
-  }
-  .green-font{
-    font-size: 38px;
-    color: @brand-success;
-  }
-  .blue-font{
-    font-size: 38px;
-    color: @brand-primary;
-  }
-  .black-font{
-    font-size: 38px;
-    color: #2e3032;
-  }
-  .eps-card .eps-card-content .eps-card-group .eps-card-btn{
-    position: absolute;
-    right: 0;
-    top: -6.5px;
-  }
-  >.esp-card-header{
-    color: @body-bg;
+  box-shadow: 0px 20px 32px rgba(0, 140, 227, 0.24);
+
+  .esp-card-header{
+    color: #fff;
+    background: @brand-primary;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
     min-height: 130px;
-    background: @brand-bg-primary;
-    >.esp-card-header-right{
+
+    .esp-card-header-right{
       font-size: 34px;
+      text-align: right;
+      flex-grow: 1;
     }
   }
-  >.esp-card-main{
+  .esp-card-main{
     padding:40px 20px;
-    background: @body-bg;
-    >.esp-card-group{
+    background: #fff;
+
+    .esp-card-group{
       margin-bottom: 30px;
       font-size: 30px;
       line-height: 1.5;
-      &:before,
-      &:after{
-        content: '';
-        display: table;
-      }
-      &:after{
-        clear: both;
-      }
+
+      .clr();
+      
       &:last-child{
         margin-bottom: 0;
       }
-      >.esp-card-group-title{
+
+      .esp-card-group-title{
         width: 150px;
         float: left;
         font-weight: 100;
-        color:lighten(@grey-base, 67%); // #aaa;
+        color:#aaa;
       }
-      >.esp-card-group-content{
+      .esp-card-group-content{
         margin-left: 150px;
         padding-left: 20px;
         word-wrap:break-word;
         color: #2e3032;
         position: relative;
-        >.esp-card-btn{
+
+        .esp-card-btn{
           position: absolute;
           outline: 0;
           right: 0;
-          top: 0;
-          height: 52px;
+          top: -3px;
+          line-height: 52px;
           border-radius: 5px;
           border: 2px solid @brand-primary;
           box-sizing: border-box;
@@ -83,9 +64,12 @@
           box-sizing: border-box;
           background-color: @body-bg;
           transition: all .15s linear;
+          cursor: pointer;
+          .user-select(none);
+
           &:active{
             background: @brand-primary;
-            color: @body-bg;
+            color: #fff;
             .scale(.9);
           }
         }

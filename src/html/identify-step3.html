@@ -1,52 +1,69 @@
-<!DOCTYPE html>
-<html lang="zh-cmn-Hans">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="../../dist/css/vendor.min.css">
-  <link rel="stylesheet" href="../../dist/css/esp.css">
-</head>
-<body>
+<!-- navbar -->
+<div class="navbar navbar-reverse">
+  <div class="navbar-inner">
+    <!-- left -->
+    <div class="left">
+      <div class="logo"><i></i></div>
+      <div class="bank-logo"><i></i></div>
+    </div>
+    <!-- /left -->
+    <!-- right -->
+    <div class="right">
+      <a href="identify-step2.html" class="link back" data-force="true">
+        <i class="icon icon-material icon-arrowback"></i>
+        <span>返回</span>
+      </a>
+      <a href="index.html" class="link " data-force="true">
+        <i class="icon icon-material icon-home"></i>
+        <span>首页</span>
+      </a>
+    </div>
+    <!-- /right -->
+  </div>
+</div>
+<!-- /navbar -->
 
-<!-- views -->
-<div class="views">
-  <!-- view-main -->
-  <div class="view view-main">
-    <!-- pages -->
-    <div class="pages">
-      <!-- page -->
-      <div class="page" data-page="identify-step3">
-        <!-- page-content -->
-        <div class="page-content">
-          <div class="esp-block">
-            <div class="esp-guide lf"></div>
-            <form style="margin-left: 90px" action="#" class="lf">
+<!-- pages -->
+<div class="pages">
+  <div class="page" data-page="identify-step3">
+
+    <!-- page-content -->
+    <div class="page-content">
+      <div class="esp-block">
+        <div class="identifyStep3-title"><i class="icon icon-material icon-feedback"></i>请输入您在银行的预留手机号码</div>
+        <div class="esp-row gutter-80">
+          <div class="esp-col-12">
+            <div class="esp-guide">
+              <div class="esp-guide-inner"></div>
+            </div>
+          </div>
+          <div class="esp-col-12">
+            <form action="#">
               <div class="esp-form-control">
-                <i class="icon icon-material icon-phone"></i>
-                <input maxlength="11" type="text" placeholder="手机号">
+                <i class="icon icon-material icon-stayprimaryportrait"></i>
+                <input type="text" placeholder="手机号码" autocomplete="off">
               </div>
-              <div class="esp-form-control" style="width: 400px">
-                <i class="icon icon-material icon-assignmentind"></i>
-                <input maxlength="6" type="text" placeholder="验证码">
-                <button class="esp-form-btn">获取验证码</button>
+              <div class="esp-row gutter-20">
+                <div class="esp-col-13">
+                  <div class="esp-form-control">
+                    <i class="icon icon-material icon-security"></i>
+                    <input type="text" placeholder="验证码" autocomplete="off">
+                  </div>
+                </div>
+                <div class="esp-col-11">
+                  <div class="esp-btn esp-btn-block esp-btn-valid esp-btn-link">获取验证码</div>
+                </div>
               </div>
               <div>
-                <button href="#" id="toI4" class="esp-btn">确认</button>
+                <a href="identify-step4.html" class="esp-btn">确认</a>
               </div>
             </form>
           </div>
         </div>
-        <!-- /page-content -->
       </div>
-      <!-- /page -->
     </div>
-    <!-- /pages -->
-  </div>
-  <!-- /view-main -->
-</div>
-<!-- /views -->
+    <!-- /page-content -->
 
-</body>
-<script src="../../dist/js/vendor.bundle.min.js"></script>
-<script src="../../dist/js/bundle.min.js"></script>
-</html>
+  </div>
+</div>
+<!-- /pages -->

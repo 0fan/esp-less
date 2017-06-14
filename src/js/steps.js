@@ -1,5 +1,38 @@
 ;(function() {
 
+  $.extend({
+    steps: function(steps_arr) {
+      if (!(steps_arr && steps_arr.data && steps_arr.data instanceof Array)) {
+        return;
+      }
+
+      steps_html = '<div class=esp-steps><div class="sidebar-title">' + steps_arr.title + '</div>';
+
+      _.map(steps_arr.data, function(item, index, arr) {
+        steps_html += '\
+          <div class="esp-steps-item ' + (item.active && 'active') + '">\
+            <div class="esp-steps-tail"><em></em></div>\
+            <div class="esp-steps-step">\
+              <div class="esp-steps-head">\
+                <div class="esp-steps-head-inner">\
+                  <em></em>\
+                  <i class="icon icon-material icon-' + item.icon + '"></i>\
+                </div>\
+              </div>\
+              <div class="esp-steps-main">\
+                <div class="esp-steps-main-title">' + item.text + '</div>\
+              </div>\
+            </div>\
+          </div>';
+      });
+
+      steps_html += '</div>';
+
+      $('.sidebar').html(steps_html);
+
+    }
+  });
+
   $.fn.extend({
     steps: function(where, loop) {
       

@@ -9,7 +9,7 @@ var rename    = require('gulp-rename');
 
 /* html */
 gulp.task('html', function() {
-  gulp.src(['./test/*.html', './src/html/**/*.html'])
+  gulp.src(['./src/html/**/*.html'])
     .pipe(gulp.dest('./dist/'))
     .pipe(connect.reload());
 });
@@ -76,7 +76,7 @@ gulp.task('watch', function() {
   gulp.watch('./src/less/**/*.less', ['less']);
   gulp.watch('./src/css/**/*.css', ['css']);
   gulp.watch('./src/js/**/*.js', ['js']);
-  gulp.watch(['./src/html/**/*.html','./test/**/*.html'], ['html']);
+  gulp.watch(['./src/html/**/*.html'], ['html']);
 })
 
 /* 默认任务 */
