@@ -72,9 +72,7 @@ $(function() {
 
   /* /page identify-step1 */
   app.onPageInit('identify-step1', function(page) {
-    $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(0)').addClass('active')
-      .siblings().removeClass('active');
+    $('.esp-steps').steps(0);
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
     });
@@ -87,9 +85,7 @@ $(function() {
 
   /* /page identify-step2 */
   app.onPageInit('identify-step2', function(page) {
-    $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(1)').addClass('active')
-      .siblings().removeClass('active');
+    $('.esp-steps').steps(1);
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
     });
@@ -102,9 +98,7 @@ $(function() {
 
   /* /page identify-step3 */
   app.onPageInit('identify-step3', function(page) {
-    $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(2)').addClass('active')
-      .siblings().removeClass('active');
+    $('.esp-steps').steps(2);
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
     });
@@ -117,10 +111,7 @@ $(function() {
 
   /* /page identify-step4 */
   app.onPageInit('identify-step4', function(page) {
-
-    $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(3)').addClass('active')
-      .siblings().removeClass('active');
+    $('.esp-steps').steps(3);
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
     });
@@ -133,9 +124,7 @@ $(function() {
 
   /* /page identify-step4-succ */
   app.onPageInit('identify-step4-succ', function(page) {
-    $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(0)').addClass('active')
-      .siblings().removeClass('active');
+    $('.esp-steps').steps(3);
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
     });
