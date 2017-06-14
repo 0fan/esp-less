@@ -51,7 +51,7 @@ $(function() {
   /* /page identify-step1 */
   app.onPageInit('identify-step1', function(page) {
     $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(1)').addClass('active')
+    $('.steps .steps-item:eq(0)').addClass('active')
       .siblings().removeClass('active');
     $('.eps-back').on('click', function() {
       $('.navbar').removeClass('navbar-brand no-border');
