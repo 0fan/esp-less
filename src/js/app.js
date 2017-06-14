@@ -73,9 +73,6 @@ $(function() {
   /* /page identify-step1 */
   app.onPageInit('identify-step1', function(page) {
     $('.esp-steps').steps(0);
-    $('.eps-back').on('click', function() {
-      $('.navbar').removeClass('navbar-brand no-border');
-    });
     $('#toI2').click(function (e) {
       e.preventDefault();
       view.router.loadPage('identify-step2.html?'+Math.random());
@@ -86,9 +83,6 @@ $(function() {
   /* /page identify-step2 */
   app.onPageInit('identify-step2', function(page) {
     $('.esp-steps').steps(1);
-    $('.eps-back').on('click', function() {
-      $('.navbar').removeClass('navbar-brand no-border');
-    });
     $('#toI3').click(function (e) {
       e.preventDefault();
       view.router.loadPage('identify-step3.html?'+Math.random());
@@ -99,9 +93,6 @@ $(function() {
   /* /page identify-step3 */
   app.onPageInit('identify-step3', function(page) {
     $('.esp-steps').steps(2);
-    $('.eps-back').on('click', function() {
-      $('.navbar').removeClass('navbar-brand no-border');
-    });
     $('#toI4').click(function (e) {
       e.preventDefault();
       view.router.loadPage('identify-step4.html?'+Math.random());
@@ -112,9 +103,6 @@ $(function() {
   /* /page identify-step4 */
   app.onPageInit('identify-step4', function(page) {
     $('.esp-steps').steps(3);
-    $('.eps-back').on('click', function() {
-      $('.navbar').removeClass('navbar-brand no-border');
-    });
     $('#btn-open-account').click(function (e) {
       e.preventDefault();
       view.router.loadPage('identify-step4-succ.html?'+Math.random());
@@ -125,19 +113,35 @@ $(function() {
   /* /page identify-step4-succ */
   app.onPageInit('identify-step4-succ', function(page) {
     $('.esp-steps').steps(3);
-    $('.eps-back').on('click', function() {
-      $('.navbar').removeClass('navbar-brand no-border');
-    });
-    $('#btn-succ').on('click',function (e) {
+    $('#btn-to-save').on('click',function (e) {
       e.preventDefault();
       view.router.loadPage('save-step1.html?'+Math.random());
     })
   });
   /* /page identify-step4-succ */
+  /* /page save-step1 */
+  app.onPageInit('save-step1', function(page) {
+    $('.esp-steps').steps(0);
+    $('#btn-sure-save').click(function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('save-step2.html?'+Math.random());
+    })
+  });
+  /* /page save-step1 */
+
+  /* /page save-step2 */
+  app.onPageInit('save-step2', function(page) {
+    $('.esp-steps').steps(1);
+    $('#btn-right-save').click(function (e) {
+      e.preventDefault();
+      mainView.router.loadPage('deposit-step2.html?'+Math.random());
+    })
+  });
+  /* /page save-step2 */
 
   /* page deposit-step2 */
   app.onPageInit('deposit-step2', function(page) {
-
+    $('.esp-steps').steps(1);
     $('.popup-about').on('open', function() {
       var wrapper = document.getElementById("sign"),
         canvas  = wrapper.querySelector("canvas"),
