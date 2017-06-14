@@ -1,52 +1,74 @@
 $(function() {
-  var app=new Framework7({
+  var app  = new Framework7({ // 应用初始化
+    activeState: false,
     init: false,
-    cache: false, // 页面缓存
-    activeState: false, // 启用这个设置时，会给当前点击的元素增加一个 'active-state' class
-    // 弹层
-    modalTitle: '提示',
-    modalButtonOk: '确认',
-    modalButtonCancel: '取消',
-    modalPreloaderTitle: '加载中...'
+    cache: false,
+    swipeBackPage: false,
+    preloadPreviousPage: false,
+    pushState: true,
+    pushStateNoAnimation: true,
+    onAjaxStart: function() {
+      app.showIndicator();
+    },
+    onAjaxComplete: function() {
+      app.hideIndicator()
+    }
   });
 
-  /* 初始化view */
-  var mainView = app.addView('.view-main', {
+  var view = app.addView('.view-main', { // 视图初始化
     dynamicNavbar: true
   });
 
-  $$ = Framework7.$;
+  /* ========== pages ========== */
 
-  /* page index */
+  app.onPageInit('*', function (page) {
+    console.log(page.name + ' init');
+
+    if (page.name === 'index') {
+      view.showToolbar();
+      $.hideSidebar();
+      $('.navbar').removeClass('navbar-reverse');
+    } else {
+      view.hideToolbar();
+      $.showSidebar();
+      $('.navbar').addClass('navbar-reverse');
+    }
+  });
+
+  /* index */
   app.onPageInit('index', function(page) {
-    $('#btn-guide').on('click', function() {
-      mainView.router.loadPage('switch-project.html?' + Math.random());
+    // handle
+    $('.j-inner').on('click', function() {
+      console.log('hello');
+      view.router.loadPage('switch-project.html', {
+        ignoreCache: true
+      });
     });
+    new IScroll('.j-sidebar');
   });
-  /* /page index */
+  /* /index */
 
-  /* /page switch-project*/
+  /* switch-project */
   app.onPageInit('switch-project', function(page) {
-    var switch_swiper = new Swiper('.switch_swiper', {
-      scrollbar: '.swiper-scrollbar',
-      direction: 'vertical',
-      slidesPerView: 'auto',
-      mousewheelControl: true,
-      freeMode: true,
-      roundLengths : true,
+    // init
+    $('.esp-steps').steps(0);
+    new IScroll('.j-switchProject-items', {
+      scrollbars: true,
+      mouseWheel: true,
+      shrinkScrollbars: 'scale',
+      fadeScrollbars: true
     });
-    $('.switch_swiper .swiper-box').each(function () {
-      $('.switch_swiper .swiper-box:nth-child(4n + 4)').css({'margin-right':0});
-    })
-    $('.switch_swiper .swiper-box').on('click',function (e) {
-      e.preventDefault();
-      mainView.router.loadPage('identify-step1.html?' + Math.random());
-    })
-    $('.navbar').addClass('navbar-brand no-border');
-    $('.steps .steps-item:eq(0)').addClass('active')
-      .siblings().removeClass('active');
+    // handle
+    $('.switchProject-items_item').on('click', function(e) {
+      view.router.loadPage('identify-step1.html', {
+        ignoreCache: true
+      });
+      console.log('hello')
+    });
+
   });
-  /* /page switch-project */
+  /* /switch-project */
+
 
   /* /page identify-step1 */
   app.onPageInit('identify-step1', function(page) {
@@ -58,7 +80,7 @@ $(function() {
     });
     $('#toI2').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('identify-step2.html?'+Math.random());
+      view.router.loadPage('identify-step2.html?'+Math.random());
     })
   });
   /* /page identify-step1 */
@@ -73,7 +95,7 @@ $(function() {
     });
     $('#toI3').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('identify-step3.html?'+Math.random());
+      view.router.loadPage('identify-step3.html?'+Math.random());
     })
   });
   /* /page identify-step2 */
@@ -88,7 +110,7 @@ $(function() {
     });
     $('#toI4').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('identify-step4.html?'+Math.random());
+      view.router.loadPage('identify-step4.html?'+Math.random());
     })
   });
   /* /page identify-step3 */
@@ -104,7 +126,7 @@ $(function() {
     });
     $('#btn-open-account').click(function (e) {
       e.preventDefault();
-      mainView.router.loadPage('identify-step4-succ.html?'+Math.random());
+      view.router.loadPage('identify-step4-succ.html?'+Math.random());
     })
   });
   /* /page identify-step4 */
@@ -119,7 +141,7 @@ $(function() {
     });
     $('#btn-succ').on('click',function (e) {
       e.preventDefault();
-      mainView.router.loadPage('save-step1.html?'+Math.random());
+      view.router.loadPage('save-step1.html?'+Math.random());
     })
   });
   /* /page identify-step4-succ */
