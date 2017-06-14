@@ -43,6 +43,7 @@
   .esp-card-main{
     padding:40px 20px;
     background: #fff;
+    .transition(all .3s);
 
     .esp-card-status-view {
       .esp-card-group{
@@ -71,6 +72,7 @@
 
           .esp-card-btn{
             display: none;
+
             position: absolute;
             outline: 0;
             right: 0;
@@ -128,6 +130,7 @@
 
     .esp-card-status-success {
       display: none;
+      
       .esp-card-status-success-icon {
         text-align: center;
         color: @brand-success;
@@ -166,10 +169,6 @@
         }
       }
     }
-
-    .esp-cars-status-error {
-      display: none;
-    }
     
   }
   
@@ -183,6 +182,7 @@
 
 .esp-card.hasLoading{
   .esp-card-status-loading {
+    opacity: 1;
     display: block !important;
   }
   .esp-card-status-view {
@@ -195,6 +195,7 @@
 
 .esp-card.hasSuccess{
   .esp-card-status-success {
+    opacity: 1;
     display: block !important;
   }
   .esp-card-status-loading {
@@ -209,6 +210,7 @@
   .esp-card-status-view {
     display: block !important;
     .esp-card-btn {
+      opacity: 1 !important;
       display: block !important;
     }
 
