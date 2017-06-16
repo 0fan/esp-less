@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    ul, ol { list-style: none; }
+    body { font-size: 14px; line-height: 1.4286; font-family: tahoma,arial,'Hiragino Sans GB','simsun',sans-serif;color: #000; background-color: #fff; -webkit-text-size-adjust:none}
+    .receipt{padding: 40px 30px;}
+    .receipt .receipt-header .name{font-size: 12px;vertical-align: middle;}
+    .receipt .receipt-header .value{font-size: 15px;font-weight: bold;vertical-align: middle;}
+    .receipt .receipt-header .title{font-size: 25px;letter-spacing: .5em;font-weight: bold;text-align: center;margin: 25px 0;}
+    .receipt .receipt-content{border-top: 2px dotted #000;border-bottom: 2px dotted #000;padding: 10px 0;}
+    .receipt .receipt-content .receipt-list li{overflow: hidden;font-size: 16px;margin: 15px 0;}
+    .receipt .receipt-content .receipt-list li .name{width: 100px;float: left;text-align: right;}
+    .receipt .receipt-content .receipt-list li .value{margin-left: 100px;padding-left: 10px;word-wrap:break-word;}
+    .receipt .receipt-footer{padding: 10px 0;}
+    .receipt .receipt-footer p{font-size: 12px;text-indent: 2em;margin: .75em 0;line-height: 1.78;}
+  </style>
+</head>
+<body>
+  <div class="receipt">
+    <!-- receipt-header -->
+    <div class="receipt-header">
+      <div class="num">
+        <span class="name">编号：</span>
+        <span class="value">20170516020312001</span>
+      </div>
+      <div class="title">告知书</div>
+    </div>
+    <!-- /receipt-header -->
+    <!-- receipt-content -->
+    <div class="receipt-content">
+      <ul class="receipt-list">
+        <li>
+          <div class="name">客户姓名：</div>
+          <div class="value">刘看山</div>
+        </li>
+        <li>
+          <div class="name">身份证号：</div>
+          <div class="value">511524 **** 1352</div>
+        </li>
+        <li>
+          <div class="name">e卡帐号：</div>
+          <div class="value">6228480402564890018</div>
+        </li>
+        <li>
+          <div class="name">金额：</div>
+          <div class="value">5000.00元</div>
+        </li>
+        <li>
+          <div class="name">开户行：</div>
+          <div class="value">浙江银行</div>
+        </li>
+        <li>
+          <div class="name">联系方式：</div>
+          <div class="value">18580305565</div>
+        </li>
+        <li>
+          <div class="name">办理时间：</div>
+          <div class="value">2017.05.16</div>
+        </li>
+      </ul>
+    </div>
+    <!-- /receipt-content -->
+    <!-- receipt-footer -->
+    <div class="receipt-footer">
+      <p>
+        本告知书是对您在<span class="project_name">大竹林天元道</span>项目的“E平方智能终端”办理“存款证明”业务办理结果的告知，请于避光处保存本告知书。
+      </p>
+      <p>
+        您可以凭身份证于银行柜台查询，或者关注壹平方公众号（重庆壹平方网络科技有限公司）进行登录查询。
+      </p>
+    </div>
+    <!-- /receipt-footer -->
+  </div>
+</body>
+</html>

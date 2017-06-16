@@ -1,0 +1,48 @@
+.depositStep1-card,
+.depositStep1-submit {
+  display: flex;
+  justify-content: center;
+}
+.depositStep1-card {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  .esp-card {
+    .esp-card-header {
+      justify-content: center;
+      padding-top: 35px;
+      padding-bottom: 35px;
+
+      &:after {
+        display:none;
+      }
+    }
+    .esp-card-group {
+      .depositStep1-amount {
+        span {
+          font-weight: bold;
+          color: @brand-success;
+          font-size: 40px;
+          display: inline-block;
+          margin-top: -10px;
+
+          i{
+            font-style: normal;
+            font-weight: normal;
+            color: #2e3032;
+            font-size: 30px;
+            margin-left: 10px;
+          }
+        }
+      }
+      .depositStep1-account {
+        span {
+          font-size: 36px;
+          display: inline-block;
+          margin-top: -3px;
+        }
+        
+      }
+    }
+  }
+}

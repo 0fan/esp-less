@@ -57,6 +57,34 @@ $(function() {
     ]
   };
 
+  var steps3 = {
+    title: '存入存款',
+    data: [
+      {
+        text: '存入存款',
+        icon: 'presenttoall'
+      },
+      {
+        text: '输入密码',
+        icon: 'lockoutline'
+      }
+    ]
+  };
+
+  var steps4 = {
+    title: '打印告知书',
+    data: [
+      {
+        text: '确认告知书',
+        icon: 'fingerprint'
+      },
+      {
+        text: '打印告知书',
+        icon: 'print'
+      }
+    ]
+  };
+
 
   /* ========== pages ========== */
 
@@ -129,13 +157,38 @@ $(function() {
   });
   /* /identify-step3 */
 
-  /* identify-4 */
+  /* identify-step4 */
   app.onPageInit('identify-step4', function(page) {
     // init
     $.steps(steps2);
     $('.esp-steps').steps(3);
   });
-  /* /identify-4 */
+  /* /identify-step4 */
+
+  /* deposit-step1 */
+  app.onPageInit('deposit-step1', function(page) {
+    // init
+    $.steps(steps3);
+    $('.esp-steps').steps(0);
+  });
+  /* /deposit-step1 */
+
+  /* deposit-step2 */
+  app.onPageInit('deposit-step2', function(page) {
+    // init
+    $.steps(steps3);
+    $('.esp-steps').steps(1);
+  });
+  /* /deposit-step2 */
+
+  /* inform-step1 */
+  app.onPageInit('inform-step1', function(page) {
+    // init
+    $.steps(steps4);
+    $('.esp-steps').steps(0);
+
+  });
+  /* /inform-step1 */
 
   app.init();
 });
