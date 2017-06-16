@@ -1,4 +1,4 @@
-navbar -->
+<!-- navbar -->
 <div class="navbar navbar-reverse">
   <div class="navbar-inner">
     <!-- left -->
@@ -38,12 +38,21 @@ navbar -->
           </div>
         </div>
         <div class="informStep1-sign_btn">
-          <div class="esp-btn esp-btn-sm">手写签名</div>
+          <div id='informStep1-sign' class="esp-btn esp-btn-sm open-popup" data-popup=".popup-sign">手写签名</div>
         </div>
       </div>      
 
     </div>
     <!-- /page-content -->
+    
+    <!-- sign Popup -->
+    <div class="popup popup-sign informStep1-popup">
+      <a class="sign-btn done" href="#"><i class="icon icon-material icon-check"></i></a>
+      <a class="sign-btn reset" href="#"><i class="icon icon-material icon-refresh"></i></a>
+      <div id="sign" style="position: absolute;top: 30px;right: 180px;bottom: 30px;left: 30px;">
+        <canvas style="position: absolute;width: 100%;height: 100%;top: 0;left: 0;"></canvas>
+      </div>
+    </div>
 
   </div>
 </div>

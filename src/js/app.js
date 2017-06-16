@@ -186,9 +186,59 @@ $(function() {
     // init
     $.steps(steps4);
     $('.esp-steps').steps(0);
+    
+    $('#informStep1-sign').on('click', function() {
+      setTimeout(function() {
+        var wrapper = document.getElementById("sign"),
+            canvas  = wrapper.querySelector("canvas"),
+            sign;
+
+        function resizeCanvas() {
+          var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+          canvas.width = canvas.offsetWidth * ratio;
+          canvas.height = canvas.offsetHeight * ratio;
+          canvas.getContext("2d").scale(ratio, ratio);
+        }
+
+        window.onresize = resizeCanvas;
+
+        resizeCanvas();
+        
+        sign = new SignaturePad(canvas, {
+          minWidth: 2,
+          maxWidth: 4
+        });
+
+        $('.sign-btn.reset').on('click', function() {
+          sign.clear();
+          $('.icon', this).addClass('active');
+          $('.icon', this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oAnimationend animationend', function() {
+            $(this).removeClass('active');
+          });
+        });
+
+        $('.sign-btn.done').on('click', function() {
+          Toast({
+            text: '签名成功',
+            timer: 2000
+          });
+          app.closeModal();
+          view.router.loadPage('inform-step2.html');
+        });
+      }, 0);
+    });
+
 
   });
   /* /inform-step1 */
+
+  /* inform-step2 */
+  app.onPageInit('inform-step2', function(page) {
+    // init
+    $.steps(steps4);
+    $('.esp-steps').steps(1);
+  });
+  /* /inform-step2 */
 
   app.init();
 });
