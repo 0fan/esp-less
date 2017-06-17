@@ -166,7 +166,7 @@ $(function() {
       var html="获取验证码";
       if (countdown == 0) {
         obj.removeAttr("disabled");
-        html="重新获取";
+        html="获取验证码";
         obj.html(html);
         countdown = 60;
         return;
