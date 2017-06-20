@@ -47,8 +47,6 @@
           where = where === 'prev' || (typeof where === 'number') && where >= 0 && where < len ? where : 'next', //prev next 或者范围内的数字
           index;
 
-      console.log(where, len);
-
       if (where === 'next') {
         index = self.find('.esp-steps-item.active').index();
 
