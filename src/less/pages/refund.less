@@ -16,3 +16,35 @@
   bottom: 160px;
   text-align: center;
 }
+
+.refund-result-success {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 500;
+  text-align: center;
+  .transition(all .25s);
+  .transform(translateY(100%));
+
+  &.active {
+    .transform(translateY(0));    
+  }
+
+  .refund-result-success-title{
+    font-size: 42px;
+    margin: 20px 0 50px;
+    color: @brand-success;
+  }
+
+  .refund-result-success-info{
+    font-size: 28px;
+    line-height: 1.5;
+  }
+}
+
+.refund-submit{
+  text-align: center;
+}

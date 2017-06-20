@@ -63,3 +63,19 @@
   font-size: 42px;
   color: #f52828;
 }
+
+.identifyStep4-open-error{
+  position: absolute;
+  top: 120px;
+  left: 340px;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 500;
+  .transition(all .25s);
+  .transform(translateY(100%));
+
+  &.active {
+    .transform(translateY(0));    
+  }
+}

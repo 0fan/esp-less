@@ -191,19 +191,29 @@ $(function() {
     // init
     $.steps(steps2);
     $('.esp-steps').steps(3);
+
     $('.sureCard').on('click', function() {
       Toast({
         text: '银行卡修改成功',
         timer: 2000
       });
     });
+
     $('.surePhone').on('click', function() {
       Toast({
         text: '电话号码修改成功',
         timer: 2000
       });
     });
+
+    $('.j-identifyStep4-open-error-btn').on('click', function() {
+      console.log('hello');
+      $('.j-identifyStep4-open-error').removeClass('active');
+      $.card('error');
+    });
+
   });
+
   /* /identify-step4 */
 
   /* identify-step4-error */
