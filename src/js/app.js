@@ -155,32 +155,34 @@ $(function() {
 
     $.steps(steps2);
     $('.esp-steps').steps(2);
-    var countdown=60;
-    $('#testCode').on('click',function (e) {
-      e.preventDefault;
-      console.log('sad');
-      var _self=$(this);
-      settime(_self);
-    });
-    function settime(obj) {
-      var html="获取验证码";
-      if (countdown == 0) {
-        obj.removeAttr("disabled");
-        html="获取验证码";
-        obj.html(html);
-        countdown = 60;
-        return;
-      } else {
-        obj.attr("disabled", true);
-        countdown--;
-        html="验证时间(" + countdown + ")";
-        obj.html(html);
-        console.log(countdown);
-      }
-      setTimeout(function() {
-          settime(obj)
-        },1000)
-    }
+
+    
+    // var countdown=60;
+    // $('#testCode').on('click',function (e) {
+    //   e.preventDefault;
+    //   console.log('sad');
+    //   var _self=$(this);
+    //   settime(_self);
+    // });
+    // function settime(obj) {
+    //   var html="获取验证码";
+    //   if (countdown == 0) {
+    //     obj.removeAttr("disabled");
+    //     html="获取验证码";
+    //     obj.html(html);
+    //     countdown = 60;
+    //     return;
+    //   } else {
+    //     obj.attr("disabled", true);
+    //     countdown--;
+    //     html="验证时间(" + countdown + ")";
+    //     obj.html(html);
+    //     console.log(countdown);
+    //   }
+    //   setTimeout(function() {
+    //       settime(obj)
+    //     },1000)
+    // }
   });
   /* /identify-step3 */
 
