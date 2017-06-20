@@ -2,7 +2,7 @@
   
   $.extend({
     
-    card: function(action) {
+    card: function(action, cb) {
       var card = $('.esp-card').eq(0);
 
       if(!(card.length || action)) {
@@ -23,6 +23,7 @@
 
         setTimeout(function() {
           main.height(loadingHeight + 'px');
+          cb && cb();
         }, 0);
       }
 
@@ -36,6 +37,7 @@
 
         setTimeout(function() {
           main.height(successHeight + 'px');
+          cb && cb();
         }, 0);
       }
 
@@ -49,6 +51,7 @@
 
         setTimeout(function() {
           main.height(errorHeight + 'px');
+          cb && cb();
         }, 0);
       }
 
@@ -60,6 +63,7 @@
 
         setTimeout(function() {
           main.height(viewHeight + 'px');
+          cb && cb();
         }, 0);
       }
 
