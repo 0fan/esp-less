@@ -216,14 +216,6 @@ $(function() {
 
   /* /identify-step4 */
 
-  /* identify-step4-error */
-  app.onPageInit('identify-step4-error', function(page) {
-    // init
-    $.steps(steps2);
-    $('.esp-steps').steps(3);
-  });
-  /* /identify-step4 */
-
   /* deposit-step1 */
   app.onPageInit('deposit-step1', function(page) {
     // init
