@@ -267,6 +267,30 @@ $(function() {
   });
   /* /inform-step2 */
 
+  /* reprint-notice */
+  app.onPageInit('reprint-notice', function(page) {
+    // init
+    $.hideSidebar();
+
+    $('.j-reprintNotice-table').on('click', '.esp-table-content-row', function() {
+      $(this).addClass('active').siblings().removeClass('active');
+    });
+
+  });
+  /* /reprint-notice */
+
+  /* refund */
+  app.onPageInit('refund', function(page) {
+    // init
+    $.hideSidebar();
+
+    $('.j-refund-table').on('click', '.esp-table-content-row', function() {
+      $(this).addClass('active').siblings().removeClass('active');
+    });
+
+  });
+  /* /refund */
+
   app.init();
 });
 

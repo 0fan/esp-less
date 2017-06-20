@@ -47,7 +47,7 @@
                 <input type="text" placeholder="身份证号" autocomplete="off" readonly="true">
               </div>
               <div>
-                <a href="identify-step2.html" class="esp-btn">确认</a>
+                <a href="#" class="esp-btn open-popup" data-popup=".popup-opened">确认</a>
               </div>
             </form>
           </div>
@@ -55,6 +55,24 @@
       </div>
     </div>
     <!-- /page-content -->
+
+    <!-- opened Popup -->
+    <div class="popup popup-opened identifyStep1-popup-opened">
+      <div class="esp-block">
+        <div class="identifyStep1-popup-legend"></div>
+        <div class="identifyStep1-popup-title">
+          您已开通过兴业银行E账户，是否继续？
+        </div>
+        <div class="esp-row gutter-80">
+          <div class="esp-col-12 identifyStep1-continue">
+            <a href="reprint-notice.html" class="esp-btn close-popup">继续办理</a>
+          </div>
+          <div class="esp-col-12 identifyStep1-reOpen">
+            <a href="refund.html" class="esp-btn close-popup">重新开户</a>
+          </div>
+        </div>
+      </div>
+    </div>  
 
   </div>
 </div>
