@@ -1,0 +1,35 @@
+.esp-timer {
+  position: absolute;
+  z-index: 9999;
+  /* right: 50px; */
+  /* bottom: 50px; */
+  /* width: 80px; */
+  /* height: 80px; */
+  overflow: hidden;
+  font-size: 0;
+
+  > svg{
+
+    circle {
+      .transition(all linear 1s);
+    }
+  }
+
+  > .esp-timer-count{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: @brand-primary;
+  }
+
+}
