@@ -1,12 +1,18 @@
 .esp-timer {
   position: absolute;
   z-index: 9999;
+  .transition(all .3s);
+  .transform(scale(0));
   /* right: 50px; */
   /* bottom: 50px; */
   /* width: 80px; */
   /* height: 80px; */
   overflow: hidden;
   font-size: 0;
+
+  &.active {
+    .transform(scale(1));
+  }
 
   > svg{
 

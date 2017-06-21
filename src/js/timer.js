@@ -4,7 +4,9 @@
     
     timer: function(cfg) {
       
-      $('.esp-timer').remove();
+      if ($('.esp-timer').length) {
+        return;
+      }
 
       var CFG = $.extend({}, {
         target             : document.body,
@@ -79,6 +81,10 @@
 
       html.appendTo($(CFG.target));
 
+      setTimeout(function() {
+        html.addClass('active');
+      }, 0);
+
       _timer = setInterval(function() {
 
         if (step <= 0) {
@@ -86,9 +92,19 @@
           timer_count.text('0');
 
           clearInterval(_timer);
-          setTimeout(function() {
+          
+          timer_svg.one('transitionend webkitTransitionEnd oTransitionEnd', function() {
             CFG.callback && CFG.callback();
-          }, 1000);
+
+            setTimeout(function() {
+              html.one('transitionend webkitTransitionEnd oTransitionEnd', function() {
+                html.remove();
+              });
+            }, 0);
+
+            html.removeClass('active');
+          });
+
         } else {
           timer_svg.attr('stroke-dasharray',  count + ' ' + perimeter);
           count -= per;
