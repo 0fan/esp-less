@@ -43,8 +43,8 @@
 
       if (p === 'right-bottom' || p === 'bottom-right' || p === 'r-b' || p === 'b-r') {
         html.css({
-          right: CFG.disY,
-          bottom: CFG.disX,
+          right: CFG.disX,
+          bottom: CFG.disY,
           top: 'atuo',
           left: 'auto'
         });
@@ -52,8 +52,8 @@
 
       if (p === 'left-bottom' || p === 'bottom-left' || p === 'l-b' || p === 'b-l') {
         html.css({
-          left: CFG.disY,
-          bottom: CFG.disX,
+          left: CFG.disX,
+          bottom: CFG.disY,
           right: 'auto',
           top: 'auto'
         });
@@ -61,8 +61,8 @@
 
       if (p === 'right-top' || p === 'top-right' || p === 'r-t' || p === 't-r') {
         html.css({
-          right: CFG.disY,
-          top: CFG.disX,
+          right: CFG.disX,
+          top: CFG.disY,
           left: 'auto',
           bottom: 'auto'
         });
@@ -70,8 +70,8 @@
 
       if (p === 'left-top' || p === 'top-left' || p === 'l-t' || p === 't-l') {
         html.css({
-          left: CFG.disY,
-          top: CFG.disX,
+          left: CFG.disX,
+          top: CFG.disY,
           right: 'auto',
           bottom: 'auto'
         });
