@@ -17,6 +17,7 @@
         action        : [],
         withSidebar   : false,
         callback      : null,
+        mask          : true,
         clickMaskHide : true
       }, cfg);
 
@@ -51,6 +52,15 @@
       if (CFG.withSidebar) {
         html.css({
           left: ($('.sidebar').length && $('.sidebar').outerWidth() || 340) + 'px'
+        });
+      }
+
+      if (!CFG.mask) {
+        html.css({
+          top: '120px'
+        });
+        $('.resultPage', html).css({
+          top: 0
         });
       }
 
