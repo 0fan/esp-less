@@ -138,6 +138,29 @@ $(function() {
     // init
     $.steps(steps2);
     $('.esp-steps').steps(0);
+
+    $('#identifyStep1-submit').on('click', function() {
+      $.showResult({
+        legend: 'legend5',
+        title: '您已开通过兴业银行E账户，是否继续？',
+        // status: 'error',
+        action: [
+          {
+            text: '继续办理',
+            onClick: function() {
+              $.hideResult();
+              view.router.loadPage('./identify-step2.html');
+            }
+          }, {
+            text: '重新开户',
+            onClick: function() {
+              $.hideResult();
+             view.router.loadPage('./reprint-notice.html'); 
+            }
+          }
+        ]
+      });
+    });
   });
   /* /identify-step1 */
 

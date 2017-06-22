@@ -7,22 +7,25 @@
       $.hideResult();
 
       var CFG = $.extend({}, {
-        target       : document.body,
-        legend       : '',
-        title        : '默认提示',
-        full         : false,
-        info         : '',
-        status       : '',
-        class        : '',
-        action       : [],
-        withSidebar : false,
-        callback     : null
+        target        : document.body,
+        legend        : '',
+        title         : '默认提示',
+        full          : false,
+        info          : '',
+        status        : '',
+        class         : '',
+        action        : [],
+        withSidebar   : false,
+        callback      : null,
+        clickMaskHide : true
       }, cfg);
 
-      var html = $('<div class="resultPage ' + (CFG.status && ('has' + CFG.status.substr(0,1).toUpperCase() + CFG.status.substr(1).toLowerCase())) + (CFG.class && (' ' + CFG.class + ' ')) + (CFG.full ? 'resultPage-full' : '') +'">\
-                      <div class="resultPage-legend ' + CFG.legend + '"></div>\
-                      <div class="resultPage-title">' + CFG.title + '</div>\
-                      <div class="resultPage-info">' + CFG.info + '</div>\
+      var html = $('<div class="resultPage-wrap">\
+                      <div class="resultPage ' + (CFG.status && ('has' + CFG.status.substr(0,1).toUpperCase() + CFG.status.substr(1).toLowerCase())) + (CFG.class && (' ' + CFG.class + ' ')) + (CFG.full ? 'resultPage-full' : '') +'">\
+                        <div class="resultPage-legend ' + CFG.legend + '"></div>\
+                        <div class="resultPage-title">' + CFG.title + '</div>\
+                        <div class="resultPage-info">' + CFG.info + '</div>\
+                      </div>\
                     </div>');
 
       var i          = 0,
@@ -42,7 +45,7 @@
           })(i);
         }
 
-        $(actions).appendTo(html);
+        $(actions).appendTo($('.resultPage', html));
       }
 
       if (CFG.withSidebar) {
@@ -51,31 +54,38 @@
         });
       }
 
+      if (CFG.clickMaskHide) {
+
+        $(html).on('click', function(e) {
+          if ($(e.target).closest($('.resultPage')).length === 0) {
+            $.hideResult();
+          }
+        });
+
+      }
+
       html.appendTo($(CFG.target));
 
       setTimeout(function() {
         html.addClass('active');
 
         CFG.callback && CFG.callback();
-      }, 0);
+      }, 10);
     
     },
 
     hideResult: function(cfg) {
-      var resultPage = $('.resultPage');
+      var resultPage = $('.resultPage-wrap');
 
       if (!resultPage.length) {
         return;
       }
 
-      resultPage.each(function(index, item) {
-        (function(item) {
-          item.removeClass('active');
-          item.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd otransitionend transitionend', function() {
-            $(this).remove();
-          });
-        })($(item));
+      resultPage.removeClass('active');
+      resultPage.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd otransitionend transitionend', function() {
+        $(this).remove();
       });
+
     }
 
   });

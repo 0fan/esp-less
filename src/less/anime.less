@@ -1,0 +1,25 @@
+@anime-wdith: 600px;
+@anime-height: @anime-wdith;
+
+.esp-anime {
+  // border-radius: 10px;
+  width: @anime-wdith;
+  height: @anime-height;
+  background-repeat: no-repeat;
+  background-position: top center;
+  .transform(scale(1.15));
+
+  &.anime1 {
+    background-image: url('../img/test2.png');
+    animation: anime1 steps(60) 4s infinite;
+  }
+}
+
+@keyframes anime1 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+   background-position: 0 -36000px; 
+  }
+}
