@@ -7,15 +7,16 @@
       $.hideResult();
 
       var CFG = $.extend({}, {
-        target : document.body,
-        legend : '',
-        title  : '默认提示',
-        full   : false,
-        info   : '',
-        status : '',
-        class  : '',
-        action : [],
-        callback: null
+        target       : document.body,
+        legend       : '',
+        title        : '默认提示',
+        full         : false,
+        info         : '',
+        status       : '',
+        class        : '',
+        action       : [],
+        withSidebar : false,
+        callback     : null
       }, cfg);
 
       var html = $('<div class="resultPage ' + ('has' + CFG.status.substr(0,1).toUpperCase() + CFG.status.substr(1).toLowerCase()) + ' ' + (CFG.class) + ' ' + (CFG.full && 'resultPage-full') +'">\
@@ -42,6 +43,12 @@
         }
 
         $(actions).appendTo(html);
+      }
+
+      if (CFG.withSidebar) {
+        html.css({
+          left: ($('.sidebar').length && $('.sidebar').outerWidth() || 340) + 'px'
+        });
       }
 
       html.appendTo($(CFG.target));

@@ -4,9 +4,11 @@
     
     timer: function(cfg) {
       
-      if ($('.esp-timer').length) {
-        return;
-      }
+      // if ($('.esp-timer').length) {
+      //   return;
+      // }
+
+      $.clearTimer();
 
       var CFG = $.extend({}, {
         target             : document.body,
@@ -114,6 +116,20 @@
         
       }, 1000);
       
+    },
+    clearTimer: function() {
+      
+      var timer = $('.esp-timer');
+
+      if (!timer.length) {
+        return;
+      }
+
+      timer.removeClass('active');
+      setTimeout(function() {
+        timer.remove();
+      });
+
     }
 
   });
