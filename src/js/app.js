@@ -7,15 +7,7 @@ $(function() {
     preloadPreviousPage: false,
     pushState: true,
     pushStateNoAnimation: true,
-    onAjaxStart: function() {
-      app.showIndicator();
-    },
-    onAjaxComplete: function() {
-      app.hideIndicator()
-    },
-    test: function() {
-
-    }
+    
   });
 
   window.view = app.addView('.view-main', { // 视图初始化
@@ -85,7 +77,41 @@ $(function() {
     ]
   };
 
+  /* ========== 业务 ========== */
 
+  var DATA;
+  var isInit = false;
+
+  /* 地址 */
+  var URL = {
+    test: 'http://10.0.10.97:8080/'
+  };
+
+  var REQUEST   = {
+    getBuild            : 'portal/terminal/houses/getAboutInfo.json',          // 获取楼盘相关信息
+    updateOrder         : 'portal/terminal/order/createBusinessOrder.json',    // 创建/更新业务订单
+    uploadIDCard        : 'portal/terminal/user/IDCardDetail/save.json',       // 上传身份证详细信息
+    canOpen             : 'portal/terminal/openAccount/isCanOpenAccount.json', // 是否还能继续开户
+    bankcardSigning     : 'portal/terminal/user/bankCardSign.json',            // 用户银行卡签约
+    getValid            : 'portal/terminal/user/informBankSendCode.json',      // 通知银行发送验证码
+    open                : 'portal/terminal/openAccount/createBankNum.json',    // 二类卡开户
+    createOrder         : 'portal/terminal/order/createOrder.json',            // 创建交易订单
+    getOrderStatus      : 'portal/terminal/order/getPayStatus.json',           // 获取订单支付状态
+    getMonitoringConfig : 'portal/terminal/config/down.json',                  // 获取监控配置
+    uploadSign          : 'portal/terminal/contract/submitSign.json',          // 上传签名文件
+    moneyFrozen         : 'portal/terminal/capital/unfreeze.json',             // 资金解冻
+    saveLog             : 'portal/terminal/log/save.json',                     // 终端操作记录日志保存
+    baseFill            : 'portal/terminal/order/data/backfill.json',          // 终端数据回填
+    getIDCardAfterStep  : 'portal/terminal/user/nextStep/get.json',            // 刷完身份证下一步操作获取
+    getNotification     : 'portal/terminal/contract/getNotification.html'      // 获取告知书地址
+  }
+
+  var baseUrl = URL.test;
+
+  var testDate = {
+    termid: 'htlw001'
+  };
+  
   /* ========== pages ========== */
 
   app.onPageInit('*', function (page) {
@@ -104,19 +130,67 @@ $(function() {
 
   /* index */
   app.onPageInit('index', function(page) {
-    // handle
-    // $('.j-inner').on('click', function() {
-    //   view.router.loadPage('identify-step1.html');
-    // });
-    // new IScroll('.j-sidebar');
+
+    $.showResult({
+      clickMaskHide: false,
+      legend: 'legend4',
+      full: true,
+      title: '正在连接服务器...'
+    });
+
+    // init
+    $.ajax({
+      url: baseUrl + REQUEST.getBuild,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        termid: testDate.termid
+      },
+    })
+    .done(function(d) {
+      DATA = d;
+      isInit = true;
+      console.log("success");
+      
+      $.hideResult();
+      Toast('服务器连接成功');
+      
+      $('.toolbar .name > span').text(DATA.object.propertiesForSale.address);
+      $('.toolbar .tel > span').text(DATA.object.propertiesForSale.picPhone);
+
+      $('.j-inner').removeClass('disabled').removeAttr('disabled');
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
   });
   /* /index */
 
   /* switch-project */
   app.onPageInit('switch-project', function(page) {
+
+    if (!isInit) {
+      view.router.loadPage('index.html');
+    }
+
     // init
     $.steps(steps1);
     $('.esp-steps').steps(0);
+
+    if (!DATA.object.propertiesForSaleType.length) {
+      Toast('暂无楼盘数据');
+      return;
+    }
+    
+    _.each(DATA.object.propertiesForSaleType, function(item, index, arr) {
+      $('<div class="switchProject-items_item">\
+          <div class="info">' + item.name + '</div>\
+        </div>').appendTo($('.j-switchProject-items .switchProject-items_wrap'));
+    });
 
     new IScroll('.j-switchProject-items', {
       scrollbars: true,
@@ -125,6 +199,7 @@ $(function() {
       shrinkScrollbars: 'scale',
       fadeScrollbars: true
     });
+
     // handle
     $('.switchProject-items_item').on('click', function(e) {
       view.router.loadPage('identify-step1.html');
