@@ -584,6 +584,31 @@ $(function () {
     // init
     $.steps(steps4);
     $('.esp-steps').steps(0);
+    $.ajax({
+      url: baseUrl + allRequest,
+      type: 'GET',
+      dataType: 'json',
+      data: {
+        icNo:icNo,
+        redirectUrl:REQUEST.getNotification ,
+        merchantId:new Date().getTime()
+      },
+    })
+      .done(function (d) {
+        if (d.code == 0) {
+          console.log(d);
+        } else {
+          console.log(d);
+          Toast(d.message);
+        }
+      })
+      .fail(function (d) {
+        console.log(d);
+        Toast(d.message);
+      })
+      .always(function () {
+        console.log("complete");
+      });
     $('#informStep1-sign').on('click', function () {
       setTimeout(function () {
         var wrapper = document.getElementById("sign"),
@@ -615,7 +640,9 @@ $(function () {
         });
 
         $('.sign-btn.done').on('click', function () {
-          var signimg=convertCanvasToImage(sign);
+          var signimg=convertCanvasToImage(sign).src;
+          var pos = signimg.indexOf(4)+2;
+          var web64imgstr=signimg.substring(pos, signimg.length - pos);
           var merchantId=new Date().getTime();
           if (sign.isEmpty()) {
             Toast({
@@ -627,7 +654,6 @@ $(function () {
               text: '签名成功,等待信息提交...',
               timer: 2000
             });
-            console.log(signimg.src);
             $.ajax({
               url: baseUrl + allRequest,
               type: 'POST',
@@ -636,7 +662,8 @@ $(function () {
                 redirectUrl:REQUEST.uploadSign,
                 merchantId:merchantId,
                 orderId: outOrderNo,
-                web64imgstr:signimg.src,
+                xhrFields: { withCredentials: true },
+                web64imgstr:web64imgstr,
                 fileSuffix:'png',
                 signimg:''
               },
