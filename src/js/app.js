@@ -446,10 +446,10 @@ $(function () {
     // init
     $.steps(steps2);
     $('.esp-steps').steps(3);
-    $('#cardName').html(accountName);
-    $('#cardAccountNum').html(accountNo);
-    $('#cardIDCardNo').html(IDCardNo);
-    $('#cardPhoneNum').html(phoneNum);
+    $('#cardName').text(accountName);
+    $('#cardAccountNum').text(accountNo);
+    $('#cardIDCardNo').text(IDCardNo);
+    $('#cardPhoneNum').text(phoneNum);
     $('#sureOpen').click(function (e) {
       e.preventDefault;
       var data = {};
@@ -462,6 +462,9 @@ $(function () {
       data.redirectUrl=REQUEST.open;
       data.merchantId=new Date().getTime();
       console.log(data);
+      $.card('loading',function () {
+        $('.identifyStep4-submit .esp-btn').hide();
+      });
       $.ajax({
         url: baseUrl + allRequest,
         type: 'POST',
@@ -472,7 +475,10 @@ $(function () {
           console.log(d);
           if (d.code == 0) {
             Toast('开户成功');
-            view.router.loadPage('deposit-step1.html');
+            $.card('success',function () {
+              $('#sureOpen-success').show();
+              $('#eBankNo').text(d.object.eBankNo);
+            });
           } else {
             Toast(d.message);
           }
@@ -621,6 +627,7 @@ $(function () {
               text: '签名成功,等待信息提交...',
               timer: 2000
             });
+            console.log(signimg.src);
             $.ajax({
               url: baseUrl + allRequest,
               type: 'POST',
@@ -629,7 +636,9 @@ $(function () {
                 redirectUrl:REQUEST.uploadSign,
                 merchantId:merchantId,
                 orderId: outOrderNo,
-                signimg:signimg
+                web64imgstr:signimg.src,
+                fileSuffix:'png',
+                signimg:''
               },
             })
               .done(function (d) {
@@ -645,6 +654,7 @@ $(function () {
                 }
               })
               .fail(function (d) {
+                console.log(d);
                 Toast(d.message);
               })
               .always(function () {
