@@ -55,11 +55,11 @@ $(function () {
       {
         text: '存入存款',
         icon: 'presenttoall'
-      },
-      {
+      }
+ /*     {
         text: '输入密码',
         icon: 'lockoutline'
-      }
+      }*/
     ]
   };
 
@@ -69,11 +69,11 @@ $(function () {
       {
         text: '确认告知书',
         icon: 'fingerprint'
-      },
-      {
+      }
+/*      {
         text: '打印告知书',
         icon: 'print'
-      }
+      }*/
     ]
   };
 
@@ -97,6 +97,7 @@ $(function () {
     test: 'http://10.0.10.97:8080/'
   };
 
+  var allRequest='portal/app/openAccount/start.json';
   var REQUEST = {
     getBuild: 'portal/terminal/houses/getAboutInfo.json',          // 获取楼盘相关信息
     updateOrder: 'portal/terminal/order/createBusinessOrder.json',    // 创建/更新业务订单
@@ -147,22 +148,29 @@ $(function () {
     //   title: '正在连接服务器...'
     // });
     // init
+    var open={'identifier':testDate.termid};
+    var merchantId=new Date().getTime();
     $.ajax({
-      url: baseUrl + REQUEST.getBuild,
+      url: baseUrl + allRequest,
       type: 'POST',
       dataType: 'json',
       data: {
+        merchantId:merchantId,
+        redirectUrl:REQUEST.getBuild,
         termid: testDate.termid
       },
     })
       .done(function (d) {
-        console.log(d);
         console.log("success");
         $.hideResult();
         Toast('服务器连接成功');
         $('.toolbar .name > span').text(d.object.propertiesForSale.address);
         $('.toolbar .tel > span').text(d.object.propertiesForSale.picPhone);
         $('.j-inner').removeClass('disabled').removeAttr('disabled');
+        open.buildingId=d.object.propertiesForSale.id;
+        open.redirectUrl=REQUEST.canOpen;
+        open.merchantId=new Date().getTime();
+        canOpen(open);
       })
       .fail(function () {
         console.log("error");
@@ -179,27 +187,30 @@ $(function () {
     // init
     $.steps(steps1);
     $('.esp-steps').steps(0);
+    var merchantId=new Date().getTime();
     $.ajax({
-      url: baseUrl + REQUEST.getBuild,
+      url: baseUrl + allRequest,
       type: 'POST',
       dataType: 'json',
       data: {
+        merchantId:merchantId,
+        redirectUrl:REQUEST.getBuild,
         termid: testDate.termid
       },
     })
       .done(function (d) {
-        if (d.code == 0 ){
-          propertiesForSale=d.object.propertiesForSale;
-        if( d.object.propertiesForSaleType.length != 0) {
-          console.log(d);
-          _.each(d.object.propertiesForSaleType, function (item, index, arr) {
-            $("<div data-propertiesForSaleType='" + (JSON.stringify(item)) + "' class='switchProject-items_item'> <div class='info'> " + item.name + " </div> </div>").appendTo($('.j-switchProject-items .switchProject-items_wrap'));
-          });
-        } else {
-          Toast("楼盘暂无信息");
-          view.router.loadPage('index.html');
-          console.log(d.message);
-        }
+        if (d.code == 0) {
+          propertiesForSale = d.object.propertiesForSale;
+          if (d.object.propertiesForSaleType.length != 0) {
+            console.log(d);
+            _.each(d.object.propertiesForSaleType, function (item, index, arr) {
+              $("<div data-propertiesForSaleType='" + (JSON.stringify(item)) + "' class='switchProject-items_item'> <div class='info'> " + item.name + " </div> </div>").appendTo($('.j-switchProject-items .switchProject-items_wrap'));
+            });
+          } else {
+            Toast("楼盘暂无信息");
+            view.router.loadPage('index.html');
+            console.log(d.message);
+          }
         }
       })
       .fail(function (d) {
@@ -236,18 +247,21 @@ $(function () {
 
     $('#identifyStep1-submit').on('click', function (e) {
       e.preventDefault;
+      var merchantId=new Date().getTime();
       var name = $('#name').val();
       var idCardNo = $('#IDCardNo').val();
       var data = {};
       data.name = name;
       data.houseBuyName = name;
       data.IDCardNo = idCardNo;
-      IDCardNo=idCardNo;
+      IDCardNo = idCardNo;
       $.ajax({
-        url: baseUrl + REQUEST.uploadIDCard,
+        url: baseUrl + allRequest,
         type: 'POST',
         dataType: 'json',
         data: {
+          redirectUrl:REQUEST.uploadIDCard,
+          merchantId:merchantId,
           termid: testDate.termid,
           name: name,
           IDCardNo: IDCardNo
@@ -309,18 +323,22 @@ $(function () {
   /* identify-step3 */
   app.onPageInit('identify-step3', function (page) {
     // init
-    console.log(propertiesForSaleType);
     $.steps(steps2);
     $('.esp-steps').steps(2);
     $('#identify-code').click(function (e) {
       e.preventDefault;
+      var merchantId=new Date().getTime();
       var phone = $('#phoneNum').val();
       $.ajax({
-        url: baseUrl + REQUEST.getValid,
+        url: baseUrl + allRequest,
         type: 'POST',
         dataType: 'json',
-        data:{
-          mobile:phone,channel:'xingye'},
+        data: {
+          merchantId:merchantId,
+          redirectUrl:REQUEST.getValid,
+          mobile: phone,
+          channel: 'xingye'
+        },
       })
         .done(function (d) {
           if (d.code == 0) {
@@ -339,40 +357,47 @@ $(function () {
     });
     $('#toI4').click(function (e) {
       e.preventDefault;
+      var merchantId=new Date().getTime();
       var phone = $('#phoneNum').val();
-      var i=$('#identifyCode').val();
-      var ic=new Date().getTime();
-      icNo=ic;
-      identifyCode=i;
-      phoneNum=phone;
+      var i = $('#identifyCode').val();
+      var ic = new Date().getTime();
+      icNo = ic;
+      identifyCode = i;
+      phoneNum = phone;
       var data = {};
-      var order={};   /*创建订单*/
-      order.termid=testDate.termid;
-      order.icNo=icNo;
-      order.fromType=1;
-      order.identityCard=IDCardNo;
-      order.propertyId=propertiesForSale.id;
-      order.name=accountName;
+      var order = {};
+      /*创建订单*/
+      order.termid = testDate.termid;
+      order.icNo = icNo;
+      order.fromType = 1;
+      order.identityCard = IDCardNo;
+      order.propertyId = propertiesForSale.id;
+      order.name = accountName;
       order.IDCardNo = IDCardNo;
-      data.accountName=accountName;
-      data.phone=phone;
-      data.accountNo=accountNo;
-      data.idCardNo=IDCardNo;
-      data.price=propertiesForSaleType.price;
-      data.buildingId=propertiesForSale.id;
-      data.equType='ytj';
+      order.merchantId=merchantId;
+      order.redirectUrl=REQUEST.updateOrder;
+
+      data.redirectUrl=REQUEST.bankcardSigning;
+      data.merchantId=merchantId;
+      data.accountName = accountName;
+      data.phone = phone;
+      data.accountNo = accountNo;
+      data.idCardNo = IDCardNo;
+      data.price = propertiesForSaleType.price;
+      data.buildingId = propertiesForSale.id;
+      data.equType = 'ytj';
       $.ajax({
-        url: baseUrl + REQUEST.bankcardSigning,
+        url: baseUrl + allRequest,
         type: 'POST',
         dataType: 'json',
-        data:data,
+        data: data,
       })
         .done(function (d) {
           console.log(d);
           if (d.code == 0) {
-            bankName=d.object.bankName;
+            bankName = d.object.bankName;
             console.log(d);
-            upload(order,'identify-step4.html');
+            upload(order, 'identify-step4.html');
           } else {
             Toast(d.message);
           }
@@ -427,21 +452,25 @@ $(function () {
     $('#sureOpen').click(function (e) {
       e.preventDefault;
       var data = {};
-      data.phone=phoneNum;
-      data.bankNum=accountNo;
-      data.yzm=identifyCode;
-      data.idCardNo=IDCardNo;
-      data.channel='xingye';
-      data.buildingId=propertiesForSaleType.id;
+      data.phone = phoneNum;
+      data.bankNum = accountNo;
+      data.yzm = identifyCode;
+      data.idCardNo = IDCardNo;
+      data.channel = 'xingye';
+      data.buildingId = propertiesForSale.id;
+      data.redirectUrl=REQUEST.open;
+      data.merchantId=new Date().getTime();
+      console.log(data);
       $.ajax({
-        url: baseUrl + REQUEST.open,
+        url: baseUrl + allRequest,
         type: 'POST',
         dataType: 'json',
-        data:data,
+        data: data,
       })
         .done(function (d) {
           console.log(d);
           if (d.code == 0) {
+            Toast('开户成功');
             view.router.loadPage('deposit-step1.html');
           } else {
             Toast(d.message);
@@ -469,7 +498,6 @@ $(function () {
     });
 
     $('.j-identifyStep4-open-error-btn').on('click', function () {
-      console.log('hello');
       $('.j-identifyStep4-open-error').removeClass('active');
       $.card('error');
     });
@@ -487,37 +515,40 @@ $(function () {
     $('#sureDeposit').click(function (e) {
       e.preventDefault;
       var data = {};
-      data.bankNum=accountNo;
-      data.bankName=bankName;
-      data.phone=phoneNum;
-      data.realName=accountName;
-      data.yzm=identifyCode;
-      data.idcardNo=IDCardNo;
-      data.outOrderNo=outOrderNo;
-      data.type=1;
-      data.icNo=icNo;
-      data.channel='xingye';
-      data.equalMoney=0.0;
-      data.termId=testDate.termid;
-      data.louPanId=propertiesForSale.id;
-      data.merchantId=propertiesForSale.duId;
-      data.price=propertiesForSaleType.price;
-      data.goodsName=propertiesForSaleType.name;
-      data.tradeAmount=propertiesForSaleType.price;
-      data.yinPayPrice=propertiesForSaleType.price;
-      data.type=propertiesForSaleType.type;
-      data.fangyuanTypeId=propertiesForSaleType.id;
+      data.bankNum = accountNo;
+      data.bankName = bankName;
+      data.phone = phoneNum;
+      data.realName = accountName;
+      data.yzm = identifyCode;
+      data.idcardNo = IDCardNo;
+      data.outOrderNo = outOrderNo;
+      data.type = 1;
+      data.icNo = icNo;
+      data.channel = 'xingye';
+      data.equalMoney = 0.0;
+      data.termId = testDate.termid;
+      data.louPanId = propertiesForSale.id;
+      data.merchantId = propertiesForSale.duId;
+      data.price = propertiesForSaleType.price;
+      data.goodsName = propertiesForSaleType.name;
+      data.tradeAmount = propertiesForSaleType.price;
+      data.yinPayPrice = propertiesForSaleType.price;
+      data.type = propertiesForSaleType.type;
+      data.fangyuanTypeId = propertiesForSaleType.id;
+      data.redirectUrl=REQUEST.createOrder;
+      data.merchantId=new Date().getTime();
       console.log(data);
       $.ajax({
-        url: baseUrl + REQUEST.createOrder,
+        url: baseUrl + allRequest,
         type: 'POST',
         dataType: 'json',
-        data:data,
+        data: data,
       })
         .done(function (d) {
           console.log(d);
           if (d.code == 0) {
-            view.router.loadPage('deposit-step1.html');
+            Toast('存入成功')
+            view.router.loadPage('inform-step1.html');
           } else {
             Toast(d.message);
           }
@@ -534,11 +565,11 @@ $(function () {
   /* /deposit-step1 */
 
   /* deposit-step2 */
-  app.onPageInit('deposit-step2', function (page) {
+/*  app.onPageInit('deposit-step2', function (page) {
     // init
     $.steps(steps3);
     $('.esp-steps').steps(1);
-  });
+  });*/
   /* /deposit-step2 */
 
   /* inform-step1 */
@@ -577,23 +608,34 @@ $(function () {
         });
 
         $('.sign-btn.done').on('click', function () {
-          if(sign.isEmpty()){
+          var signimg=convertCanvasToImage(sign);
+          var merchantId=new Date().getTime();
+          if (sign.isEmpty()) {
             Toast({
               text: '请签名后再提交',
               timer: 2000
             });
           } else {
+            Toast({
+              text: '签名成功,等待信息提交...',
+              timer: 2000
+            });
             $.ajax({
-              url: baseUrl + REQUEST.getNotification,
+              url: baseUrl + allRequest,
               type: 'POST',
               dataType: 'json',
-              data:{icNo:icNo},
+              data: {
+                redirectUrl:REQUEST.uploadSign,
+                merchantId:merchantId,
+                orderId: outOrderNo,
+                signimg:signimg
+              },
             })
               .done(function (d) {
                 console.log(d);
                 if (d.code == 0) {
                   Toast({
-                    text: '签名成功',
+                    text: '信息提交成功',
                     timer: 2000
                   });
                   app.closeModal();
@@ -607,7 +649,6 @@ $(function () {
               .always(function () {
                 console.log("complete");
               });
-            window.location.href = 'inform-step2.html';
           }
 
         });
@@ -619,11 +660,11 @@ $(function () {
   /* /inform-step1 */
 
   /* inform-step2 */
-  app.onPageInit('inform-step2', function (page) {
+/*  app.onPageInit('inform-step2', function (page) {
     // init
     $.steps(steps4);
     $('.esp-steps').steps(1);
-  });
+  });*/
   /* /inform-step2 */
 
   /* reprint-notice */
@@ -661,7 +702,7 @@ $(function () {
   // 更新订单状态
   function upload(data, url) {
     $.ajax({
-      url: baseUrl + REQUEST.updateOrder,
+      url: baseUrl + allRequest,
       type: 'POST',
       dataType: 'json',
       data: data,
@@ -669,7 +710,7 @@ $(function () {
       .done(function (d) {
         if (d.code == 0) {
           console.log(d);
-          outOrderNo=d.object.id;
+          outOrderNo = d.object.id;
           console.log('订单更新成功');
           view.router.loadPage(url);
         } else {
@@ -681,6 +722,25 @@ $(function () {
       .fail(function (d) {
         view.router.loadPage('index.html');
         console.log(d.message);
+      })
+  }
+
+  function canOpen(data) {
+    $.ajax({
+      url: baseUrl + allRequest,
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+    })
+      .done(function (d) {
+        if (d.code == 0) {
+          console.log('可继续开户');
+        } else {
+          Toast("不可开户");
+        }
+      })
+      .fail(function (d) {
+          Toast("不可开户");
       })
   }
 
