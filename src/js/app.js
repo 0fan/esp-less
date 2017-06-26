@@ -403,6 +403,7 @@ $(function () {
           }
         })
         .fail(function (d) {
+          console.log(d);
           Toast(d.message);
         })
         .always(function () {
