@@ -650,6 +650,7 @@ $(function () {
                   });
                   app.closeModal();
                 } else {
+                  console.log(d);
                   Toast(d.message);
                 }
               })
@@ -706,7 +707,6 @@ $(function () {
   function convertCanvasToImage(canvas) {
     var image = new Image();
     image.src = canvas.toDataURL("image/png");
-    console.log(image);
     return image;
   }
 
