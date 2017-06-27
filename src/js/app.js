@@ -479,9 +479,22 @@ $(function () {
       data.redirectUrl=REQUEST.open;
       data.merchantId=new Date().getTime();
       console.log(data);
-      $.card('loading',function () {
-        $('.identifyStep4-submit .esp-btn').hide();
+      $.showResult({
+        legend: 'legend3',
+        clickMaskHide: false,
+        title: '我是自定义标题',
+        status: 'primary'
       });
+      $.showResult({
+        legend: 'legend4',
+        clickMaskHide: false,
+        title: '银行E卡正在开户中...',
+        status: 'primary',
+        callback: function(){
+          $('.identifyStep4-submit .esp-btn').hide();
+        }
+      });
+
       $.ajax({
         url: baseUrl + allRequest,
         type: 'POST',
@@ -491,13 +504,29 @@ $(function () {
         .done(function (d) {
           console.log(d);
           if (d.code == 0) {
+            $.hideResult();
             Toast('开户成功');
             $.card('success',function () {
               $('#sureOpen-success').show();
               $('#eBankNo').text(d.object.eBankNo);
             });
           } else {
-            Toast(d.message);
+            $.showResult({
+              legend: 'legend2',
+              title: '兴业银行E账户开通失败，请仔细核对开户信息',
+              status: 'error',
+              action: [
+                {
+                  text: '确认',
+                  onClick: function(){
+                    $.hideResult();
+                    $.card('error', function(){
+                      $('#reOpen').show();
+                    });
+                  }
+                }
+              ]
+            });
           }
         })
         .fail(function (d) {
