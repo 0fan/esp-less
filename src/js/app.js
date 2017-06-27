@@ -584,31 +584,7 @@ $(function () {
     // init
     $.steps(steps4);
     $('.esp-steps').steps(0);
-    $.ajax({
-      url: baseUrl + allRequest,
-      type: 'GET',
-      dataType: 'json',
-      data: {
-        icNo:icNo,
-        redirectUrl:REQUEST.getNotification ,
-        merchantId:new Date().getTime()
-      },
-    })
-      .done(function (d) {
-        if (d.code == 0) {
-          console.log(d);
-        } else {
-          console.log(d);
-          Toast(d.message);
-        }
-      })
-      .fail(function (d) {
-        console.log(d);
-        Toast(d.message);
-      })
-      .always(function () {
-        console.log("complete");
-      });
+    $('#pact').attr('src',baseUrl+REQUEST.getNotification+'?icNo='+icNo);
     $('#informStep1-sign').on('click', function () {
       setTimeout(function () {
         var wrapper = document.getElementById("sign"),
