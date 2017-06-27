@@ -61,7 +61,7 @@
         border-right: @bank-logo-width solid transparent;
         filter: drop-shadow(@bank-logo-reverse-color @bank-logo-width 0);
         background-repeat: no-repeat;
-        background-position: left top;
+        background-position: left @bank-logo-height;
         background-image: data-uri('../img/bank-logo.png');
       }
 
@@ -274,4 +274,59 @@
 .sidebar-fixed .page-content,
 .sidebar-through .page-content {
   padding-left: @sidebar-width;
+}
+
+html.bohai .bank-logo i {
+  background-position: left 0 !important;
+}
+html.guangfa .bank-logo i {
+  background-position: left -@bank-logo-height  * 1 !important;
+}
+html.hengfeng .bank-logo i {
+  background-position: left -@bank-logo-height  * 2 !important;
+}
+html.huaxia .bank-logo i {
+  background-position: left -@bank-logo-height  * 3 !important;
+}
+html.jiaotong .bank-logo i {
+  background-position: left -@bank-logo-height  * 4 !important;
+}
+html.chongqingnongcunshangye .bank-logo i {
+  background-position: left -@bank-logo-height  * 5 !important;
+}
+html.pingan .bank-logo i {
+  background-position: left -@bank-logo-height  * 6 !important;
+}
+html.pufa .bank-logo i {
+  background-position: left -@bank-logo-height  * 7 !important;
+}
+html.xingye .bank-logo i {
+  background-position: left -@bank-logo-height  * 8 !important;
+}
+html.zhaoshang .bank-logo i {
+  background-position: left -@bank-logo-height  * 9 !important;
+}
+html.zheshang .bank-logo i {
+  background-position: left -@bank-logo-height  * 10 !important;
+}
+html.gongshang .bank-logo i {
+  background-position: left -@bank-logo-height  * 11 !important;
+}
+html.guangda .bank-logo i {
+  background-position: left -@bank-logo-height  * 12 !important;
+}
+html.jianshe .bank-logo i {
+  background-position: left -@bank-logo-height  * 13 !important;
+}
+html.minsheng .bank-logo i {
+  background-position: left -@bank-logo-height  * 14 !important;
+}
+html.nongye .bank-logo i {
+  background-position: left -@bank-logo-height  * 15 !important;
+}
+html.zhongguo .bank-logo i {
+  background-position: left -@bank-logo-height  * 16 !important;
+}
+html.zhongxin .bank-logo i {
+  background-position: left -@bank-logo-height  * 17 !important;
 }

@@ -36,7 +36,7 @@
       left: '50%',
       transform: 'translate(-50%, -50%) scale(1.3)',
       opacity: 0,
-      transition: 'all .5s',
+      transition: 'all .3s',
       zIndex: 99999,
       letterSpacing: '2px',
       padding: '0 1.5em',
@@ -51,18 +51,16 @@
     this.bound.appendTo(this.config.target);
     this.bound[0].offsetWidth;
 
-    setTimeout(function() {
-      self.bound.css({
-        transform: 'translate(-50%, -50%) scale(1)',
-        opacity: 1,
-      });
-      self.bound.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionend transitionend', function(){
-        if (!isInit) {
-          isInit = true;
-          self.fire('init');
-        }
-      });
-    }, 0);
+    self.bound.css({
+      transform: 'translate(-50%, -50%) scale(1)',
+      opacity: 1,
+    });
+    self.bound.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionend transitionend', function(){
+      if (!isInit) {
+        isInit = true;
+        self.fire('init');
+      }
+    });
 
     setTimeout(function() {
       self.bound.css({
@@ -101,6 +99,10 @@
     }
   }
 
-  window.Toast = Toast;
+  window.Toast = window.toast = Toast;
+
+  $.extend({
+    toast: Toast
+  });
 
 })();

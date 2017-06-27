@@ -72,9 +72,9 @@ gulp.task('less', () => {
                browsers: ['> 0.01%']
               }))
              .pipe(minifyCSS())
-             .pipe(rename({
-               suffix: '.min'
-             }))
+             // .pipe(rename({
+             //   suffix: '.min'
+             // }))
              // .pipe(sourcemap.write('.'))
              .pipe(gulp.dest('./dist/css'))
              .pipe(connect.reload());
