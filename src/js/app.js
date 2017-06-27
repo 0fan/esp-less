@@ -319,7 +319,7 @@ $(function () {
     $('.esp-steps').steps(1);
     $('#toI3').click(function () {
       var num = $('#accountNum').val();
-      if(!$$.isBankNo( )){
+      if(!$$.isBankNo(num)){
         $('#isBankNo').showMsg('银行卡号填写有误');
         return;
       }else {
