@@ -1,13 +1,17 @@
 /* 引入包 */
-var gulp      = require('gulp'),
-    connect   = require('gulp-connect'),
-    concat    = require('gulp-concat'),
-    uglify    = require('gulp-uglify'),
-    minifyCSS = require('gulp-minify-css'),
-    less      = require('gulp-less'),
-    rename    = require('gulp-rename'),
-    del       = require('del'),
-    sequence  = require('gulp-sequence');
+var gulp         = require('gulp'),
+    connect      = require('gulp-connect'),
+    concat       = require('gulp-concat'),
+    uglify       = require('gulp-uglify'),
+    minifyCSS    = require('gulp-minify-css'),
+    less         = require('gulp-less'),
+    rename       = require('gulp-rename'),
+    del          = require('del'),
+    sequence     = require('gulp-sequence'),
+    browserify   = require('gulp-browserify'),
+    sourcemap    = require('gulp-sourcemaps'),
+    babel        = require('gulp-babel'),
+    autoprefixer = require('gulp-autoprefixer');
 
 /* clean */
 gulp.task('clean', (cb) => {
@@ -23,12 +27,17 @@ gulp.task('html', () => {
 
 /* js */
 gulp.task('js', () => {
-  gulp.src('./src/js/*.js')
-      .pipe(concat('bundle.js'))
-      .pipe(uglify())
+  gulp.src('./src/js/app.js')
+      .pipe(sourcemap.write('.'))
+      .pipe(babel())
+      .pipe(browserify({
+         transform: ['babelify']
+       }))
+      // .pipe(uglify())
       .pipe(rename({
         suffix: '.min'
       }))
+      .pipe(sourcemap.write('.'))
       .pipe(gulp.dest('./dist/js/'))
       .pipe(connect.reload());
 });
@@ -57,7 +66,16 @@ gulp.task('css', () => {
 /* less */
 gulp.task('less', () => {
   return gulp.src('./src/less/esp.less')
+             .pipe(sourcemap.init())
              .pipe(less())
+             .pipe(autoprefixer({
+               browsers: ['> 0.01%']
+              }))
+             .pipe(minifyCSS())
+             .pipe(rename({
+               suffix: '.min'
+             }))
+             .pipe(sourcemap.write('.'))
              .pipe(gulp.dest('./dist/css'))
              .pipe(connect.reload());
 });

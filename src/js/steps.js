@@ -6,7 +6,7 @@
         return;
       }
 
-      steps_html = '<div class=esp-steps><div class="sidebar-title">' + steps_arr.title + '</div>';
+      let steps_html = '<div class=esp-steps><div class="sidebar-title">' + steps_arr.title + '</div>';
 
       _.map(steps_arr.data, function(item, index, arr) {
         steps_html += '\
