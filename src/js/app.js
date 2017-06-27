@@ -441,10 +441,8 @@ app.onPageInit('identify-step4', function (page) {
                 onClick: function () {
                   $.hideResult();
                   $.card('error', function () {
-                    $.card('error', function () {
                       $('#reOpen').show();
                       $('#eBankNo').text(d.object.eBankNo);
-                    });
                   });
                 }
               }
