@@ -309,6 +309,7 @@ app.onPageInit('identify-step3', function (page) {
     order.fromType = 1;
     order.identityCard = IDCardNo;
     order.propertyId = propertiesForSale.id;
+    order.propertyTypeId = propertiesForSaleType.id;
     order.name = accountName;
     order.IDCardNo = IDCardNo;
     order.merchantId = merchantId;
@@ -317,6 +318,8 @@ app.onPageInit('identify-step3', function (page) {
     order.bankNum = accountNo;
     order.channel='xingye';
     order.houseBuyName=accountName;
+    order.payStatus=-1;
+    order.tradeAmount=propertiesForSale.price;
 
 
     data.redirectUrl = REQUEST.bankcardSigning;
@@ -491,11 +494,23 @@ app.onPageInit('deposit-step1', function (page) {
   // init
   $.steps(steps3);
   $('.esp-steps').steps(0);
-  $('#depositMoney').text(propertiesForSaleType.price);
+  $('#depositMoney').text(propertiesForSaleType.price/100);
   $('#depositBankNo').text(EbankNo);
   $('#sureDeposit').click(function (e) {
     e.preventDefault;
     var data = {};
+    var order={};
+    order.payStatus=0;
+    order.orderId=outOrderNo;
+    order.merchantId = new Date().getTime();
+    order.redirectUrl = REQUEST.updateOrder;
+    order.icNo=icNo;
+    order.termId=testDate.termid;
+    order.bankNum=accountNo;
+    order.ebank=EbankNo;
+    order.propertyAddress=propertiesForSale.address;
+    order.tradeAmount=propertiesForSaleType.price;
+
     data.bankNum = accountNo;
     data.bankName = bankName;
     data.phone = phoneNum;
@@ -518,6 +533,7 @@ app.onPageInit('deposit-step1', function (page) {
     data.fangyuanTypeId = propertiesForSaleType.id;
     data.redirectUrl = REQUEST.createOrder;
     data.merchantId = new Date().getTime();
+
     console.log(data);
     $.ajax({
       url: baseUrl + allRequest,
@@ -528,8 +544,9 @@ app.onPageInit('deposit-step1', function (page) {
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
-          Toast('存入成功')
-          view.router.loadPage('inform-step1.html');
+          Toast('存入成功');
+          order.payStatus=1;
+          upload(order,'inform-step1.html');
         } else {
           Toast(d.message);
         }
