@@ -24,6 +24,14 @@ window.view = app.addView('.view-main', { // 视图初始化
   dynamicNavbar: true
 });
 
+let state = { // 状态树，存储用户的操作日志
+  time: null,
+  id: null,
+  status: null,
+  tel: null,
+  action: [],
+}
+
 
 /* ========== 业务 ========== */
 
