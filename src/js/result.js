@@ -18,7 +18,8 @@
         withSidebar   : false,
         callback      : null,
         mask          : false,
-        clickMaskHide : false
+        clickMaskHide : false,
+        animation     : true
       }, cfg);
 
       var html = $('<div class="resultPage-wrap">\
@@ -75,12 +76,9 @@
       }
 
       html.appendTo($(CFG.target));
-
-      setTimeout(function() {
-        html.addClass('active');
-
-        CFG.callback && CFG.callback();
-      }, 10);
+      html[0].offsetWidth;
+      html.addClass('active');
+      CFG.callback && CFG.callback();
     
     },
 
