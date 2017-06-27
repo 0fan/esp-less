@@ -13,7 +13,6 @@
         full          : false,
         info          : '',
         status        : '',
-        class         : '',
         action        : [],
         withSidebar   : false,
         callback      : null,
@@ -23,7 +22,7 @@
       }, cfg);
 
       var html = $('<div class="resultPage-wrap">\
-                      <div class="resultPage ' + (CFG.status && ('has' + CFG.status.substr(0,1).toUpperCase() + CFG.status.substr(1).toLowerCase())) + (CFG.class && (' ' + CFG.class + ' ')) + (CFG.full ? 'resultPage-full' : '') +'">\
+                      <div class="resultPage ' + (CFG.status ? ('has' + CFG.status.substr(0,1).toUpperCase() + CFG.status.substr(1).toLowerCase()) : "") + (CFG.full ? ' resultPage-full ' : '') +'">\
                         <div class="resultPage-legend ' + CFG.legend + '"></div>\
                         <div class="resultPage-title">' + CFG.title + '</div>\
                         <div class="resultPage-info">' + CFG.info + '</div>\

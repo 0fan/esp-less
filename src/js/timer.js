@@ -82,10 +82,8 @@
       $(CFG.target).css('position') === 'static' && $(CFG.target).css({'position': 'relative'});
 
       html.appendTo($(CFG.target));
-
-      setTimeout(function() {
-        html.addClass('active');
-      }, 0);
+      html[0].offsetWidth;
+      html.addClass('active');
 
       _timer = setInterval(function() {
 
@@ -117,7 +115,7 @@
       }, 1000);
       
     },
-    clearTimer: function() {
+    clearTimer: function(cb) {
       
       var timer = $('.esp-timer');
 
@@ -126,8 +124,9 @@
       }
 
       timer.removeClass('active');
-      setTimeout(function() {
+      timer.one('transitionend webkitTransitionEnd oTransitionEnd', function() {
         timer.remove();
+        cb && cb();
       });
 
     }

@@ -49,6 +49,60 @@ var testDate = {
 
 /* ========== pages ========== */
 
+function saveExceptionInfo() {
+  console.log('saveExceptionInfo');
+}
+
+function sendExceptionInfo() {
+  console.log('sendExceptionInfo'); 
+}
+
+checkOnline();
+
+setInterval(() => {
+  checkOnline();
+}, 3000);
+
+var isOnline = 0;
+
+function checkOnline() {
+  if (!navigator.onLine) {
+    isOnline = -1;
+
+    if (!$('.resultPage-wrap').length ) {
+      $.showResult({
+        status: 'primary',
+        mask: true,
+        full: true,
+        clickMaskHide: false,
+        legend: 'legend3',
+        title: '断网了，请检查网络',
+        callback: () => {
+          saveExceptionInfo();
+        }
+      });
+      $.timer({
+        time: 60,
+        target: '.resultPage-wrap'
+      })
+    }
+
+  } else {
+    if (isOnline === -1) {
+      isOnline = 1;
+    }
+    if (isOnline === 1 ) {
+      isOnline = 0;
+      $.hideResult();
+      $.toast('连接网络成功');
+      $.clearTimer(() => {window.location.reload()});
+      sendExceptionInfo();
+    }
+  }
+}
+
+
+
 app.onPageInit('*', function (page) {
   console.log(page.name + ' init');
 
@@ -97,7 +151,7 @@ app.onPageInit('index', function (page) {
       canOpen(open);
     })
     .fail(function (d) {
-      Toast(d.message);
+      d && d.message && Toast(d.message);
     })
     .always(function () {
       console.log("complete");
