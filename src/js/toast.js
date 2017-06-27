@@ -17,7 +17,7 @@
     this.config = $.extend({}, {
       text: 'hello world',
       target: document.body,
-      timer: 5000
+      timer: 2500
     }, config);
 
     this.handlers = {};
@@ -49,6 +49,7 @@
     });
     
     this.bound.appendTo(this.config.target);
+    this.bound[0].offsetWidth;
 
     setTimeout(function() {
       self.bound.css({
