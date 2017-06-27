@@ -4,9 +4,9 @@ import './steps';
 import './result';
 import './card';
 import './form';
-import './match';
 import './nav';
 import './timer';
+import $$ from './match';
 
 window.app = new Framework7({ // 应用初始化
   activeState: false,

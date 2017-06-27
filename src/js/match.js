@@ -1,5 +1,5 @@
 // 验证
-var $$=function(){};
+var $$ = function(){};
 $$.prototype={
   // 消除左右两边空格
   trim:function (str){
@@ -172,3 +172,5 @@ $$.prototype={
 };
 // 实例化
 $$ = new $$();
+
+export default $$;

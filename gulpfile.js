@@ -27,19 +27,19 @@ gulp.task('html', () => {
 
 /* js */
 gulp.task('js', () => {
-  gulp.src('./src/js/app.js')
-      .pipe(sourcemap.write('.'))
-      .pipe(babel())
-      .pipe(browserify({
-         transform: ['babelify']
-       }))
-      // .pipe(uglify())
-      .pipe(rename({
-        suffix: '.min'
-      }))
-      .pipe(sourcemap.write('.'))
-      .pipe(gulp.dest('./dist/js/'))
-      .pipe(connect.reload());
+  return gulp.src('./src/js/app.js')
+             // .pipe(sourcemap.write('.'))
+             .pipe(babel())
+             .pipe(browserify({
+                transform: ['babelify']
+              }))
+             // .pipe(uglify())
+             .pipe(rename({
+               suffix: '.min'
+             }))
+             // .pipe(sourcemap.write('.'))
+             .pipe(gulp.dest('./dist/js/'))
+             .pipe(connect.reload());
 });
 
 /* jsVendor */
@@ -66,7 +66,7 @@ gulp.task('css', () => {
 /* less */
 gulp.task('less', () => {
   return gulp.src('./src/less/esp.less')
-             .pipe(sourcemap.init())
+             // .pipe(sourcemap.init())
              .pipe(less())
              .pipe(autoprefixer({
                browsers: ['> 0.01%']
@@ -75,7 +75,7 @@ gulp.task('less', () => {
              .pipe(rename({
                suffix: '.min'
              }))
-             .pipe(sourcemap.write('.'))
+             // .pipe(sourcemap.write('.'))
              .pipe(gulp.dest('./dist/css'))
              .pipe(connect.reload());
 });
