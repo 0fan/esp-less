@@ -318,6 +318,7 @@ app.onPageInit('identify-step3', function (page) {
     order.channel='xingye';
     order.houseBuyName=accountName;
 
+
     data.redirectUrl = REQUEST.bankcardSigning;
     data.merchantId = merchantId;
     data.accountName = accountName;
