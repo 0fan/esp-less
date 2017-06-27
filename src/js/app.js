@@ -341,10 +341,6 @@ $(function () {
       e.preventDefault;
       var merchantId=new Date().getTime();
       var phone = $('#phoneNum').val();
-      if(!$$.checkPhone(phone)){
-        $('#checkPhone').showMsg('手机号填写有误');
-        return;
-      }
       $.ajax({
         url: baseUrl + allRequest,
         type: 'POST',
@@ -402,6 +398,11 @@ $(function () {
       data.price = propertiesForSaleType.price;
       data.buildingId = propertiesForSale.id;
       data.equType = 'ytj';
+
+      if(!$$.checkPhone(phone)){
+        $('#checkPhone').showMsg('手机号填写有误');
+        return;
+      }
       $.ajax({
         url: baseUrl + allRequest,
         type: 'POST',
