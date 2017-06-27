@@ -7,6 +7,8 @@ import './form';
 import './nav';
 import './timer';
 import $$ from './match';
+import {steps1, steps2, steps3 ,steps4} from './data-steps';
+import {URL, REQUEST, allRequest} from './data-connect';
 
 window.app = new Framework7({ // 应用初始化
   activeState: false,
@@ -15,8 +17,7 @@ window.app = new Framework7({ // 应用初始化
   swipeBackPage: false,
   preloadPreviousPage: false,
   pushState: true,
-  pushStateNoAnimation: true,
-
+  pushStateNoAnimation: true
 });
 
 window.view = app.addView('.view-main', { // 视图初始化
@@ -24,109 +25,21 @@ window.view = app.addView('.view-main', { // 视图初始化
 });
 
 
-/* ========== 导航 ========== */
-
-var steps1 = {
-  title: '选择项目',
-  data: [
-    {
-      text: '选择项目类型',
-      icon: 'grain'
-    }
-  ]
-};
-
-var steps2 = {
-  title: '开通银行E卡账户',
-  data: [
-    {
-      text: '客户信息',
-      icon: 'person'
-    },
-    {
-      text: '银行卡',
-      icon: 'creditcard'
-    },
-    {
-      text: '手机号',
-      icon: 'stayprimaryportrait'
-    },
-    {
-      text: 'E卡开户',
-      icon: 'openinbrowser'
-    }
-  ]
-};
-
-var steps3 = {
-  title: '存入存款',
-  data: [
-    {
-      text: '存入存款',
-      icon: 'presenttoall'
-    }
-    /*     {
-     text: '输入密码',
-     icon: 'lockoutline'
-     }*/
-  ]
-};
-
-var steps4 = {
-  title: '打印告知书',
-  data: [
-    {
-      text: '确认告知书',
-      icon: 'fingerprint'
-    }
-    /*      {
-     text: '打印告知书',
-     icon: 'print'
-     }*/
-  ]
-};
-
 /* ========== 业务 ========== */
 
-var DATA,
-  propertiesForSale,
-  propertiesForSaleType,
-  accountNo,
-  IDCardNo,
-  accountName,
-  identifyCode,
-  phoneNum,
-  icNo,
-  outOrderNo,
-  bankName,
-  EbankNo,
-  price;
+var propertiesForSale,
+    propertiesForSaleType,
+    accountNo,
+    IDCardNo,
+    accountName,
+    identifyCode,
+    phoneNum,
+    icNo,
+    outOrderNo,
+    bankName,
+    EbankNo,
+    price;
 
-
-/* 地址 */
-var URL = {
-  test: 'http://10.0.10.97:8080/'
-};
-
-var allRequest = 'portal/app/openAccount/start.json';
-var REQUEST = {
-  getBuild            : 'portal/terminal/houses/getAboutInfo.json',          // 获取楼盘相关信息
-  updateOrder         : 'portal/terminal/order/createBusinessOrder.json',    // 创建/更新业务订单
-  uploadIDCard        : 'portal/terminal/user/IDCardDetail/save.json',       // 上传身份证详细信息
-  canOpen             : 'portal/terminal/openAccount/isCanOpenAccount.json', // 是否还能继续开户
-  bankcardSigning     : 'portal/terminal/user/bankCardSign.json',            // 用户银行卡签约
-  getValid            : 'portal/terminal/user/informBankSendCode.json',      // 通知银行发送验证码
-  open                : 'portal/terminal/openAccount/createBankNum.json',    // 二类卡开户
-  createOrder         : 'portal/terminal/order/createOrder.json',            // 创建交易订单
-  getOrderStatus      : 'portal/terminal/order/getPayStatus.json',           // 获取订单支付状态
-  getMonitoringConfig : 'portal/terminal/config/down.json',                  // 获取监控配置
-  uploadSign          : 'portal/terminal/contract/submitSign.json',          // 上传签名文件
-  moneyFrozen         : 'portal/terminal/capital/unfreeze.json',             // 资金解冻
-  saveLog             : 'portal/terminal/log/save.json',                     // 终端操作记录日志保存
-  baseFill            : 'portal/terminal/order/data/backfill.json',          // 终端数据回填
-  getIDCardAfterStep  : 'portal/terminal/user/nextStep/get.json',            // 刷完身份证下一步操作获取
-  getNotification     : 'portal/terminal/contract/getNotification.html'      // 获取告知书地址
-}
 
 var baseUrl = URL.test;
 
