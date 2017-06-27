@@ -96,8 +96,8 @@ app.onPageInit('index', function (page) {
       open.merchantId = new Date().getTime();
       canOpen(open);
     })
-    .fail(function () {
-      console.log("error");
+    .fail(function (d) {
+      Toast(d.message);
     })
     .always(function () {
       console.log("complete");
