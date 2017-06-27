@@ -250,6 +250,12 @@ $(function () {
       var merchantId=new Date().getTime();
       var name = $('#name').val();
       var idCardNo = $('#IDCardNo').val();
+
+      if(!$$.isCardNo(idCardNo)){
+        $('#isBankNo').showMsg('身份证填写有误');
+        return;
+      };
+
       var data = {};
       data.name = name;
       data.houseBuyName = name;
@@ -313,8 +319,14 @@ $(function () {
     $('.esp-steps').steps(1);
     $('#toI3').click(function () {
       var num = $('#accountNum').val();
-      accountNo = num;
-      view.router.loadPage('identify-step3.html');
+      if(!$$.isBankNo(num)){
+        $('#isBankNo').showMsg('银行卡号填写有误');
+        return;
+      }else {
+        accountNo = num;
+        view.router.loadPage('identify-step3.html');
+      }
+
     })
 
   });
@@ -386,6 +398,11 @@ $(function () {
       data.price = propertiesForSaleType.price;
       data.buildingId = propertiesForSale.id;
       data.equType = 'ytj';
+
+      if(!$$.checkPhone(phone)){
+        $('#checkPhone').showMsg('手机号填写有误');
+        return;
+      }
       $.ajax({
         url: baseUrl + allRequest,
         type: 'POST',
