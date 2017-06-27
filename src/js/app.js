@@ -96,8 +96,8 @@ app.onPageInit('index', function (page) {
       open.merchantId = new Date().getTime();
       canOpen(open);
     })
-    .fail(function () {
-      console.log("error");
+    .fail(function (d) {
+      Toast(d.message);
     })
     .always(function () {
       console.log("complete");
@@ -304,7 +304,7 @@ app.onPageInit('identify-step3', function (page) {
     var data = {};
     var order = {};
     /*创建订单*/
-    order.termid = testDate.termid;
+    order.termId = testDate.termid;
     order.icNo = icNo;
     order.fromType = 1;
     order.identityCard = IDCardNo;
@@ -313,17 +313,23 @@ app.onPageInit('identify-step3', function (page) {
     order.IDCardNo = IDCardNo;
     order.merchantId = merchantId;
     order.redirectUrl = REQUEST.updateOrder;
+    order.phone = phoneNum;
+    order.bankNum = accountNo;
+    order.channel='xingye';
+    order.houseBuyName=accountName;
+
 
     data.redirectUrl = REQUEST.bankcardSigning;
     data.merchantId = merchantId;
     data.accountName = accountName;
-    data.phone = phone;
+    data.phone = phoneNum;
     data.accountNo = accountNo;
     data.idCardNo = IDCardNo;
     data.price = propertiesForSaleType.price;
     data.buildingId = propertiesForSale.id;
     data.equType = 'ytj';
 
+    console.log(order);
     if (!$$.checkPhone(phone)) {
       $('#checkPhone').showMsg('手机号填写有误');
       return;
@@ -441,10 +447,8 @@ app.onPageInit('identify-step4', function (page) {
                 onClick: function () {
                   $.hideResult();
                   $.card('error', function () {
-                    $.card('error', function () {
                       $('#reOpen').show();
                       $('#eBankNo').text(d.object.eBankNo);
-                    });
                   });
                 }
               }
