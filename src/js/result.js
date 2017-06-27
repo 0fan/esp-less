@@ -17,8 +17,8 @@
         action        : [],
         withSidebar   : false,
         callback      : null,
-        mask          : true,
-        clickMaskHide : true
+        mask          : false,
+        clickMaskHide : false
       }, cfg);
 
       var html = $('<div class="resultPage-wrap">\
