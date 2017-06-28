@@ -47,7 +47,6 @@ gulp.task('jsVendor', () => {
   return gulp.src([
                 './src/js/vendor/jquery-1.9.1.min.js',
                 './src/js/vendor/framework7.min.js',
-                './src/js/vendor/vue.min.js',
                 './src/js/vendor/underscore-min.js',
                 './src/js/vendor/signature_pad.min.js',
                 './src/js/vendor/iscroll.js'

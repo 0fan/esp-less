@@ -70,14 +70,6 @@ function init() { // 初始化
       toast({text: '服务器连接成功'})
       isInit = true
 
-      new Vue({
-        el: '#root',
-        data: {
-          address: _.findKey(res, 'address'),
-          tel: _.findKey(res, 'picPhone')
-        }
-      })
-
     }
 
     if (res.code === -1) {
