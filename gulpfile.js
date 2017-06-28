@@ -44,7 +44,14 @@ gulp.task('js', () => {
 
 /* jsVendor */
 gulp.task('jsVendor', () => {
-  return gulp.src('./src/js/vendor/*.js')
+  return gulp.src([
+                './src/js/vendor/jquery-1.9.1.min.js',
+                './src/js/vendor/framework7.min.js',
+                './src/js/vendor/vue.min.js',
+                './src/js/vendor/underscore-min.js',
+                './src/js/vendor/signature_pad.min.js',
+                './src/js/vendor/iscroll.js'
+              ])
              .pipe(concat('vendor.bundle.js'))
              // .pipe(uglify())
              .pipe(rename({

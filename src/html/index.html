@@ -10,7 +10,7 @@
 <body>
   
   <!-- views -->
-  <div class="views">
+  <div class="views" id='root'>
     <!-- view-main -->
     <div class="view view-main">
 
@@ -32,7 +32,7 @@
         <div class="toolbar-inner">
           <div class="name">
             <i class="icon icon-material icon-place"></i>
-            <span>保利观澜道</span>
+            <span>{{address}}</span>
           </div>
           <div class="notice">
             <i class="icon icon-material icon-volumeup"></i>
@@ -40,7 +40,7 @@
           </div>
           <div class="tel">
             <i class="icon icon-material icon-phone"></i>
-            <span>960100</span>
+            <span>{{tel}}</span>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
               </div>
             </div>
             <div class="esp-content index-inner">
-              <a href="switch-project.html" class="esp-btn j-inner disabled" disabled>立即办理</a>
+              <a href="switch-project.html" class="esp-btn j-inner">立即办理</a>
             </div>
             
           </div>

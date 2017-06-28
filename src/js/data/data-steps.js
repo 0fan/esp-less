@@ -1,4 +1,4 @@
-var steps1 = {
+let steps1 = {
   title: '选择项目',
   data: [
     {
@@ -6,9 +6,9 @@ var steps1 = {
       icon: 'grain'
     }
   ]
-};
+}
 
-var steps2 = {
+let steps2 = {
   title: '开通银行E卡账户',
   data: [
     {
@@ -28,9 +28,9 @@ var steps2 = {
       icon: 'openinbrowser'
     }
   ]
-};
+}
 
-var steps3 = {
+let steps3 = {
   title: '存入存款',
   data: [
     {
@@ -42,9 +42,9 @@ var steps3 = {
      icon: 'lockoutline'
      }*/
   ]
-};
+}
 
-var steps4 = {
+let steps4 = {
   title: '打印告知书',
   data: [
     {
@@ -56,11 +56,11 @@ var steps4 = {
      icon: 'print'
      }*/
   ]
-};
+}
 
 export {
   steps1,
   steps2,
   steps3,
   steps4
-};
+}

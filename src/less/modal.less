@@ -1,0 +1,143 @@
+.with-modal {
+  overflow: hidden;
+}
+
+.esp-modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+
+  .esp-modal-dialog {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  &.in .esp-modal-dialog {
+    transform: translate3d(0, 0, 0);
+  }
+
+  .esp-modal-mask {
+    opacity: 0;
+  }
+
+  &.in .esp-modal-mask {
+    opacity: 1;
+  }
+}
+
+.esp-modal-dialog {
+  position: absolute;
+  z-index: 9999;
+  top: 120px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+  padding-bottom: 150px;
+  padding-right: 150px;
+  padding-left: 150px;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  transition: all 0.3s;
+
+  .esp-modal-legend {
+    width: 360px;
+    height: 300px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-size: 0;
+    position: relative;
+    flex-shrink: 0;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+    }
+
+    &.legend1:after {
+      background-image: data-uri('../img/legend-1.png');
+    }
+    &.legend2:after {
+      background-image: data-uri('../img/legend-2.png');
+    }
+    &.legend3:after {
+      background-image: data-uri('../img/legend-3.png');
+    }
+    &.legend4:after {
+      background-image: data-uri('../img/legend-4.png');
+    }
+    &.legend5:after {
+      background-image: data-uri('../img/legend-5.png');
+    }
+    &.legend6:after {
+      background-image: data-uri('../img/legend-6.png');
+    }
+    &.legend7:after {
+      background-image: data-uri('../img/legend-7.png');
+    }
+  }
+
+  .esp-modal-title {
+    font-size: 42px;
+    line-height: 1.35;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .esp-modal-info {
+    margin-bottom: 60px;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+
+  .esp-modal-action {
+    flex-grow: 1;
+    align-items: flex-end;
+    display: flex;
+
+    .esp-modal-btn {
+      margin: 0 30px;
+    }
+  }
+}
+
+.esp-modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9990;
+  background: rgba(0, 0, 0, .8);
+  transition: all 0.3s;
+}
+
+.esp-modal.hasSuccess .resultPage-title{
+  color: @brand-success;
+}
+
+.esp-modal.hasError .resultPage-title{
+  color: @brand-danger;
+}
+
+.esp-modal.hasPrimary .resultPage-title{
+  color: @brand-primary;
+}

@@ -1,9 +1,5 @@
-var URL = {
-  test: 'http://10.0.10.97:8080/'
-};
-
-var allRequest = 'portal/app/openAccount/start.json';
-var REQUEST = {
+let request = {
+  allRequest          : 'portal/app/openAccount/start.json',
   getBuild            : 'portal/terminal/houses/getAboutInfo.json',          // 获取楼盘相关信息
   updateOrder         : 'portal/terminal/order/createBusinessOrder.json',    // 创建/更新业务订单
   uploadIDCard        : 'portal/terminal/user/IDCardDetail/save.json',       // 上传身份证详细信息
@@ -22,8 +18,4 @@ var REQUEST = {
   getNotification     : 'portal/terminal/contract/getNotification.html'      // 获取告知书地址
 }
 
-export {
-  URL,
-  REQUEST,
-  allRequest
-};
+export default request
