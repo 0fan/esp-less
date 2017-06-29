@@ -4,6 +4,7 @@ import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
 import {isBank} from '../utility/match'
 import {isTel} from '../utility/match'
+import {isCode} from '../utility/match'
 
 import url from '../data/data-url'
 import config from '../data/data-config'
@@ -170,6 +171,10 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
 
     if (!isTel(phoneNum)) {
       $('#popupPhone').showMsg('手机号填写有误');
+      return;
+    }
+    if (!isCode(identifyCode)) {
+      $('#popupCode').showMsg('验证码填写有误');
       return;
     }
     $.ajax({

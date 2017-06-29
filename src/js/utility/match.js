@@ -17,11 +17,15 @@ function isIdCard(t) {
 function isBank(t) {
   return t.match(/^([1-9]{1})(\d{14}|\d{18})$/) ? true : false
 }
+function isCode(t) {
+  return t.match(/^\d{6}$/) ? true : false
+}
 
 export {
   trim,
   isEmail,
   isTel,
   isIdCard,
-  isBank
+  isBank,
+  isCode
 }

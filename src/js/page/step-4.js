@@ -3,6 +3,7 @@ import modal from '../widget/modal'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
 import {isTel} from '../utility/match'
+import {isCode} from '../utility/match'
 
 import config from '../data/data-config'
 import url from '../data/data-url'
@@ -87,6 +88,10 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
 
     if (!isTel(phoneNum)) {
       $('#checkPhone').showMsg('手机号填写有误');
+      return;
+    }
+    if (!isCode(identifyCode)) {
+      $('#checkCode').showMsg('验证码填写有误');
       return;
     }
     $.ajax({
