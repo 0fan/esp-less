@@ -49,7 +49,8 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");

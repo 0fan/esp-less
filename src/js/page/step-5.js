@@ -88,7 +88,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:'开户出现问题'});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -127,7 +128,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -186,7 +188,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -230,8 +233,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        console.log(d);
-        Toast({text:d.message});
+        Toast('操作失败');
         view.router.loadPage('index.html');
       })
   }

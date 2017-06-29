@@ -39,7 +39,8 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -104,7 +105,8 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -134,8 +136,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        console.log(d);
-        Toast({text:d.message});
+        Toast('操作失败');
         view.router.loadPage('index.html');
       })
   }

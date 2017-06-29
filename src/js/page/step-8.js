@@ -80,7 +80,8 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
               }
             })
             .fail(function (d) {
-              Toast(d.message);
+              Toast('操作失败');
+              view.router.loadPage('index.html');
             })
             .always(function () {
               console.log("complete");
