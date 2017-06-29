@@ -7,6 +7,8 @@ import config from '../data/data-config'
 import url from '../data/data-url'
 import request from '../data/data-connect'
 
+console.log(request.allRequest)
+
 let isOnline = false, // 是否联网
     isInit = false // 是否初始化
 
@@ -29,7 +31,7 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
   var open = {'identifier': config.termid}
 
   $.ajax({
-    url: url.test + request.allReques,
+    url: url.test + request.allRequest,
     type: 'POST',
     dataType: 'json',
     data: {
