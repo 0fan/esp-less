@@ -24,6 +24,10 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   $('#cardPhoneNum span').text(phoneNum);
   $('#open').click(function (e) {
     e.preventDefault;
+    var accountName=store.get('accountName');
+    var accountNo=store.get('accountNo');
+    var IDCardNo=store.get('IDCardNo');
+    var phoneNum=store.get('phoneNum');
     var data = {};
     data.phone = phoneNum;
     data.bankNum = accountNo;
@@ -136,7 +140,10 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     var identifyCode = $('#resetCode').val();
     var icNo = store.get('icNo');
     var outOrderNo = store.get('outOrderNo');
-    store.set('icNo',icNo);
+    var accountNo = store.get('accountNo');
+    var accountName = store.get('accountName');
+    var IDCardNo=store.get('IDCardNo')
+
     store.set('identifyCode',identifyCode);
     store.set('phoneNum',phoneNum);
 
@@ -151,10 +158,10 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
 
     data.redirectUrl = request.bankcardSigning;
     data.merchantId = merchantId;
-    data.accountName = store.get('accountName');
+    data.accountName = accountName;
     data.phone = phoneNum;
-    data.accountNo = store.get('accountNo');
-    data.idCardNo = store.get('IDCardNo');
+    data.accountNo = accountNo;
+    data.idCardNo = IDCardNo;
     data.price = store.get('propertiesForSaleType').price;
     data.buildingId = store.get('propertiesForSale').id;
     data.equType = 'ytj';
