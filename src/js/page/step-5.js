@@ -20,7 +20,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   $('#cardAccountNum').text(accountNo);
   $('#cardIDCardNo').text(IDCardNo);
   $('#cardPhoneNum').text(phoneNum);
-  $('#sureOpen').click(function (e) {
+  $('#open').click(function (e) {
     e.preventDefault;
     var data = {};
     data.phone = phoneNum;
@@ -32,7 +32,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     data.redirectUrl = request.open;
     data.merchantId = new Date().getTime();
     var loadingModal=modal({
-      legend: 'legend4',
+      legend: 'anime-opencard',
       clickMaskHide: false,
       title: '银行E卡正在开户中...',
       status: 'primary',
