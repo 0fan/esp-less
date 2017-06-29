@@ -8,12 +8,12 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
     active: 1
   });
   $('#toI3').click(function () {
-    $('#isBankNo').hideMsg();
     var accountNo = $('#accountNum').val();
     if (!isBank(accountNo)) {
       $('#isBankNo').showMsg('银行卡号填写有误');
       return;
     } else {
+      $('#isBankNo').hideMsg();
       store.set('accountNo',accountNo);
       view.router.loadPage('identify-step3.html');
     }

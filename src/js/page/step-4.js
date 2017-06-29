@@ -49,9 +49,6 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
   });
   $('#toI4').click(function (e) {
     e.preventDefault;
-
-    $('#checkPhone').hideMsg();
-    $('#checkCode').hideMsg();
     var merchantId = new Date().getTime();
     var phoneNum = $('#phoneNum').val();
     var identifyCode = $('#identifyCode').val();
@@ -92,10 +89,14 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     if (!isTel(phoneNum)) {
       $('#checkPhone').showMsg('手机号填写有误');
       return;
+    }else {
+      $('#checkPhone').hideMsg();
     }
     if (!isCode(identifyCode)) {
       $('#checkCode').showMsg('验证码填写有误');
       return;
+    }else {
+      $('#checkCode').hideMsg();
     }
     $.ajax({
       url: url.test + request.allRequest,

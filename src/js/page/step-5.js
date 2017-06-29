@@ -138,8 +138,6 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   });
   $('.surePhone').click(function (e) {
     e.preventDefault;
-    $('#popupPhone').hideMsg();
-    $('#popupCode').hideMsg();
     var merchantId = new Date().getTime();
     var phoneNum = $('#resetPhone').val();
     var identifyCode = $('#resetCode').val();
@@ -174,10 +172,14 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     if (!isTel(phoneNum)) {
       $('#popupPhone').showMsg('手机号填写有误');
       return;
+    }else {
+      $('#popupPhone').hideMsg();
     }
     if (!isCode(identifyCode)) {
       $('#popupCode').showMsg('验证码填写有误');
       return;
+    }else {
+      $('#popupCode').hideMsg();
     }
     $.ajax({
       url: url.test + request.allRequest,
