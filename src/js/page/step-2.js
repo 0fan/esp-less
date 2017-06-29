@@ -15,10 +15,11 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
   });
   $('#identifyStep1-submit').on('click', function (e) {
     e.preventDefault;
+    $('#isIDCardNo').hideMsg();
     var name = $('#name').val();
     var IDCardNo = $('#IDCardNo').val();
     if (!isIdCard(IDCardNo)) {
-      $('#isBankNo').showMsg('身份证填写有误');
+      $('#isIDCardNo').showMsg('身份证填写有误');
       return;
     }
     ;

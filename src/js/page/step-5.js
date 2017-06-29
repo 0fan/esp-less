@@ -138,6 +138,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   });
   $('.surePhone').click(function (e) {
     e.preventDefault;
+    $('#popupPhone').hideMsg();
+    $('#popupCode').hideMsg();
     var merchantId = new Date().getTime();
     var phoneNum = $('#resetPhone').val();
     var identifyCode = $('#resetCode').val();
@@ -201,6 +203,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
       });
   });
   $('.sureCard').click(function () {
+    $('#popupCard').hideMsg();
     var accountNo = $('#resetBank').val();
     if (!isBank(accountNo)) {
       $('#popupCard').showMsg('银行卡号填写有误');

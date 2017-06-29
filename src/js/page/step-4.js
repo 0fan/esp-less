@@ -49,6 +49,9 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
   });
   $('#toI4').click(function (e) {
     e.preventDefault;
+
+    $('#checkPhone').hideMsg();
+    $('#checkCode').hideMsg();
     var merchantId = new Date().getTime();
     var phoneNum = $('#phoneNum').val();
     var identifyCode = $('#identifyCode').val();
