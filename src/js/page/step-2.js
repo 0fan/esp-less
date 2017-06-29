@@ -18,18 +18,31 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
     e.preventDefault;
     var name = $('#name').val();
     var IDCardNo = $('#IDCardNo').val();
-    if (!isIdCard(IDCardNo)) {
-      $('#isIDCardNo').showMsg('身份证填写有误');
-      return;
+    if(!name==''){
+      if (!isName(name)) {
+        $('#isName').showMsg('姓名填写有误');
+        return;
+      }else {
+        $('#isName').hideMsg();
+      };
     }else {
-      $('#isIDCardNo').hideMsg();
-    };
-    if (!isName(name)) {
-      $('#isName').showMsg('姓名填写有误');
+      $('#isName').showMsg('姓名不能为空');
       return;
-    }else {
-      $('#isName').hideMsg();
-    };
+    }
+    if(!IDCardNo==''){
+      if (!isIdCard(IDCardNo)) {
+        $('#isIDCardNo').showMsg('身份证号填写有误');
+        return;
+      }else {
+        $('#isIDCardNo').hideMsg();
+      };
+    }else{
+      $('#isIDCardNo').showMsg('身份证号不能为空');
+      return;
+    }
+
+
+
     var data = {};
     data.name = name;
     data.houseBuyName = name;

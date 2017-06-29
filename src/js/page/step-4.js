@@ -19,6 +19,17 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     var merchantId = new Date().getTime();
     var phone = $('#phoneNum').val();
     var IDCardNo = store.get('IDCardNo');
+    if(!phone==''){
+      if (!isTel(phone)) {
+        $('#checkPhone').showMsg('手机号填写有误');
+        return;
+      }else {
+        $('#checkPhone').hideMsg();
+      }
+    }else {
+      $('#checkPhone').showMsg('手机号不能为空');
+      return;
+    }
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
@@ -86,18 +97,29 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     data.buildingId = store.get('propertiesForSale').id;
     data.equType = 'ytj';
 
-    if (!isTel(phoneNum)) {
-      $('#checkPhone').showMsg('手机号填写有误');
-      return;
+    if(!phoneNum==''){
+      if (!isTel(phoneNum)) {
+        $('#checkPhone').showMsg('手机号填写有误');
+        return;
+      }else {
+        $('#checkPhone').hideMsg();
+      }
     }else {
-      $('#checkPhone').hideMsg();
-    }
-    if (!isCode(identifyCode)) {
-      $('#checkCode').showMsg('验证码填写有误');
+      $('#checkPhone').showMsg('手机号不能为空');
       return;
-    }else {
-      $('#checkCode').hideMsg();
     }
+    if(!identifyCode==''){
+      if (!isCode(identifyCode)) {
+        $('#checkCode').showMsg('验证码填写有误');
+        return;
+      }else {
+        $('#checkCode').hideMsg();
+      }
+    }else {
+      $('#checkCode').showMsg('验证码不能为空');
+      return;
+    }
+
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',

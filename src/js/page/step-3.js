@@ -9,13 +9,18 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
   });
   $('#toI3').click(function () {
     var accountNo = $('#accountNum').val();
-    if (!isBank(accountNo)) {
-      $('#isBankNo').showMsg('银行卡号填写有误');
+    if(!accountNo==''){
+      if (!isBank(accountNo)) {
+        $('#isBankNo').showMsg('银行卡号填写有误');
+        return;
+      } else {
+        $('#isBankNo').hideMsg();
+        store.set('accountNo',accountNo);
+        view.router.loadPage('identify-step3.html')
+      }
+    }else {
+      $('#isBankNo').showMsg('银行卡号不能为空');
       return;
-    } else {
-      $('#isBankNo').hideMsg();
-      store.set('accountNo',accountNo);
-      view.router.loadPage('identify-step3.html');
     }
 
   })

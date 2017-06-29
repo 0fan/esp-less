@@ -168,19 +168,29 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     data.price = store.get('propertiesForSaleType').price;
     data.buildingId = store.get('propertiesForSale').id;
     data.equType = 'ytj';
+    if(!phoneNum==''){
+      if (!isTel(phoneNum)) {
+        $('#popupPhone').showMsg('手机号填写有误');
+        return;
+      }else {
+        $('#popupPhone').hideMsg();
+      }
+    }else {
+      $('#popupPhone').showMsg('手机号不能为空');
+      return;
+    }
+    if(!identifyCode==''){
+      if (!isCode(identifyCode)) {
+        $('#popupCode').showMsg('验证码填写有误');
+        return;
+      }else {
+        $('#popupCode').hideMsg();
+      }
+    }else {
+      $('#popupCode').showMsg('验证码不能为空');
+      return;
+    }
 
-    if (!isTel(phoneNum)) {
-      $('#popupPhone').showMsg('手机号填写有误');
-      return;
-    }else {
-      $('#popupPhone').hideMsg();
-    }
-    if (!isCode(identifyCode)) {
-      $('#popupCode').showMsg('验证码填写有误');
-      return;
-    }else {
-      $('#popupCode').hideMsg();
-    }
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
@@ -207,15 +217,21 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   $('.sureCard').click(function () {
     $('#popupCard').hideMsg();
     var accountNo = $('#resetBank').val();
-    if (!isBank(accountNo)) {
-      $('#popupCard').showMsg('银行卡号填写有误');
+    if(!accountNo==''){
+      if (!isBank(accountNo)) {
+        $('#popupCard').showMsg('银行卡号填写有误');
+        return;
+      } else {
+        store.set('accountNo',accountNo);
+        Toast({text:'银行卡号修改成功'});
+        $('#cardAccountNum span').text(store.get('accountNo'));
+        app.closeModal('.resetCard');
+      }
+    }else {
+      $('#popupCard').showMsg('银行卡号不能为空');
       return;
-    } else {
-      store.set('accountNo',accountNo);
-      Toast({text:'银行卡号修改成功'});
-      $('#cardAccountNum span').text(store.get('accountNo'));
-      app.closeModal('.resetCard');
     }
+
 
   })
 
