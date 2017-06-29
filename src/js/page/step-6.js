@@ -76,7 +76,8 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
           order.payStatus=1;
           upload(order,'inform-step1.html');
         } else {
-          Toast({text:d.message});
+          Toast('操作失败');
+          view.router.loadPage('index.html');
         }
       })
       .fail(function (d) {
