@@ -1,4 +1,4 @@
-import Toast from '../widget/toast'
+import toast from '../widget/toast'
 import modal from '../widget/modal'
 import timer from '../widget/timer'
 import steps from '../widget/steps'
@@ -13,11 +13,9 @@ let isOnline = false, // 是否联网
 window.app = new Framework7({ // 应用初始化
   activeState: false,
   init: false,
-  cache: false,
   swipeBackPage: false,
-  preloadPreviousPage: false,
   pushState: true,
-  pushStateNoAnimation: true
+  pushStateNoAnimation: true,
 })
 
 window.view = app.addView('.view-main', { // 视图初始化
@@ -25,10 +23,12 @@ window.view = app.addView('.view-main', { // 视图初始化
 })
 
 $(document).on('pageInit', '.page[data-page=index]', () => {
-  var open = {'identifier': config.termid};
+
+  var open = {'identifier': config.termid}
+
   $.ajax({
     url: url.test + request.allRequest,
-    type: 'GET',
+    type: 'POST',
     dataType: 'json',
     data: {
       merchantId: new Date().getTime(),
@@ -37,31 +37,31 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
     },
   })
     .done(function (d) {
-      if(d.code==0){
-        console.log(d);
-        isInit=true;
-        Toast({text:'服务器链接成功'});
-        $('.toolbar .name > span').text(d.object.propertiesForSale.address);
-        $('.toolbar .tel > span').text(d.object.propertiesForSale.picPhone);
-        $('.j-inner').removeClass('disabled').removeAttr('disabled');
-        store.set('propertiesForSale',d.object.propertiesForSale);
-        open.buildingId = d.object.propertiesForSale.id;
-        canOpen(open);
+
+      if (d.code === 0){
+        console.log(d)
+        isInit=true
+        $('.toolbar .name > span').text(d.object.propertiesForSale.address)
+        $('.toolbar .tel > span').text(d.object.propertiesForSale.picPhone)
+        $('.j-inner').removeClass('disabled').removeAttr('disabled')
+        store.set('propertiesForSale',d.object.propertiesForSale)
+        open.buildingId = d.object.propertiesForSale.id
+        canOpen(open)
       }
     })
     .fail(function (d) {
-      Toast({text:d.message});
+      toast({text:d.message})
     })
     .always(function () {
-      console.log("complete");
       if (!isInit) {
         modal({
+          legend: 'anime-upgrade',
+          status: 'primary',
           title: '正在初始化...',
-          mask: true,
-          full: true
-        });
+          mask: true
+        })
       }
-    });
+    })
 
 
 })
@@ -79,19 +79,9 @@ app.onPageInit('*', function (page) {
   }
 })
 
-
-
-// canvas转化图片
-function convertCanvasToImage(canvas) {
-  var image = new Image();
-  image.src = canvas.toDataURL("image/png");
-  return image;
-}
-
-
 function canOpen(data) {
-  data.redirectUrl = request.canOpen;
-  data.merchantId = new Date().getTime();
+  data.redirectUrl = request.canOpen
+  data.merchantId = new Date().getTime()
   $.ajax({
     url: url.test + request.allRequest,
     type: 'POST',
@@ -100,15 +90,14 @@ function canOpen(data) {
   })
     .done(function (d) {
       if (d.code == 0) {
-        console.log('可继续开户');
+        console.log('可继续开户')
       } else {
-        Toast("不可开户");
+        toast("不可开户")
       }
     })
     .fail(function (d) {
-      Toast("不可开户");
+      toast("不可开户")
     })
 }
-
 
 app.init()
