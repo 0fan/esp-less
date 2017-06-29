@@ -2,9 +2,13 @@ import Toast from '../widget/toast'
 import modal from '../widget/modal'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
+import {isBank} from '../utility/match'
+import {isTel} from '../utility/match'
 
 import url from '../data/data-url'
+import config from '../data/data-config'
 import request from '../data/data-connect'
+
 $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   steps({
     data: steps2,
@@ -86,24 +90,139 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         console.log("complete");
       });
   })
-  $('.sureCard').on('click', function () {
-    Toast({
-      text: '银行卡修改成功',
-      timer: 2000
-    });
-  });
-
-  $('.surePhone').on('click', function () {
-    Toast({
-      text: '电话号码修改成功',
-      timer: 2000
-    });
-  });
 
   $('.j-identifyStep4-open-error-btn').on('click', function () {
     $('.j-identifyStep4-open-error').removeClass('active');
     $.card('error');
   });
   
+// 信息修改弹出框
+  $('#resetCodeBtn').click(function (e) {
+    e.preventDefault;
+    var merchantId = new Date().getTime();
+    var phone = $('#resetPhone').val();
+    $.ajax({
+      url: url.test + request.allRequest,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        merchantId: merchantId,
+        redirectUrl: request.getValid,
+        mobile: phone,
+        channel: 'xingye'
+      },
+    })
+      .done(function (d) {
+        console.log(d);
+        if (d.code == 0) {
+          Toast({text:'验证码发送成功'});
+        } else {
+          Toast({text:d.message});
+        }
+      })
+      .fail(function (d) {
+        Toast({text:d.message});
+      })
+      .always(function () {
+        console.log("complete");
+      });
+  });
+  $('.surePhone').click(function (e) {
+    e.preventDefault;
+    var merchantId = new Date().getTime();
+    var phoneNum = $('#resetPhone').val();
+    var identifyCode = $('#resetCode').val();
+    var icNo = new Date().getTime();
+    store.set('icNo',icNo);
+    store.set('identifyCode',identifyCode);
+    store.set('phoneNum',phoneNum);
 
+    var data = {};
+    var order = {};
+    /*创建订单*/
+    order.termId = config.termid;
+    order.icNo = icNo;
+    order.fromType = 1;
+    order.identityCard = store.get('IDCardNo');
+    order.phone = phoneNum;
+
+    data.redirectUrl = request.bankcardSigning;
+    data.merchantId = merchantId;
+    data.accountName = store.get('accountName');
+    data.phone = phoneNum;
+    data.accountNo = store.get('accountNo');
+    data.idCardNo = store.get('IDCardNo');
+    data.price = store.get('propertiesForSaleType').price;
+    data.buildingId = store.get('propertiesForSale').id;
+    data.equType = 'ytj';
+
+    if (!isTel(phoneNum)) {
+      $('#popupPhone').showMsg('手机号填写有误');
+      return;
+    }
+    $.ajax({
+      url: url.test + request.allRequest,
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+    })
+      .done(function (d) {
+        if (d.code == 0) {
+          console.log(d);
+          store.set('bankName',d.object.bankName);
+          upload(order);
+        } else {
+          Toast({text:d.message});
+        }
+      })
+      .fail(function (d) {
+        Toast({text:d.message});
+      })
+      .always(function () {
+        console.log("complete");
+      });
+  });
+  $('.sureCard').click(function () {
+    var accountNo = $('#resetBank').val();
+    if (!isBank(accountNo)) {
+      $('#popupCard').showMsg('银行卡号填写有误');
+      return;
+    } else {
+      store.set('accountNo',accountNo);
+      Toast({text:'银行卡号修改成功'});
+      $('#cardAccountNum span').text(store.get('accountNo'));
+      app.closeModal('.resetCard');
+    }
+
+  })
+
+// 更新订单状态
+  function upload(data) {
+    data.redirectUrl=request.updateOrder;
+    data.merchantId = new Date().getTime();
+    console.log(data);
+    $.ajax({
+      url: url.test + request.allRequest,
+      type: 'POST',
+      dataType: 'json',
+      data: data,
+    })
+      .done(function (d) {
+        if (d.code == 0) {
+          Toast({text:'电话号码修改成功'});
+          $('#cardPhoneNum span').text(store.get('phoneNum'));
+          app.closeModal('.resetCard');
+          store.set('outOrderNo',d.object.id);
+        } else {
+          console.log(d);
+          Toast({text:d.message});
+          view.router.loadPage('index.html');
+        }
+      })
+      .fail(function (d) {
+        console.log(d);
+        Toast({text:d.message});
+        view.router.loadPage('index.html');
+      })
+  }
 })

@@ -40,7 +40,7 @@
             <div class="esp-card-status-view">
               <div class="esp-card-group">
                 <div class="esp-card-group-title">姓名</div>
-                <div id="cardName" class="esp-card-group-content"><sapn></sapn></div>
+                <div id="cardName" class="esp-card-group-content"><span></span></div>
               </div>
               <div class="esp-card-group">
                 <div class="esp-card-group-title">身份证号</div>
@@ -84,12 +84,12 @@
     <div class="popup popup-card resetCard">
       <p class="popup-title">请更换银行卡插入读卡器</p>
       <form action="#">
-        <div class="esp-form-control">
+        <div class="esp-form-control" id="popupCard">
           <i class="icon icon-material icon-creditcard"></i>
-          <input type="text" placeholder="银行卡号码" autocomplete="off" readonly="true">
+          <input id="resetBank" type="text" placeholder="银行卡号码" autocomplete="off">
         </div>
         <div class="text-center">
-          <a href="#" class="sureCard esp-btn close-popup">确认</a>
+          <a href="#" class="sureCard esp-btn">确认</a>
         </div>
       </form>
     </div>
@@ -97,23 +97,23 @@
     <div class="popup popup-phone resetPhone">
       <p class="popup-title">请更换手机输入手机号</p>
       <form action="#">
-        <div class=" esp-form-control">
+        <div class=" esp-form-control" id="popupPhone">
           <i class="icon icon-material icon-stayprimaryportrait"></i>
-          <input type="text" placeholder="手机号码" autocomplete="off">
+          <input id="resetPhone" type="text" placeholder="手机号码" autocomplete="off">
         </div>
         <div class="esp-row gutter-20">
           <div class="esp-col-13">
             <div class="esp-form-control">
               <i class="icon icon-material icon-security"></i>
-              <input type="text" placeholder="验证码" autocomplete="off">
+              <input id="resetCode" type="text" placeholder="验证码" autocomplete="off">
             </div>
           </div>
           <div class="esp-col-11">
-            <div id="testCode" class="esp-btn esp-btn-block esp-btn-valid esp-btn-link">获取验证码</div>
+            <div id="resetCodeBtn" class="esp-btn esp-btn-block esp-btn-valid esp-btn-link">获取验证码</div>
           </div>
         </div>
         <div class="text-center">
-          <a href="#" class="surePhone esp-btn close-popup">确认</a>
+          <a href="#" class="surePhone esp-btn">确认</a>
         </div>
       </form>
     </div>
