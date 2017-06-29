@@ -18,7 +18,7 @@
     transform: scale(1);
   }
 
-  &.anime1 {
+  &.anime1 { // 识别身份证
     background-image: url('../img/test2.png');
     animation: anime1 steps(60) 4s infinite;
   }
@@ -34,10 +34,22 @@
     background-image: url('../img/input-password.png');
     animation: anime4 steps(100) 4s infinite;
   }
-  &.anime5,
+  &.anime5, // 升级动画
   &.anime-upgrade {
     background-image: url('../img/upgrade.png');
-    animation: anime5 steps(37) 1s infinite;
+    animation: anime5 steps(37) 1.5s infinite;
+  }
+  &.anime6, // 开卡动画
+  &.anime-openCard,
+  &.anime-opencard,
+  &.anime-open-card {
+    background-image: url('../img/open-card.png');
+    animation: anime6 steps(75) 1.5s infinite;
+  }
+  &.anime7, // 打印动画
+  &.anime-print {
+    background-image: url('../img/stamp.png');
+    animation: anime7 steps(75) 1.5s infinite;
   }
 }
 
@@ -79,5 +91,21 @@
   }
   100% {
     background-position: 0 -11100px;
+  }
+}
+@keyframes anime6 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -22500px;
+  }
+}
+@keyframes anime7 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -22500px;
   }
 }

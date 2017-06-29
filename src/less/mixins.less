@@ -242,10 +242,12 @@
   &:active,
   &.active {
     background-image: none;
-    
-    .box-shadow(none);
-    .scale(.9);
+    background: darken(@background, 8%);
+
+    box-shadow: none;
+    transform: scale(.8);
   }
+
 
   &.disabled,
   &[disabled] {

@@ -119,6 +119,10 @@ class Modal extends Widget {
       this.boundingBox.css('left', '340px')
     }
 
+    if (this.cfg.status) {
+      this.boundingBox.addClass('has' + this.cfg.status.substr(0,1).toUpperCase() + this.cfg.status.substr(1).toLowerCase())
+    }
+
   }
 
   bindUI() {
@@ -153,7 +157,8 @@ class Modal extends Widget {
 
       if (isTransitionend) {
         this.fire('close')
-        this.boundingBox.remove()  
+        this.boundingBox.remove()
+        this.boundingBox = null
       }
       
     });
