@@ -14,9 +14,8 @@ class Modal extends Widget {
       status        : '',
       action        : [],
       withSidebar   : false,
-      callback      : null,
       mask          : false,
-      clickMaskHide : false,
+      clickMaskHide : false
     }, cfg)
 
     if ($('.esp-modal').length) {
@@ -72,8 +71,20 @@ class Modal extends Widget {
     _legend = this.cfg.legend ? '<div class="esp-modal-legend ' + this.cfg.legend + '"></div>' : ''
     _title  = this.cfg.title ? '<div class=esp-modal-title>' + this.cfg.title + '</div>' : ''
     _info   = this.cfg.info ? '<div class=esp-modal-info>' + this.cfg.info + '</div>' : ''
+    _legend = ''
     _action = ''
     _mask   = this.cfg.mask ? '<div class=esp-modal-mask></div>' : ''
+
+    if (this.cfg.legend) {
+      if (this.cfg.legend.match(/^legend/)) { // 插图
+        _legend = '<div class="esp-modal-legend ' + this.cfg.legend + '"></div>'
+      }
+      if (this.cfg.legend.match(/^anime/)) { // 动画
+        _legend = '<div class=esp-modal-legend>\
+                    <div class="esp-anime esp-anime-sm ' + this.cfg.legend + '"></div>\
+                  </div>' 
+      }
+    }
 
     if (this.cfg.action && this.cfg.action.length) {
       _action = '<div class=esp-modal-action>'
@@ -102,6 +113,10 @@ class Modal extends Widget {
 
     if (this.cfg.full) {
       $('.esp-modal-dialog', this.boundingBox).css('top', 0)
+    }
+
+    if (this.cfg.withSidebar) {
+      this.boundingBox.css('left', '340px')
     }
 
   }
