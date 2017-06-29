@@ -17,10 +17,6 @@ class Modal extends Widget {
       mask          : false,
       clickMaskHide : false
     }, cfg)
-
-    if ($('.esp-modal').length) {
-      return
-    }
     
     this.render()
 

@@ -2,9 +2,7 @@ import Toast from '../widget/toast'
 import modal from '../widget/modal'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
-import {isTel} from '../utility/match'
 
-import config from '../data/data-config'
 import url from '../data/data-url'
 import request from '../data/data-connect'
 $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
@@ -16,6 +14,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   var accountNo=store.get('accountNo');
   var IDCardNo=store.get('IDCardNo');
   var phoneNum=store.get('phoneNum');
+  var redirectUrl=request.open
   $('#cardName').text(accountName);
   $('#cardAccountNum').text(accountNo);
   $('#cardIDCardNo').text(IDCardNo);
@@ -29,9 +28,9 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     data.idCardNo = IDCardNo;
     data.channel = 'xingye';
     data.buildingId = store.get('propertiesForSale').id;
-    data.redirectUrl = request.open;
+    data.redirectUrl = redirectUrl;
     data.merchantId = new Date().getTime();
-    var loadingModal=modal({
+    let loadingModal=modal({
       legend: 'anime-opencard',
       clickMaskHide: false,
       title: '银行E卡正在开户中...',
@@ -42,13 +41,15 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
       url: url.test + request.allRequest,
       type: 'POST',
       dataType: 'json',
-      data: data,
+      // data: data,
     })
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
           Toast({text:'开户成功'});
+
           loadingModal.destory();
+
           $.card('success', function () {
             $('#open').text('确认开户').hide();
             $('#open-success').show();
@@ -57,7 +58,6 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
           });
         } else {
           loadingModal.destory();
-          Toast({text:d.message});
           var errorModal=modal({
             legend: 'legend2',
             title: '兴业银行E账户开通失败，请仔细核对开户信息',
@@ -69,12 +69,15 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
                   errorModal.destory();
                   $.card('error', function () {
                     $('#open').text('重新开户').show();
-                    $('#eBankNo').text(d.object.eBankNo);
                   });
                 }
               }
             ]
           });
+
+          Toast({text:d.message});
+
+
         }
       })
       .fail(function (d) {
