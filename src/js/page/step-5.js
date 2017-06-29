@@ -44,7 +44,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
       url: url.test + request.allRequest,
       type: 'POST',
       dataType: 'json',
-      // data: data,
+      data: data,
     })
       .done(function (d) {
         console.log(d);
@@ -101,11 +101,13 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     e.preventDefault;
     var merchantId = new Date().getTime();
     var phone = $('#resetPhone').val();
+    var IDCardNo = store.get('IDCardNo');
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
       dataType: 'json',
       data: {
+        idCardNo:IDCardNo,
         merchantId: merchantId,
         redirectUrl: request.getValid,
         mobile: phone,
@@ -132,7 +134,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     var merchantId = new Date().getTime();
     var phoneNum = $('#resetPhone').val();
     var identifyCode = $('#resetCode').val();
-    var icNo = new Date().getTime();
+    var icNo = store.get('icNo');
+    var outOrderNo = store.get('outOrderNo');
     store.set('icNo',icNo);
     store.set('identifyCode',identifyCode);
     store.set('phoneNum',phoneNum);
@@ -142,7 +145,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     /*创建订单*/
     order.termId = config.termid;
     order.icNo = icNo;
-    order.fromType = 1;
+    order.orderId=outOrderNo;
     order.identityCard = store.get('IDCardNo');
     order.phone = phoneNum;
 
@@ -211,7 +214,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         if (d.code == 0) {
           Toast({text:'电话号码修改成功'});
           $('#cardPhoneNum span').text(store.get('phoneNum'));
-          app.closeModal('.resetCard');
+          app.closeModal('.resetPhone');
           store.set('outOrderNo',d.object.id);
         } else {
           console.log(d);
