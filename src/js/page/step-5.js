@@ -14,11 +14,10 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   var accountNo=store.get('accountNo');
   var IDCardNo=store.get('IDCardNo');
   var phoneNum=store.get('phoneNum');
-  var redirectUrl=request.open
-  $('#cardName').text(accountName);
-  $('#cardAccountNum').text(accountNo);
-  $('#cardIDCardNo').text(IDCardNo);
-  $('#cardPhoneNum').text(phoneNum);
+  $('#cardName span').text(accountName);
+  $('#cardAccountNum span').text(accountNo);
+  $('#cardIDCardNo span').text(IDCardNo);
+  $('#cardPhoneNum span').text(phoneNum);
   $('#open').click(function (e) {
     e.preventDefault;
     var data = {};
@@ -28,7 +27,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     data.idCardNo = IDCardNo;
     data.channel = 'xingye';
     data.buildingId = store.get('propertiesForSale').id;
-    data.redirectUrl = redirectUrl;
+    data.redirectUrl = request.open;
     data.merchantId = new Date().getTime();
     let loadingModal=modal({
       legend: 'anime-opencard',

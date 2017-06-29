@@ -3,7 +3,7 @@
   $.extend({
     
     card: function(action, cb) {
-      var card = $('.esp-card').eq(0);
+      var card = $('.esp-card');
 
       if(!(card.length || action)) {
         return;
