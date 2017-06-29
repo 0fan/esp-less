@@ -20,6 +20,9 @@ function isBank(t) {
 function isCode(t) {
   return t.match(/^\d{6}$/) ? true : false
 }
+function isName(t) {
+  return t.match(/^([\u4e00-\u9fa5]{1,20}|[a-zA-Z\.\s]{1,20})$/) ? true : false
+}
 
 export {
   trim,
@@ -27,5 +30,6 @@ export {
   isTel,
   isIdCard,
   isBank,
-  isCode
+  isCode,
+  isName
 }

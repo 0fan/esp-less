@@ -3,6 +3,7 @@ import modal from '../widget/modal'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
 import {isIdCard} from '../utility/match'
+import {isName} from '../utility/match'
 
 import config from '../data/data-config'
 import url from '../data/data-url'
@@ -22,8 +23,13 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
       return;
     }else {
       $('#isIDCardNo').hideMsg();
-    }
-    ;
+    };
+    if (!isName(name)) {
+      $('#isName').showMsg('姓名填写有误');
+      return;
+    }else {
+      $('#isName').hideMsg();
+    };
     var data = {};
     data.name = name;
     data.houseBuyName = name;
