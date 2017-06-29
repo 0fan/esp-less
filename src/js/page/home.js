@@ -29,7 +29,7 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
   var open = {'identifier': config.termid}
 
   $.ajax({
-    url: url.test + request.allRequest,
+    url: url.test + request.allReques,
     type: 'POST',
     dataType: 'json',
     data: {
@@ -59,8 +59,7 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
         modal({
           legend: 'anime-upgrade',
           status: 'primary',
-          title: '正在初始化...',
-          mask: true
+          title: '正在和服务器取得连接...',
         })
       }
     })
