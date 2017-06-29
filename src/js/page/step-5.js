@@ -56,8 +56,9 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
             store.set('EbankNo',d.object.eBankNo);
           });
         } else {
+          loadingModal.destory();
           Toast({text:d.message});
-          errorModal({
+          var errorModal=modal({
             legend: 'legend2',
             title: '兴业银行E账户开通失败，请仔细核对开户信息',
             status: 'error',
@@ -65,9 +66,9 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
               {
                 text: '确认',
                 onClick: function () {
-                  errorModal.destory()
+                  errorModal.destory();
                   $.card('error', function () {
-                    $('#reOpen').show();
+                    $('#open').text('重新开户').show();
                     $('#eBankNo').text(d.object.eBankNo);
                   });
                 }
