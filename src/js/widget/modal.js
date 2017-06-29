@@ -98,6 +98,14 @@ class Modal extends Widget {
 
   }
 
+  syncUI() {
+
+    if (this.cfg.full) {
+      $('.esp-modal-dialog', this.boundingBox).css('top', 0)
+    }
+
+  }
+
   bindUI() {
     
     if (this.cfg.mask && this.cfg.clickMaskHide) {

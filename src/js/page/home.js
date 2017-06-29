@@ -29,7 +29,8 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
   if (!isInit) {
     modal({
       title: '正在初始化...',
-      mask: true
+      mask: true,
+      full: true
     });
   }
 
@@ -51,55 +52,3 @@ app.onPageInit('*', function (page) {
 
 
 app.init()
-
-function init() { // 初始化
-
-  $.ajax({
-    url: url.test + request.getBuild,
-    type: 'POSt',
-    dataType: 'json',
-    data: {
-      termid: config.termid
-    },
-  })
-  .done(function(res) {
-
-    console.log(res)
-
-    if (res.code === 0) {
-      toast({text: '服务器连接成功'})
-      isInit = true
-
-    }
-
-    if (res.code === -1) {
-      var m = modal({
-        legend: 'legend2',
-        title: res.error,
-        info: res.message,
-        mask: true
-      })
-      .on('open', () => {
-        timer({
-          target: $('.esp-modal').eq(0),
-          time: 5
-        })
-        .on('close', () => {
-          m.destory()
-        })
-      })
-    }
-
-  })
-  .fail(function() {
-    
-  })
-  .always(function() {
-    
-  })
-
-}
-
-function online() {
-
-}
