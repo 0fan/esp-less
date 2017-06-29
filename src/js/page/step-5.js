@@ -2,9 +2,7 @@ import Toast from '../widget/toast'
 import modal from '../widget/modal'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
-import {isTel} from '../utility/match'
 
-import config from '../data/data-config'
 import url from '../data/data-url'
 import request from '../data/data-connect'
 $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
@@ -16,11 +14,11 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
   var accountNo=store.get('accountNo');
   var IDCardNo=store.get('IDCardNo');
   var phoneNum=store.get('phoneNum');
-  $('#cardName').text(accountName);
-  $('#cardAccountNum').text(accountNo);
-  $('#cardIDCardNo').text(IDCardNo);
-  $('#cardPhoneNum').text(phoneNum);
-  $('#sureOpen').click(function (e) {
+  $('#cardName span').text(accountName);
+  $('#cardAccountNum span').text(accountNo);
+  $('#cardIDCardNo span').text(IDCardNo);
+  $('#cardPhoneNum span').text(phoneNum);
+  $('#open').click(function (e) {
     e.preventDefault;
     var data = {};
     data.phone = phoneNum;
@@ -31,8 +29,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     data.buildingId = store.get('propertiesForSale').id;
     data.redirectUrl = request.open;
     data.merchantId = new Date().getTime();
-    var loadingModal=modal({
-      legend: 'legend4',
+    let loadingModal=modal({
+      legend: 'anime-opencard',
       clickMaskHide: false,
       title: '银行E卡正在开户中...',
       status: 'primary',
@@ -42,13 +40,15 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
       url: url.test + request.allRequest,
       type: 'POST',
       dataType: 'json',
-      data: data,
+      // data: data,
     })
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
           Toast({text:'开户成功'});
+
           loadingModal.destory();
+
           $.card('success', function () {
             $('#open').text('确认开户').hide();
             $('#open-success').show();
@@ -56,8 +56,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
             store.set('EbankNo',d.object.eBankNo);
           });
         } else {
-          Toast({text:d.message});
-          errorModal({
+          loadingModal.destory();
+          var errorModal=modal({
             legend: 'legend2',
             title: '兴业银行E账户开通失败，请仔细核对开户信息',
             status: 'error',
@@ -65,15 +65,18 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
               {
                 text: '确认',
                 onClick: function () {
-                  errorModal.destory()
+                  errorModal.destory();
                   $.card('error', function () {
-                    $('#reOpen').show();
-                    $('#eBankNo').text(d.object.eBankNo);
+                    $('#open').text('重新开户').show();
                   });
                 }
               }
             ]
           });
+
+          Toast({text:d.message});
+
+
         }
       })
       .fail(function (d) {
