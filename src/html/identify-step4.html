@@ -9,10 +9,7 @@
     <!-- /left -->
     <!-- right -->
     <div class="right">
-      <a href="identify-step3.html" class="link back" data-force="true">
-        <i class="icon icon-material icon-arrowback"></i>
-        <span>返回</span>
-      </a>
+
       <a href="index.html" class="link " data-force="true">
         <i class="icon icon-material icon-home"></i>
         <span>首页</span>
@@ -81,7 +78,7 @@
     </div>
     <!-- /page-content -->
     <!--  Popup -->
-    <div class="popup popup-card resetCard">
+    <div class="popup popup-card resetCard" style="overflow: visible">
       <p class="popup-title">请更换银行卡插入读卡器</p>
       <form action="#">
         <div class="esp-form-control" id="popupCard">
@@ -94,7 +91,7 @@
       </form>
     </div>
 
-    <div class="popup popup-phone resetPhone">
+    <div class="popup popup-phone resetPhone" style="overflow: visible">
       <p class="popup-title">请更换手机输入手机号</p>
       <form action="#">
         <div class=" esp-form-control" id="popupPhone">
@@ -103,7 +100,7 @@
         </div>
         <div class="esp-row gutter-20">
           <div class="esp-col-13">
-            <div class="esp-form-control">
+            <div class="esp-form-control" id="popupCode">
               <i class="icon icon-material icon-security"></i>
               <input id="resetCode" type="text" placeholder="验证码" autocomplete="off">
             </div>

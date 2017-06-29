@@ -4,6 +4,7 @@ import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
 import {isBank} from '../utility/match'
 import {isTel} from '../utility/match'
+import {isCode} from '../utility/match'
 
 import url from '../data/data-url'
 import config from '../data/data-config'
@@ -88,7 +89,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:'开户出现问题'});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -127,7 +129,8 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -169,6 +172,14 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     if (!isTel(phoneNum)) {
       $('#popupPhone').showMsg('手机号填写有误');
       return;
+    }else {
+      $('#popupPhone').hideMsg();
+    }
+    if (!isCode(identifyCode)) {
+      $('#popupCode').showMsg('验证码填写有误');
+      return;
+    }else {
+      $('#popupCode').hideMsg();
     }
     $.ajax({
       url: url.test + request.allRequest,
@@ -186,13 +197,15 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
       });
   });
   $('.sureCard').click(function () {
+    $('#popupCard').hideMsg();
     var accountNo = $('#resetBank').val();
     if (!isBank(accountNo)) {
       $('#popupCard').showMsg('银行卡号填写有误');
@@ -230,8 +243,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        console.log(d);
-        Toast({text:d.message});
+        Toast('操作失败');
         view.router.loadPage('index.html');
       })
   }

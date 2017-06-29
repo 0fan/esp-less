@@ -18,8 +18,10 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
     var name = $('#name').val();
     var IDCardNo = $('#IDCardNo').val();
     if (!isIdCard(IDCardNo)) {
-      $('#isBankNo').showMsg('身份证填写有误');
+      $('#isIDCardNo').showMsg('身份证填写有误');
       return;
+    }else {
+      $('#isIDCardNo').hideMsg();
     }
     ;
     var data = {};
@@ -49,7 +51,8 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");

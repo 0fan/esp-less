@@ -94,11 +94,11 @@ function canOpen(data) {
       if (d.code == 0) {
         console.log('可继续开户')
       } else {
-        toast("不可开户")
+        toast({text:"不可开户"})
       }
     })
     .fail(function (d) {
-      toast("不可开户")
+      toast({text:"不可开户"})
     })
 }
 

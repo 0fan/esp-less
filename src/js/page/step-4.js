@@ -3,6 +3,7 @@ import modal from '../widget/modal'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
 import {isTel} from '../utility/match'
+import {isCode} from '../utility/match'
 
 import config from '../data/data-config'
 import url from '../data/data-url'
@@ -39,7 +40,8 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -87,6 +89,14 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     if (!isTel(phoneNum)) {
       $('#checkPhone').showMsg('手机号填写有误');
       return;
+    }else {
+      $('#checkPhone').hideMsg();
+    }
+    if (!isCode(identifyCode)) {
+      $('#checkCode').showMsg('验证码填写有误');
+      return;
+    }else {
+      $('#checkCode').hideMsg();
     }
     $.ajax({
       url: url.test + request.allRequest,
@@ -104,7 +114,8 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:d.message});
+        Toast('操作失败');
+        view.router.loadPage('index.html');
       })
       .always(function () {
         console.log("complete");
@@ -134,8 +145,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        console.log(d);
-        Toast({text:d.message});
+        Toast('操作失败');
         view.router.loadPage('index.html');
       })
   }

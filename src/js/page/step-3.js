@@ -13,12 +13,10 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
       $('#isBankNo').showMsg('银行卡号填写有误');
       return;
     } else {
+      $('#isBankNo').hideMsg();
       store.set('accountNo',accountNo);
       view.router.loadPage('identify-step3.html');
     }
 
   })
-
-  
-
 })
