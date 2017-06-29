@@ -22,24 +22,27 @@
     background-image: url('../img/test2.png');
     animation: anime1 steps(60) 4s infinite;
   }
-  &.anime2 {
+  &.anime2 { // 识别银行卡
     background-image: url('../img/identification-bank.png');
     animation: anime2 steps(96) 4s infinite;
   }
-  &.anime3 {
-    background-image: url('../img/input-phone.png');
-    animation: anime3 steps(154) 4s infinite;
+  &.anime3 { // 识别手机号
+    background-image: data-uri('../img/input-phone.png');
+    // background-image: url('../img/input-phone.png');
+    // animation: anime3 steps(154) 4s infinite;
   }
-  &.anime4 {
+  &.anime4 { // 输入支付密码
     background-image: url('../img/input-password.png');
     animation: anime4 steps(100) 4s infinite;
   }
   &.anime5, // 升级动画
+  &.anime-5,
   &.anime-upgrade {
     background-image: url('../img/upgrade.png');
     animation: anime5 steps(37) 1.5s infinite;
   }
   &.anime6, // 开卡动画
+  &.anime-6,
   &.anime-openCard,
   &.anime-opencard,
   &.anime-open-card {
@@ -47,6 +50,7 @@
     animation: anime6 steps(75) 1.5s infinite;
   }
   &.anime7, // 打印动画
+  &.anime-7,
   &.anime-print {
     background-image: url('../img/stamp.png');
     animation: anime7 steps(75) 1.5s infinite;
