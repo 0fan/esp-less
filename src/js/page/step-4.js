@@ -17,11 +17,13 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     e.preventDefault;
     var merchantId = new Date().getTime();
     var phone = $('#phoneNum').val();
+    var IDCardNo = store.get('IDCardNo');
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
       dataType: 'json',
       data: {
+        idCardNo:IDCardNo,
         merchantId: merchantId,
         redirectUrl: request.getValid,
         mobile: phone,
