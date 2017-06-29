@@ -9,11 +9,14 @@ import url from '../data/data-url'
 import request from '../data/data-connect'
 
 $(document).on('pageInit', '.page[data-page=switch-project]', () => {
+
   steps({
     data: steps1,
     active: 0
   });
+
   var propertiesForSaleType;
+
   $.ajax({
     url: url.test + request.allRequest,
     type: 'POST',
@@ -28,8 +31,13 @@ $(document).on('pageInit', '.page[data-page=switch-project]', () => {
       if (d.code == 0) {
         if (d.object.propertiesForSaleType.length != 0) {
           console.log(d);
+
+          
           _.each(d.object.propertiesForSaleType, function (item, index, arr) {
-            $("<div data-propertiesForSaleType='" + (JSON.stringify(item)) + "' class='switchProject-items_item'> <div class='info'> " + item.name + " </div> </div>").appendTo($('.j-switchProject-items .switchProject-items_wrap'));
+            $("<div data-propertiesForSaleType='" + (JSON.stringify(item)) + "' class='switchProject-items_item'>\
+                <div class='info'> " + item.name + " </div>\
+              </div>")
+              .appendTo($('.j-switchProject-items .switchProject-items_wrap'));
           });
         } else {
           Toast({test:d.message});
@@ -44,10 +52,12 @@ $(document).on('pageInit', '.page[data-page=switch-project]', () => {
     .always(function () {
       console.log("complete");
     });
+
     // handle
     $('.switchProject-items_wrap').on('click', '.switchProject-items_item', function (e) {
       propertiesForSaleType = JSON.parse($(this).attr('data-propertiesForSaleType'));
       store.set('propertiesForSaleType',propertiesForSaleType);
       view.router.loadPage('identify-step1.html');
     });
+
 })
