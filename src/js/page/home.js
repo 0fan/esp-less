@@ -26,13 +26,6 @@ window.view = app.addView('.view-main', { // 视图初始化
 
 $(document).on('pageInit', '.page[data-page=index]', () => {
 
-  if (!isInit) {
-    modal({
-      title: '正在初始化...',
-      mask: true,
-      full: true
-    });
-  }
 
 })
 

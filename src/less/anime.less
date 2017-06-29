@@ -1,13 +1,22 @@
 @anime-wdith: 600px;
 @anime-height: @anime-wdith;
 
+@anime-sm-width: 360px;
+@anime-sm-height: 300px;
+
 .esp-anime {
   // border-radius: 10px;
   width: @anime-wdith;
   height: @anime-height;
   background-repeat: no-repeat;
   background-position: top center;
-  .transform(scale(1.15));
+  transform: scale(1.15);
+
+  &.esp-anime-sm {
+    width: @anime-sm-width;
+    height: @anime-sm-height;
+    transform: scale(1);
+  }
 
   &.anime1 {
     background-image: url('../img/test2.png');
@@ -24,6 +33,10 @@
   &.anime4 {
     background-image: url('../img/input-password.png');
     animation: anime4 steps(100) 4s infinite;
+  }
+  &.anime5 {
+    background-image: url('../img/upgrade.png');
+    animation: anime5 steps(37) 1s infinite;
   }
 }
 
@@ -57,5 +70,13 @@
   }
   100% {
     background-position: 0 -60000px;
+  }
+}
+@keyframes anime5 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -11100px;
   }
 }
