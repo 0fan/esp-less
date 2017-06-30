@@ -3,9 +3,9 @@ $.fn.extend({
     
     var self = $(this);
 
-    if (!self.hasClass('esp-form-control')) {
-      return;
-    }
+    // if (!self.hasClass('esp-form-control')) {
+    //   return;
+    // }
 
     var text    = text || self.attr('data-esp-tip') || '默认错误',
         pos     = self.attr('data-esp-tip-pos') || 'left',

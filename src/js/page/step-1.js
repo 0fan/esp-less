@@ -66,12 +66,12 @@ $(document).on('pageInit', '.page[data-page=switch-project]', () => {
         }
 
         let _item = '',
-            _type = 'gaoceng',
+            _type = 'zidingyi',
             _name
 
         for (let i = 0, len = _data.length; i < len; i++) {
           
-          // 获取户型类型，默认为高层
+          // 获取户型类型
           if (_data[i].name.match(/\u9AD8\u5C42/)) { // 高层
             _type = 'gaoceng'
           }
@@ -88,8 +88,8 @@ $(document).on('pageInit', '.page[data-page=switch-project]', () => {
             _type = 'bieshu'
           }
 
-          if (_data[i].name.match(/\u5546\u4E1A/)) { // 商业
-            _type = 'shangye'
+          if (_data[i].name.match(/\u53E0\u62FC/)) { // 叠拼
+            _type = 'diepin'
           }
 
           if (_data[i].name.match(/\u5546\u94FA/)) { // 商铺

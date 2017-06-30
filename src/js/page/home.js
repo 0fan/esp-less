@@ -12,6 +12,8 @@ console.log(request.allRequest)
 let isOnline = false, // 是否联网
     isInit = false // 是否初始化
 
+window.modal = modal
+
 window.app = new Framework7({ // 应用初始化
   activeState: false,
   init: false,
