@@ -16,104 +16,109 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
   });
   var icNo=store.get('icNo');
   $('#pact').attr('src', url.test + request.getNotification + '?icNo=' + icNo);
-  $('#informStep1-sign').on('click', function () {
-    setTimeout(function () {
-      var wrapper = document.getElementById("sign"),
-        canvas = wrapper.querySelector("canvas"),
-        sign;
 
-      function resizeCanvas() {
-        var ratio = Math.max(window.devicePixelRatio || 1, 1);
-        canvas.width = canvas.offsetWidth * ratio;
-        canvas.height = canvas.offsetHeight * ratio;
-        canvas.getContext("2d").scale(ratio, ratio);
+  $('.popup-sign').on('opened', () => {
+    var wrapper = document.getElementById("sign"),
+      canvas = wrapper.querySelector("canvas"),
+      sign;
+
+    function resizeCanvas() {
+      var ratio = Math.max(window.devicePixelRatio || 1, 1);
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      canvas.getContext("2d").scale(ratio, ratio);
+    }
+
+    window.onresize = resizeCanvas;
+
+    resizeCanvas();
+
+    sign = new SignaturePad(canvas, {
+      minWidth: 2,
+      maxWidth: 4
+    });
+
+    $('.sign-btn.reset').on('click', function () {
+      sign.clear();
+      $('.icon', this).addClass('active');
+      $('.icon', this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oAnimationend animationend', function () {
+        $(this).removeClass('active');
+      });
+    });
+
+    $('.sign-btn.done').on('click', function () {
+      var signimg = convertCanvasToImage(sign).src;
+      var pos = signimg.indexOf(4) + 2;
+      var web64imgstr = signimg.substring(pos, signimg.length - pos);
+      var merchantId = new Date().getTime();
+      var outOrderNo=store.get('outOrderNo');
+      if (sign.isEmpty()) {
+        Toast({text: '请签名后再提交'});
+      } else {
+        $.ajax({
+          url: url.test + request.allRequest,
+          type: 'POST',
+          dataType: 'json',
+          data: {
+            redirectUrl: request.uploadSign,
+            merchantId: merchantId,
+            orderId: outOrderNo,
+            xhrFields: {withCredentials: true},
+            web64imgstr: web64imgstr,
+            fileSuffix: 'png',
+            signimg: ''
+          },
+        })
+          .done(function (d) {
+            console.log(d);
+            if (d.code == 0) {
+              app.closeModal();
+
+              let toHomeModdal, t
+
+              toHomeModdal=modal({
+                legend: 'legend3',
+                clickMaskHide: false,
+                title: '信息提交成功,正在返回首页...',
+                status: 'primary',
+                action:[{text: '返回首页',
+                  onClick: function () {
+                    toHomeModdal.destory();
+                    t.destory()
+                    view.router.loadPage('index.html');
+                  }}],
+              }).on('open', () => {
+
+                t=timer({
+                  time: 5
+                }).on('close',function () {
+                  toHomeModdal.destory();
+                  view.router.loadPage('index.html');
+                });
+
+              })
+
+            } else {
+              console.log(d);
+              Toast({text:d.message});
+            }
+          })
+          .fail(function (d) {
+            Toast({text:'操作失败'});
+            view.router.loadPage('index.html');
+          })
+          .always(function () {
+            console.log("complete");
+          });
       }
 
-      window.onresize = resizeCanvas;
+    });
+  })
 
-      resizeCanvas();
+  $('#informStep1-sign').on('click', function () {
 
-      sign = new SignaturePad(canvas, {
-        minWidth: 2,
-        maxWidth: 4
-      });
+    app.popup('.popup-sign')
 
-      $('.sign-btn.reset').on('click', function () {
-        sign.clear();
-        $('.icon', this).addClass('active');
-        $('.icon', this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oAnimationend animationend', function () {
-          $(this).removeClass('active');
-        });
-      });
-
-      $('.sign-btn.done').on('click', function () {
-        var signimg = convertCanvasToImage(sign).src;
-        var pos = signimg.indexOf(4) + 2;
-        var web64imgstr = signimg.substring(pos, signimg.length - pos);
-        var merchantId = new Date().getTime();
-        var outOrderNo=store.get('outOrderNo');
-        if (sign.isEmpty()) {
-          Toast({text: '请签名后再提交'});
-        } else {
-          $.ajax({
-            url: url.test + request.allRequest,
-            type: 'POST',
-            dataType: 'json',
-            data: {
-              redirectUrl: request.uploadSign,
-              merchantId: merchantId,
-              orderId: outOrderNo,
-              xhrFields: {withCredentials: true},
-              web64imgstr: web64imgstr,
-              fileSuffix: 'png',
-              signimg: ''
-            },
-          })
-            .done(function (d) {
-              console.log(d);
-              if (d.code == 0) {
-                app.closeModal();
-
-                let toHomeModdal, t
-
-                toHomeModdal=modal({
-                  legend: 'legend3',
-                  clickMaskHide: false,
-                  title: '信息提交成功,正在返回首页...',
-                  status: 'primary',
-                  action:[{text: '返回首页',
-                    onClick: function () {
-                      toHomeModdal.destory();
-                      t.destory()
-                      view.router.loadPage('index.html');
-                    }}],
-                }).on('open', () => {
-
-                  t=timer({
-                    time: 5
-                  }).on('close',function () {
-                    toHomeModdal.destory();
-                    view.router.loadPage('index.html');
-                  });
-
-                })
-
-              } else {
-                console.log(d);
-                Toast({text:d.message});
-              }
-            })
-            .fail(function (d) {
-              Toast({text:'操作失败'});
-              view.router.loadPage('index.html');
-            })
-            .always(function () {
-              console.log("complete");
-            });
-        }
-
-      });
-    }, 0);
   });
 
   // canvas转化图片
