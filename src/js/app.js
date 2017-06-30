@@ -1,9 +1,10 @@
 // utility 绑定在jquery对象上
-import './utility/nav'     // 控制导航栏回退按钮
-import './utility/sidebar' // 控制侧边栏显示
-import './utility/card'    // 控制开卡信息
-import './utility/form'    // 控制输入框提示
-import './utility/match'   // 校验工具
+import './utility/nav'       // 控制导航栏回退按钮
+import './utility/sidebar'   // 控制侧边栏显示
+import './utility/card'      // 控制开卡信息
+import './utility/form'      // 控制输入框提示
+import './utility/match'     // 校验工具
+import './utility/shield.js' // 屏蔽右键
 
 // component
 import Toast from './widget/toast'
