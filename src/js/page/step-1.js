@@ -163,5 +163,4 @@ $(document).on('pageInit', '.page[data-page=switch-project]', () => {
       view.router.loadPage('identify-step1.html')
 
     });
-
 })

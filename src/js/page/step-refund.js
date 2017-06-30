@@ -21,6 +21,7 @@ $(document).on('pageInit', '.page[data-page=refund]', () => {
   freshHtml();
   $('.page-content').on('click','.esp-table-content-row',function (e) {
     e.preventDefault();
+    $('#refund_btn').removeClass('disabled').removeAttr('disabled');
     $(this).addClass('active').siblings().removeClass('active');
   });
 })

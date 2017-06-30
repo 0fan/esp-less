@@ -14,6 +14,19 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
     data: steps2,
     active: 0
   });
+  $('#name').on('input',function () {
+    throttled();
+  });
+  $('#IDCardNo').on('input',function () {
+    throttled();
+  });
+  var throttled = _.throttle(function () {
+    if(!$('#name').val()==''&&!$('#IDCardNo').val()==''){
+      $('#identifyStep1-submit').removeAttr('disabled').removeClass('disabled');
+    }else {
+      $('#identifyStep1-submit').attr('disabled','disabled').addClass('disabled');
+    }
+  }, 500);
   $('#identifyStep1-submit').on('click', function (e) {
     e.preventDefault;
     var name = $('#name').val();
@@ -133,6 +146,8 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
 
   });
   function goon() {
+    var name = $('#name').val();
+    var IDCardNo = $('#IDCardNo').val();
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
@@ -159,4 +174,5 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
       })
 
   }
+
 });

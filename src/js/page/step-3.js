@@ -10,6 +10,16 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
     data: steps2,
     active: 1
   })
+  $('#accountNum').on('input',function () {
+    throttled();
+  });
+  var throttled = _.throttle(function () {
+    if(!$('#accountNum').val()==''){
+      $('#toI3').removeAttr('disabled').removeClass('disabled');
+    }else {
+      $('#toI3').attr('disabled','disabled').addClass('disabled');
+    }
+  }, 500);
 
   $('#toI3').click(function () {
 

@@ -15,6 +15,30 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
     data: steps2,
     active: 3
   });
+
+  $('#resetBank').on('input',function () {
+    throttled2();
+  });
+  var throttled2 = _.throttle(function () {
+    if(!$('#resetBank').val()==''){
+      $('.sureCard').removeAttr('disabled').removeClass('disabled');
+    }else {
+      $('.sureCard').attr('disabled','disabled').addClass('disabled');
+    }
+  }, 500);
+  $('#resetPhone').on('input',function () {
+    throttled();
+  });
+  $('#resetCode').on('input',function () {
+    throttled();
+  });
+  var throttled = _.throttle(function () {
+    if(!$('#resetCode').val()==''&&!$('#resetPhone').val()==''){
+      $('.surePhone').removeAttr('disabled').removeClass('disabled');
+    }else {
+      $('.surePhone').attr('disabled','disabled').addClass('disabled');
+    }
+  }, 500);
   var accountName=store.get('accountName');
   var accountNo=store.get('accountNo');
   var IDCardNo=store.get('IDCardNo');

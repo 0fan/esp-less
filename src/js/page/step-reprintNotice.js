@@ -26,6 +26,8 @@ $(document).on('pageInit', '.page[data-page=reprint-notice]', () => {
   $('.page-content').on('click','.esp-table-content-row',function (e) {
     e.preventDefault();
     $(this).addClass('active').siblings().removeClass('active');
+    $('#goonDeposit').removeClass('disabled').removeAttr('disabled');
+    $('#goonStamp').removeClass('disabled').removeAttr('disabled');
   });
 
 })
