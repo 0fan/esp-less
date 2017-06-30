@@ -20,7 +20,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     e.preventDefault;
     
     let merchantId = new Date().getTime(),
-        IDCardNo   = store.get('IDCar2dNo'),
+        IDCardNo   = store.get('IDCardNo'),
         phone      = $('#phoneNum').val()
 
     if (!IDCardNo) {

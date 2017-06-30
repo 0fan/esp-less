@@ -71,7 +71,7 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
     })
       .done(function (d) {
         if (d.code == 0) {
-          Toast({text:'存入成功'});
+          Toast({text:d.object});
           upload(order,'inform-step1.html');
         } else {
           Toast('操作失败');
