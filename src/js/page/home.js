@@ -71,7 +71,7 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
 
 app.onPageInit('*', function (page) {
   console.log(page.name + ' init')
-  if (page.name === 'index') {
+  if (page.name === 'index'||page.name === 'reprint-notice'||page.name === 'refund') {
     view.showToolbar()
     $.hideSidebar()
     $('.navbar').removeClass('navbar-reverse')

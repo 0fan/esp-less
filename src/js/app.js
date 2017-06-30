@@ -33,6 +33,8 @@ import './page/step-6'
 import './page/step-7'
 import './page/step-8'
 import './page/step-9'
+import './page/step-refund'
+import './page/step-reprintNotice'
 
 let state = [ // 状态树，存储用户的操作日志
   {
