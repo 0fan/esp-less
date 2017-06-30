@@ -15,7 +15,8 @@ class Modal extends Widget {
       action        : [],
       withSidebar   : false,
       mask          : false,
-      clickMaskHide : false
+      clickMaskHide : false,
+      during        : 300 // 动画的时长，用于调用回调
     }, cfg)
     
     this.render()
@@ -37,19 +38,13 @@ class Modal extends Widget {
     this.boundingBox[0].offsetWidth
 
     let $dialog = this.boundingBox.find('.esp-modal-dialog')
-    
-    let isTransitionend = false;
 
     this.boundingBox.addClass('in')
-    $dialog.one('transitionend', (e) => {
-      isTransitionend = true
 
-      if (isTransitionend) {
-        isTransitionend = false
-        this.fire('open')
-      }
+    $dialog.one('espTransitionEnd', (e) => {
+      this.fire('open')
+    }).emulateTransitionEnd(this.cfg.during)
 
-    })
   }
 
   renderUI() {
@@ -89,7 +84,7 @@ class Modal extends Widget {
         _action += '<button class="esp-modal-btn esp-btn">' + this.cfg.action[i].text + '</button>'
       }
 
-      _action += '</div>';
+      _action += '</div>'
     }
 
     _dialog += _legend
@@ -141,23 +136,18 @@ class Modal extends Widget {
     
     $(document.body).removeClass('with-modal')
 
-    this.boundingBox.off();
+    this.boundingBox.off()
 
-    let $dialog = this.boundingBox.find('.esp-modal-dialog');
+    let $dialog = this.boundingBox.find('.esp-modal-dialog')
 
-    let isTransitionend = false;
+    this.boundingBox.removeClass('in')
 
-    this.boundingBox.removeClass('in');
-    $dialog.one('transitionend', () => {
-      isTransitionend = true;
+    $dialog.one('espTransitionEnd', (e) => {
+      this.fire('close')
 
-      if (isTransitionend) {
-        this.fire('close')
-        this.boundingBox.remove()
-        this.boundingBox = null
-      }
-      
-    });
+      this.boundingBox.remove() 
+      this.boundingBox = null
+    }).emulateTransitionEnd(this.cfg.during)
 
   }
 
@@ -165,8 +155,8 @@ class Modal extends Widget {
 
 function getModal(cfg) {
   if (!(this instanceof Modal)) {
-    return new Modal(cfg);
+    return new Modal(cfg)
   }
 }
 
-export default getModal;
+export default getModal

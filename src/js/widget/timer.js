@@ -2,7 +2,7 @@ import Widget from './widget'
 
 class Timer extends Widget {
   constructor(cfg) {
-    super(cfg);
+    super(cfg)
 
     this.cfg = $.extend({}, {
       target             : document.body,
@@ -14,6 +14,7 @@ class Timer extends Widget {
       borderActiveColor  : '#00abfb',
       disX               : '50px',
       disY               : '50px',
+      during             : 300 // 动画的时长，用于调用回调
     }, cfg)
 
     this.render()
@@ -31,16 +32,10 @@ class Timer extends Widget {
 
     this.boundingBox[0].offsetWidth
 
-    let isTransitionend = false;
+    this.boundingBox.addClass('in').one('espTransitionEnd', (e) => {
+      this.fire('open')
+    }).emulateTransitionEnd(this.cfg.during)
 
-    this.boundingBox.addClass('in').one('transitionend', (e) => {
-      isTransitionend = true
-
-      if (isTransitionend) {
-        isTransitionend = false
-        this.fire('open')
-      }
-    })
   }
   
   renderUI() {
@@ -98,7 +93,7 @@ class Timer extends Widget {
         bottom: this.cfg.disY,
         top: 'atuo',
         left: 'auto'
-      });
+      })
     }
 
     if (p === 'left-bottom' || p === 'bottom-left' || p === 'l-b' || p === 'b-l') {
@@ -107,7 +102,7 @@ class Timer extends Widget {
         bottom: this.cfg.disY,
         right: 'auto',
         top: 'auto'
-      });
+      })
     }
 
     if (p === 'right-top' || p === 'top-right' || p === 'r-t' || p === 't-r') {
@@ -116,7 +111,7 @@ class Timer extends Widget {
         top: this.cfg.disY,
         left: 'auto',
         bottom: 'auto'
-      });
+      })
     }
 
     if (p === 'left-top' || p === 'top-left' || p === 'l-t' || p === 't-l') {
@@ -125,10 +120,10 @@ class Timer extends Widget {
         top: this.cfg.disY,
         right: 'auto',
         bottom: 'auto'
-      });
+      })
     }
 
-    $(this.cfg.target).css('position') === 'static' && $(this.cfg.target).css({'position': 'relative'});
+    $(this.cfg.target).css('position') === 'static' && $(this.cfg.target).css({'position': 'relative'})
     
   }
   
@@ -174,18 +169,14 @@ class Timer extends Widget {
     
     this.boundingBox.off()
     clearInterval(this._timer)
+    
+    this.boundingBox.removeClass('in').one('espTransitionEnd', (e) => {
+      this.fire('close')
 
-    let isTransitionend = false;
+      this.boundingBox.remove()
+      this.boundingBox = null
 
-    this.boundingBox.removeClass('in').one('transitionend', () => {
-      isTransitionend = true;
-
-      if (isTransitionend) {
-        this.fire('close')
-        this.boundingBox.remove()  
-      }
-      
-    });
+    }).emulateTransitionEnd(this.cfg.during)
 
   }
 
@@ -193,8 +184,8 @@ class Timer extends Widget {
 
 function getTimer(cfg) {
   if (!(this instanceof Timer)) {
-    return new Timer(cfg);
+    return new Timer(cfg)
   }
 }
 
-export default getTimer;
+export default getTimer

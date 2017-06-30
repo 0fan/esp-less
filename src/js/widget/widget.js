@@ -1,3 +1,5 @@
+import '../utility/transition'
+
 class Widget {
   constructor() {
     this.boundingBox = null

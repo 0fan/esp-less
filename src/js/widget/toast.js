@@ -6,9 +6,10 @@ class Toast extends Widget {
     super(cfg)
 
     this.cfg = $.extend({}, {
-      text: '默认提示',
-      time: 2.5,
-      target: document.body
+      text   : '默认提示',
+      time   : 2.5,
+      target : document.body,
+      during : 300 // 动画的时长，用于调用回调
     }, cfg)
 
     this.render()
@@ -24,22 +25,16 @@ class Toast extends Widget {
       .show()
     
     this.boundingBox[0].offsetWidth
+
+    this.boundingBox.addClass('in').one('espTransitionEnd', (e) => {
+      this.fire('open')
+
+      setTimeout(() => {
+        this.destory()
+      }, this.cfg.time * 1000)
+
+    }).emulateTransitionEnd(this.cfg.during)
     
-    let isTransitionend = false;
-
-    this.boundingBox.addClass('in').one('transitionend', (e) => {
-      isTransitionend = true;
-
-      if (isTransitionend) {
-        isTransitionend = false;
-        this.fire('open')
-        
-        setTimeout(() => {
-          this.destory()
-        }, this.cfg.time * 1000)
-      }
-
-    })
   }
 
   renderUI() {
@@ -49,15 +44,12 @@ class Toast extends Widget {
   destory() {
     let isTransitionend = false;
 
-    this.boundingBox.removeClass('in').one('transitionend', () => {
-      isTransitionend = true;
+    this.boundingBox.removeClass('in').one('espTransitionEnd', () => {
+      this.fire('close')
+      this.boundingBox.remove()
+      this.boundingBox = null
+    })
 
-      if (isTransitionend) {
-        this.fire('close')
-        this.boundingBox.remove()  
-      }
-      
-    });
   }
   
 }

@@ -10,8 +10,6 @@ import request from '../data/data-connect'
 let isOnline = false, // 是否联网
     isInit = false // 是否初始化
 
-window.modal = modal;
-
 window.app = new Framework7({ // 应用初始化
   activeState: false,
   init: false,
@@ -29,7 +27,7 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
   var open = {'identifier': config.termid}
 
   $.ajax({
-    url: url.test + request.allReques,
+    url: url.test + request.allRequest,
     type: 'POST',
     dataType: 'json',
     data: {
