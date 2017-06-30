@@ -51,7 +51,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast('操作失败');
+        Toast({text:'操作失败'});
         view.router.loadPage('index.html');
       })
       .always(function () {
@@ -136,7 +136,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast('操作失败');
+        Toast({text:'操作失败'});
         view.router.loadPage('index.html');
       })
       .always(function () {
@@ -167,7 +167,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         }
       })
       .fail(function (d) {
-        Toast('操作失败');
+        Toast({text:'操作失败'});
         view.router.loadPage('index.html');
       })
   }

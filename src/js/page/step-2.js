@@ -70,7 +70,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
         }
       })
       .fail(function (d) {
-        Toast('操作失败');
+        Toast({text:'操作失败'});
         view.router.loadPage('index.html');
       })
       .always(function () {
