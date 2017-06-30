@@ -82,6 +82,30 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
           let nextModal;
           if(d.object.code==1){
             goon();
+          }else if(d.object.code==0){
+            store.set('orderList', d.object.orderList);
+            nextModal = modal({
+              legend: 'legend3',
+              clickMaskHide: false,
+              title: '你已成功办理E账户，是否继续?',
+              status: 'primary',
+              action: [
+                {
+                  text: '继续办理',
+                  onClick: function () {
+                    nextModal.destory();
+                    view.router.loadPage('reprint-notice.html');
+                  }
+                },
+                {
+                  text: '重新开户',
+                  onClick: function () {
+                    nextModal.destory();
+                    goon();
+                  }
+                },
+              ]
+            })
           }else if(d.object.code==2){
             store.set('orderList', d.object.orderList);
             nextModal = modal({
