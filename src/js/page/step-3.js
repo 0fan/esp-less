@@ -1,5 +1,4 @@
 import steps from '../widget/steps'
-import toast from '../widget/steps'
 
 import {steps2} from '../data/data-steps'
 
@@ -18,20 +17,39 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
 
     if (!accountNo.length) {
       $('#isBankNo').showMsg('银行卡号不能为空')
-
-      return
-    }
-
-    if (!accountNo.match(isBank)) {
-      $('#isBankNo').showMsg('银行卡号填写有误')
-
       return;
     }
-    
 
-    store.set('accountNo',accountNo)
-    view.router.loadPage('identify-step3.html')
-    
+    if (!isBank(accountNo)) {
+      $('#isBankNo').showMsg('银行卡号填写有误');
+      var cardErrorModal = modal({
+        legend: 'legend2',
+        title: '银行卡填写有误，是否继续操作',
+        status: 'error',
+        action: [
+          {
+            text: '返回',
+            onClick: function () {
+              cardErrorModal.destory();
+              return;
+            }
+          },
+          {
+            text: '确认',
+            onClick: function () {
+              cardErrorModal.destory();
+              $('#isBankNo').hideMsg();
+              store.set('accountNo', accountNo);
+              view.router.loadPage('identify-step3.html');
+            }
+          }
+        ]
+      });
+
+    } else {
+      view.router.loadPage('identify-step3.html');
+    }
+
 
     // if(!accountNo==''){
     //   if (!isBank(accountNo)) {
@@ -39,8 +57,8 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
     //     return;
     //   } else {
     //     $('#isBankNo').hideMsg();
-        // store.set('accountNo',accountNo);
-        // view.router.loadPage('identify-step3.html')
+    // store.set('accountNo',accountNo);
+    // view.router.loadPage('identify-step3.html')
     //   }
     // }else {
     //   $('#isBankNo').showMsg('银行卡号不能为空');
