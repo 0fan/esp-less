@@ -11,6 +11,8 @@
   background-repeat: no-repeat;
   background-position: top center;
   transform: scale(1.15);
+  position: relative;
+  background-size: cover;
 
   &.esp-anime-sm {
     width: @anime-sm-width;
@@ -19,21 +21,72 @@
   }
 
   &.anime1 { // 识别身份证
-    background-image: url('../img/test2.png');
-    animation: anime1 steps(60) 4s infinite;
+    background-image: data-uri('../img/anime-idcard-home.png');
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url('../img/test2.png');
+      animation: anime1 steps(60) 4s infinite;
+      background-size: cover;
+    }
   }
   &.anime2 { // 识别银行卡
-    background-image: url('../img/identification-bank.png');
-    animation: anime2 steps(96) 4s infinite;
+    background-image: data-uri('../img/anime-bankcard-home.png');
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background-image: url('../img/identification-bank.png');
+      animation: anime2 steps(96) 4s infinite;
+      background-size: cover;
+    }
   }
   &.anime3 { // 识别手机号
-    background-image: url('../img/input-phone.png');
-    // background-image: url('../img/input-phone.png');
-    animation: anime3 steps(93) 4s infinite;
+    background-image: data-uri('../img/anime-phone-home.png');
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      
+
+      background-image: url('../img/input-phone.png');
+      animation: anime3 steps(93) 4s infinite;
+      background-size: cover;
+    }
   }
   &.anime4 { // 输入支付密码
-    background-image: url('../img/input-password.png');
-    animation: anime4 steps(100) 4s infinite;
+    background-image: data-uri('../img/anime-password-home.png');
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background-image: url('../img/input-password.png');
+      animation: anime4 steps(100) 4s infinite;
+      background-size: cover;
+    }
   }
   &.anime5, // 升级动画
   &.anime-5,

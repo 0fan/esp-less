@@ -1,5 +1,6 @@
 import Toast from '../widget/toast'
 import modal from '../widget/modal'
+import timer from '../widget/timer'
 import steps from '../widget/steps'
 import {steps2} from '../data/data-steps'
 import {isTel} from '../utility/match'
@@ -15,10 +16,31 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     active: 2
   });
   $('#identify-code').click(function (e) {
+
     e.preventDefault;
-    var merchantId = new Date().getTime();
-    var phone = $('#phoneNum').val();
-    var IDCardNo = store.get('IDCardNo');
+    
+    let merchantId = new Date().getTime(),
+        IDCardNo   = store.get('IDCar2dNo'),
+        phone      = $('#phoneNum').val()
+
+    if (!IDCardNo) {
+      let m, t
+      
+      m = modal({ // 未获取到身份证号码
+        status: 'error',
+        legend: 'legend3',
+        title: '未获取到身份证号码',
+        info: '将跳转到主页'
+      }).on('open', () => {
+        t = timer({
+          time: 5
+        }).on('close', () => {
+          m.destory()
+          view.router.loadPage('index.html')
+        })
+      })
+    }
+
     if(!phone==''){
       if (!isTel(phone)) {
         $('#checkPhone').showMsg('手机号填写有误');
@@ -57,8 +79,10 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
       .always(function () {
         console.log("complete");
       });
+
   });
   $('#toI4').click(function (e) {
+
     e.preventDefault;
     var merchantId = new Date().getTime();
     var phoneNum = $('#phoneNum').val();
