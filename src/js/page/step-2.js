@@ -18,35 +18,121 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
     e.preventDefault;
     var name = $('#name').val();
     var IDCardNo = $('#IDCardNo').val();
-    if(!name==''){
+    if (!name == '') {
       if (!isName(name)) {
         $('#isName').showMsg('姓名填写有误');
         return;
-      }else {
+      } else {
         $('#isName').hideMsg();
-      };
-    }else {
+      }
+      ;
+    } else {
       $('#isName').showMsg('姓名不能为空');
       return;
     }
-    if(!IDCardNo==''){
+    if (!IDCardNo == '') {
       if (!isIdCard(IDCardNo)) {
         $('#isIDCardNo').showMsg('身份证号填写有误');
         return;
-      }else {
+      } else {
         $('#isIDCardNo').hideMsg();
-      };
-    }else{
+      }
+      ;
+    } else {
       $('#isIDCardNo').showMsg('身份证号不能为空');
       return;
     }
-
 
 
     var data = {};
     data.name = name;
     data.houseBuyName = name;
     data.IDCardNo = IDCardNo;
+    $.ajax({
+      url: url.test + request.allRequest,
+      type: 'POST',
+      dataType: 'json',
+      data: {
+        redirectUrl: request.getIDCardAfterStep,
+        merchantId: new Date().getTime(),
+        idCardNo: IDCardNo,
+        buildingId: store.get('propertiesForSale').id,
+        propertyTypeId: store.get('propertiesForSaleType').id
+      },
+    })
+      .done(function (d) {
+        let nextModal;
+        console.log(d);
+        if (d.code == 0) {
+          store.set('accountName', name);
+          store.set('IDCardNo', IDCardNo);
+          let nextModal;
+          if(d.object.code==1){
+            goon();
+          }else if(d.object.code==2){
+            store.set('orderList', d.object.orderList);
+            nextModal = modal({
+              legend: 'legend3',
+              clickMaskHide: false,
+              title: '你已成功办理E账户，是否继续?',
+              status: 'primary',
+              action: [
+                {
+                  text: '继续办理',
+                  onClick: function () {
+                    nextModal.destory();
+                    view.router.loadPage('reprint-notice.html');
+                  }
+                },
+                {
+                  text: '重新开户',
+                  onClick: function () {
+                    nextModal.destory();
+                    goon();
+                  }
+                },
+              ]
+            })
+          }else if(d.object.code==3){
+            store.set('orderList', d.object.orderList);
+            nextModal = modal({
+              legend: 'legend3',
+              clickMaskHide: false,
+              title: '你已成功办理E账户，是否继续?',
+              status: 'primary',
+              action: [
+                {
+                  text: '继续办理',
+                  onClick: function () {
+                    nextModal.destory();
+                    view.router.loadPage('refund.html');
+                  }
+                },
+                {
+                  text: '重新开户',
+                  onClick: function () {
+                    nextModal.destory();
+                    goon();
+                  }
+                },
+              ]
+            })
+          }
+
+        } else {
+          Toast({text: d.message});
+        }
+      })
+      .fail(function (d) {
+        Toast({text: '操作失败'});
+        view.router.loadPage('index.html');
+      })
+      .always(function () {
+        console.log("complete");
+      });
+
+  });
+  function goon() {
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
@@ -62,20 +148,15 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
-          store.set('accountName',name);
-          store.set('IDCardNo',IDCardNo);
           view.router.loadPage('identify-step2.html');
         } else {
-          Toast({text:d.message});
+          Toast({text: d.message});
         }
       })
       .fail(function (d) {
-        Toast({text:'操作失败'});
+        Toast({text: '操作失败'});
         view.router.loadPage('index.html');
       })
-      .always(function () {
-        console.log("complete");
-      });
 
-  });
+  }
 });
