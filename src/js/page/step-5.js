@@ -54,10 +54,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
-          Toast({text:'开户成功'});
-
           loadingModal.destory();
-
           $.card('success', function () {
             $('#open').text('确认开户').hide();
             $('#open-success').show();
@@ -207,7 +204,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:'操作失败'});
+        Toast('操作失败');
         view.router.loadPage('index.html');
       })
       .always(function () {
@@ -259,7 +256,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         }
       })
       .fail(function (d) {
-        Toast({text:'操作失败'});
+        Toast('操作失败');
         view.router.loadPage('index.html');
       })
   }

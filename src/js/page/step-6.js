@@ -70,10 +70,8 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
       data: data,
     })
       .done(function (d) {
-        console.log(d);
         if (d.code == 0) {
           Toast({text:'存入成功'});
-          order.payStatus=1;
           upload(order,'inform-step1.html');
         } else {
           Toast('操作失败');

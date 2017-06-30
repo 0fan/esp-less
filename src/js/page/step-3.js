@@ -13,8 +13,7 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
 
   $('#toI3').click(function () {
 
-    let accountNo = $.trim($('#accountNum').val());
-
+    var accountNo = $.trim($('#accountNum').val());
     if (!accountNo.length) {
       $('#isBankNo').showMsg('银行卡号不能为空')
       return;
@@ -48,6 +47,7 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
 
     } else {
       view.router.loadPage('identify-step3.html');
+      store.set('accountNo', accountNo);
     }
 
 

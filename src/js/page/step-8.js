@@ -1,6 +1,7 @@
 import Toast from '../widget/toast'
 import modal from '../widget/modal'
 import steps from '../widget/steps'
+import timer from '../widget/timer'
 import {steps4} from '../data/data-steps'
 import {isTel} from '../utility/match'
 
@@ -54,7 +55,6 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
         if (sign.isEmpty()) {
           Toast({text: '请签名后再提交'});
         } else {
-          Toast({text: '签名成功,等待信息提交...',});
           $.ajax({
             url: url.test + request.allRequest,
             type: 'POST',
@@ -72,8 +72,32 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
             .done(function (d) {
               console.log(d);
               if (d.code == 0) {
-                Toast({text: '信息提交成功',});
                 app.closeModal();
+
+                let toHomeModdal, t
+
+                toHomeModdal=modal({
+                  legend: 'legend3',
+                  clickMaskHide: false,
+                  title: '信息提交成功,正在返回首页...',
+                  status: 'primary',
+                  action:[{text: '返回首页',
+                    onClick: function () {
+                      toHomeModdal.destory();
+                      t.destory()
+                      view.router.loadPage('index.html');
+                    }}],
+                }).on('open', () => {
+
+                  t=timer({
+                    time: 5
+                  }).on('close',function () {
+                    toHomeModdal.destory();
+                    view.router.loadPage('index.html');
+                  });
+
+                })
+
               } else {
                 console.log(d);
                 Toast({text:d.message});

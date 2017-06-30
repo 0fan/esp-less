@@ -64,6 +64,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     var phoneNum = $('#phoneNum').val();
     var identifyCode = $('#identifyCode').val();
     var icNo = new Date().getTime();
+    var accountNo=store.get('accountNo');
     store.set('icNo',icNo);
     store.set('identifyCode',identifyCode);
     store.set('phoneNum',phoneNum);
@@ -80,7 +81,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     order.name = store.get('accountName');
     order.IDCardNo = store.get('IDCardNo');
     order.phone = phoneNum;
-    order.bankNum = store.get('accountNo');
+    order.bankNum = accountNo;
     order.channel = 'xingye';
     order.houseBuyName = store.get('accountName');
     order.payStatus = -1;
@@ -91,7 +92,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     data.merchantId = merchantId;
     data.accountName = store.get('accountName');
     data.phone = phoneNum;
-    data.accountNo = store.get('accountNo');
+    data.accountNo = accountNo;
     data.idCardNo = store.get('IDCardNo');
     data.price = store.get('propertiesForSaleType').price;
     data.buildingId = store.get('propertiesForSale').id;
