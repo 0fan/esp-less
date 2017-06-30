@@ -55,6 +55,14 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
       if (sign.isEmpty()) {
         Toast({text: '请签名后再提交'});
       } else {
+        app.closeModal();
+        let loadingModal;
+        loadingModal=modal({
+          legend: 'legend3',
+          clickMaskHide: false,
+          title: '签名上传中...',
+          status: 'primary'
+        })
         $.ajax({
           url: url.test + request.allRequest,
           type: 'POST',
@@ -99,7 +107,6 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
               })
 
             } else {
-              console.log(d);
               Toast({text:d.message});
             }
           })
@@ -108,7 +115,9 @@ $(document).on('pageInit', '.page[data-page=inform-step1]', () => {
             view.router.loadPage('index.html');
           })
           .always(function () {
+            loadingModal.destory();
             console.log("complete");
+            sign.clear();
           });
       }
 
