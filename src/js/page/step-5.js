@@ -144,6 +144,7 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
+          $('#resetCodeBtn').code();
           Toast({text:'验证码发送成功'});
         } else {
           Toast({text:d.message});

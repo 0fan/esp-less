@@ -15,10 +15,21 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
     data: steps2,
     active: 2
   });
+  $('#phoneNum').on('input',function () {
+    throttled();
+  });
+  $('#identifyCode').on('input',function () {
+    throttled();
+  });
+  var throttled = _.throttle(function () {
+    if(!$('#phoneNum').val()==''&&!$('#identifyCode').val()==''){
+      $('#toI4').removeAttr('disabled').removeClass('disabled');
+    }else {
+      $('#toI4').attr('disabled','disabled').addClass('disabled');
+    }
+  }, 500);
   $('#identify-code').click(function (e) {
-
     e.preventDefault;
-    
     let merchantId = new Date().getTime(),
         IDCardNo   = store.get('IDCardNo'),
         phone      = $('#phoneNum').val()
@@ -67,6 +78,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
       .done(function (d) {
         console.log(d);
         if (d.code == 0) {
+          $('#identify-code').code();
           Toast({text:'验证码发送成功'});
         } else {
           Toast({text:d.message});
