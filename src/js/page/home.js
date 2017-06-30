@@ -7,6 +7,8 @@ import config from '../data/data-config'
 import url from '../data/data-url'
 import request from '../data/data-connect'
 
+console.log(request.allRequest)
+
 let isOnline = false, // 是否联网
     isInit = false // 是否初始化
 
