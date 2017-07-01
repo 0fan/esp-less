@@ -9,27 +9,25 @@ $.fn.extend({
 
     var text    = text || self.attr('data-esp-tip') || '默认错误',
         pos     = self.attr('data-esp-tip-pos') || 'left',
-        isInit  = false;
+        isInit  = false
+
+    self[0].offsetWidth
 
     self
       .attr('data-esp-tip', text)
       .attr('data-esp-tip-pos', pos)
       .attr('data-esp-tip-hasIcon', '')
-      .addClass('hasWarming');
+      .addClass('hasWarming')
 
-    setTimeout(function() {
-      self.attr('data-esp-tip-visible', '');
+    self.attr('data-esp-tip-visible', '')
 
-      self.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionend transitionend', function() {
-        if (!isInit) {
-          cb && cb();
-          isInit = true;
-          self.off('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionend transitionend');
-        }
-      });
-
-    }, 0);
-
+    self.one('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionend transitionend', function() {
+      if (!isInit) {
+        cb && cb();
+        isInit = true;
+        self.off('webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionend transitionend')
+      }
+    })
 
   },
 

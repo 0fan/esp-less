@@ -59,7 +59,6 @@ class Modal extends Widget {
 
     _modal  = '<div class=esp-modal>'
     _dialog = '<div class=esp-modal-dialog>'
-    _legend = this.cfg.legend ? '<div class="esp-modal-legend ' + this.cfg.legend + '"></div>' : ''
     _title  = this.cfg.title ? '<div class=esp-modal-title>' + this.cfg.title + '</div>' : ''
     _info   = this.cfg.info ? '<div class=esp-modal-info>' + this.cfg.info + '</div>' : ''
     _legend = ''
@@ -73,7 +72,7 @@ class Modal extends Widget {
       if (this.cfg.legend.match(/^anime/)) { // 动画
         _legend = '<div class=esp-modal-legend>\
                     <div class="esp-anime esp-anime-sm ' + this.cfg.legend + '"></div>\
-                  </div>' 
+                   </div>' 
       }
     }
 

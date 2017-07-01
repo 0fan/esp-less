@@ -37,14 +37,3 @@ import './page/step-8'
 import './page/step-9'
 import './page/step-refund'
 import './page/step-reprintNotice'
-
-let state = [ // 状态树，存储用户的操作日志
-  {
-    time: null,
-    id: null,
-    status: null,
-    tel: null,
-    action: [],
-  }
-]
-

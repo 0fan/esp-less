@@ -14,9 +14,9 @@ class Widget {
 
   renderUI() {} // 生成插件结构
 
-  bindUI() {} // 绑定事件
-
   syncUI() {} // 定制插件特征
+
+  bindUI() {} // 绑定事件
 
   destory() {} // 销毁
 

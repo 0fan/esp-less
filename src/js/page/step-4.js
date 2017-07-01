@@ -2,53 +2,67 @@ import Toast from '../widget/toast'
 import modal from '../widget/modal'
 import timer from '../widget/timer'
 import steps from '../widget/steps'
-import {steps2} from '../data/data-steps'
-import {isTel} from '../utility/match'
-import {isCode} from '../utility/match'
 
-import config from '../data/data-config'
-import url from '../data/data-url'
+import { isTel }  from '../utility/match'
+import { steps2 } from '../data/data-steps'
+import { isCode } from '../utility/match'
+
+import url     from '../data/data-url'
+import config  from '../data/data-config'
 import request from '../data/data-connect'
 
 $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
+  
   steps({
     data: steps2,
     active: 2
-  });
-  $('#phoneNum').on('input',function () {
-    throttled();
-  });
-  $('#identifyCode').on('input',function () {
-    throttled();
-  });
-  var throttled = _.throttle(function () {
-    if(!$('#phoneNum').val()==''&&!$('#identifyCode').val()==''){
+  })
+  
+  $('#phoneNum').on('input', () => {
+    throttled()
+  })
+
+  $('#identifyCode').on('input', () => {
+    throttled()
+  })
+
+  let throttled = _.throttle(() => {
+    
+    if(!($('#phoneNum').val() === '') && !($('#identifyCode').val() === '') ){
       $('#toI4').removeAttr('disabled').removeClass('disabled');
     }else {
       $('#toI4').attr('disabled','disabled').addClass('disabled');
     }
+
   }, 500);
+
   $('#identify-code').click(function (e) {
-    e.preventDefault;
+    e.preventDefault
+
     let merchantId = new Date().getTime(),
         IDCardNo   = store.get('IDCardNo'),
         phone      = $('#phoneNum').val()
 
     if (!IDCardNo) {
+
       let m, t
       
       m = modal({ // 未获取到身份证号码
+
         status: 'error',
         legend: 'legend3',
-        title: '未获取到身份证号码',
-        info: '将跳转到主页'
+        title : '未获取到身份证号码',
+        info  : '将跳转到主页'
+
       }).on('open', () => {
+
         t = timer({
           time: 5
         }).on('close', () => {
           m.destory()
           view.router.loadPage('index.html')
         })
+
       })
     }
 
@@ -63,6 +77,7 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
       $('#checkPhone').showMsg('手机号不能为空');
       return;
     }
+
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
@@ -93,46 +108,51 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
       });
 
   });
+
   $('#toI4').click(function (e) {
 
     e.preventDefault;
-    var merchantId = new Date().getTime();
-    var phoneNum = $('#phoneNum').val();
-    var identifyCode = $('#identifyCode').val();
-    var icNo = new Date().getTime();
-    var accountNo=store.get('accountNo');
+    let merchantId = new Date().getTime();
+    let phoneNum = $('#phoneNum').val();
+    let identifyCode = $('#identifyCode').val();
+    let icNo = new Date().getTime();
+    let accountNo=store.get('accountNo');
     store.set('icNo',icNo);
     store.set('identifyCode',identifyCode);
     store.set('phoneNum',phoneNum);
 
-    var data = {};
-    var order = {};
+    let data = {},
+        order = {};
     /*创建订单*/
-    order.termId = config.termid;
-    order.icNo = icNo;
-    order.fromType = 1;
-    order.identityCard = store.get('IDCardNo');
-    order.propertyId = store.get('propertiesForSale').id;
-    order.propertyTypeId = store.get('propertiesForSaleType').id;
-    order.name = store.get('accountName');
-    order.IDCardNo = store.get('IDCardNo');
-    order.phone = phoneNum;
-    order.bankNum = accountNo;
-    order.channel = 'xingye';
-    order.houseBuyName = store.get('accountName');
-    order.payStatus = -1;
-    order.tradeAmount = store.get('propertiesForSaleType').price;
 
+    order = {
+      fromType      : 1,
+      payStatus     : -1,
+      channel       : 'xingye',
+      icNo          : icNo,
+      phone         : phoneNum,
+      bankNum       : accountNo,
+      termId        : config.termid,
+      identityCard  : store.get('IDCardNo'),
+      IDCardNo      : store.get('IDCardNo'),
+      houseBuyName  : store.get('accountName'),
+      name          : store.get('accountName'),
+      tradeAmount   : store.get('propertiesForSaleType').price,
+      propertyId    : store.get('propertiesForSale').id,
+      propertyTypeId: store.get('propertiesForSaleType').id,
+    }
 
-    data.redirectUrl = request.bankcardSigning;
-    data.merchantId = merchantId;
-    data.accountName = store.get('accountName');
-    data.phone = phoneNum;
-    data.accountNo = accountNo;
-    data.idCardNo = store.get('IDCardNo');
-    data.price = store.get('propertiesForSaleType').price;
-    data.buildingId = store.get('propertiesForSale').id;
-    data.equType = 'ytj';
+    data = {
+      equType    : 'ytj',
+      phone      : phoneNum,
+      accountNo  : accountNo,
+      merchantId : merchantId,
+      redirectUrl: request.bankcardSigning,
+      idCardNo   : store.get('IDCardNo'),
+      accountName: store.get('accountName'),
+      buildingId : store.get('propertiesForSale').id,
+      price      : store.get('propertiesForSaleType').price,
+    }
 
     if(!phoneNum==''){
       if (!isTel(phoneNum)) {
@@ -183,9 +203,12 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
 
 // 更新订单状态
   function upload(data, Url) {
-    data.redirectUrl=request.updateOrder;
-    data.merchantId = new Date().getTime();
+
+    data.redirectUrl = request.updateOrder
+    data.merchantId = new Date().getTime()
+
     console.log(data);
+
     $.ajax({
       url: url.test + request.allRequest,
       type: 'POST',
@@ -207,5 +230,6 @@ $(document).on('pageInit', '.page[data-page=identify-step3]', () => {
         Toast({text:'操作失败'});
         view.router.loadPage('index.html');
       })
+
   }
 })

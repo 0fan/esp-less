@@ -33,7 +33,7 @@ $(document).on('pageInit', '.page[data-page=identify-step2]', () => {
       $('#isBankNo').showMsg('银行卡号填写有误');
       var cardErrorModal = modal({
         legend: 'legend2',
-        title: '银行卡填写有误，是否继续操作',
+        title: '银行卡可能有误，是否继续操作',
         status: 'error',
         action: [
           {

@@ -1,20 +1,21 @@
 $.fn.extend({
   code: function (x) {
-    var X = $.extend({}, {
+    let X = $.extend({}, {
       countdown: 1000,
       html: '获取验证码',
       time: 60
     }, x);
 
-    var html = X.html,
-      time = X.time,
-      _self = $(this),
-      countdown = X.countdown,
-      allTime = X.countdown;
+    let html      = X.html,
+        time      = X.time,
+        _self     = $(this),
+        countdown = X.countdown,
+        allTime   = X.countdown;
 
     setTime();
+
     function setTime() {
-      if (time == 0) {
+      if (time === 0) {
         html = '获取验证码';
         _self.text(html).removeAttr("disabled");
         time = allTime;
