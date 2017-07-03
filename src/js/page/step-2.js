@@ -194,7 +194,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
 
           console.log(d)
           
-          if (d.object && typeof d.object === 'string' && d.object.match(/\u5DF2\u5B58\u5728/)) { // 如果提示信息已存在
+          /*if (d.object && typeof d.object === 'string' && d.object.match(/\u5DF2\\u5728/)) { // 如果提示信息已存在
             let m = modal({
               legend: 'legend1',
               status: 'primary',
@@ -218,7 +218,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
             })
 
             return
-          }
+          }*/
 
 
           view.router.loadPage('identify-step2.html')
