@@ -145,7 +145,7 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
                   console.log('等待支付')
                 }
 
-                if (status === 1) {
+                if (status === 1 || status === 12) {
                   m1.destory()
                   console.log('支付成功')
                   clearInterval(timerTask)
