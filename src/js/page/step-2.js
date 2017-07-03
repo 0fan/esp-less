@@ -2,7 +2,7 @@ import toast from '../widget/toast'
 import modal from '../widget/modal'
 import steps from '../widget/steps'
 
-import { steps2 }   from '../data/data-steps'
+import {steps2}   from '../data/data-steps'
 import {
   trim,
   isIdCard,
@@ -19,15 +19,15 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
     data: steps2,
     active: 0
   })
-  
+
   // handle
   $('#identifyStep1-submit').on('click', function (e) {
     e.preventDefault
 
-    let name_wrap   = $('#isName'),
-        idcard_wrap = $('#isIDCardNo'),
-        name        = trim($('#name').val()),
-        IDCardNo    = trim($('#IDCardNo').val())
+    let name_wrap = $('#isName'),
+      idcard_wrap = $('#isIDCardNo'),
+      name = trim($('#name').val()),
+      IDCardNo = trim($('#IDCardNo').val())
 
     if (!name.length) {
       name_wrap.showMsg('姓名不能为空')
@@ -55,9 +55,9 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
 
 
     let data = {
-      name         : name,
-      houseBuyName : name,
-      IDCardNo     : IDCardNo
+      name: name,
+      houseBuyName: name,
+      IDCardNo: IDCardNo
     }
 
     $.ajax({
@@ -65,12 +65,12 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
       type: 'POST',
       dataType: 'json',
       data: {
-        channel        : 'xingye',
-        idCardNo       : IDCardNo,
-        merchantId     : new Date().getTime(),
-        redirectUrl    : request.getIDCardAfterStep,
-        buildingId     : store.get('propertiesForSale').id,
-        propertyTypeId : store.get('propertiesForSaleType').id
+        channel: 'xingye',
+        idCardNo: IDCardNo,
+        merchantId: new Date().getTime(),
+        redirectUrl: request.getIDCardAfterStep,
+        buildingId: store.get('propertiesForSale').id,
+        propertyTypeId: store.get('propertiesForSaleType').id
       }
     })
       .done(function (d) {
@@ -82,40 +82,39 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
           store.set('accountName', name)
           store.set('IDCardNo', IDCardNo)
 
-          if(d.object.code === 1){
+          if (d.object.code === 1) {
 
             goon();
 
           }
           if (d.object.code === 0) {
-       let accountNo=d.object.cardNo;
-       let phoneNum=d.object.phone;
-       let bankName=d.object.cardName;
-       let accountName= name;
-       let EbankNo=d.object.eCardNo;
-       let icNo=new Date().getTime;
-       let order = {
-        icNo:new Date().getTime,
-         fromType      : 1,
-         payStatus     : -1,
-         channel       : 'xingye',
-         icNo          : icNo,
-         phone         : phoneNum,
-         bankNum       : accountNo,
-         termId        : config.termid,
-         identityCard  : IDCardNo,
-         ebank          : EbankNo,
-         IDCardNo      : IDCardNo,
-         houseBuyName  : name,
-         name          : name,
-         tradeAmount   : store.get('propertiesForSaleType').price,
-         propertyId    : store.get('propertiesForSale').id,
-         propertyTypeId: store.get('propertiesForSaleType').id,
-       }
+            let accountNo = d.object.cardNo;
+            let phoneNum = d.object.phone;
+            let bankName = d.object.cardName;
+            let accountName = name;
+            let EbankNo = d.object.eCardNo;
+            let icNo = new Date().getTime();
+            let order = {
+              icNo: icNo,
+              fromType: 1,
+              payStatus: -1,
+              channel: 'xingye',
+              phone: phoneNum,
+              bankNum: accountNo,
+              termId: config.termid,
+              identityCard: IDCardNo,
+              ebank: EbankNo,
+              IDCardNo: IDCardNo,
+              houseBuyName: name,
+              name: name,
+              tradeAmount: store.get('propertiesForSaleType').price,
+              propertyId: store.get('propertiesForSale').id,
+              propertyTypeId: store.get('propertiesForSaleType').id,
+            }
             store.set('accountNo', accountNo);
             store.set('bankName', bankName);
-            store.set('phoneNum',phoneNum);
-            store.set('EbankNo',EbankNo);
+            store.set('phoneNum', phoneNum);
+            store.set('EbankNo', EbankNo);
             store.set('icNo', icNo);
             nextModal = modal({
               legend: 'legend3',
@@ -127,7 +126,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
                   text: '继续办理',
                   onClick: function () {
                     nextModal.destory();
-                    upload(order,'reprint-notice.html');
+                    upload(order, 'reprint-notice.html');
                   }
                 },
                 {
@@ -140,7 +139,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
               ]
             })
           }
-          if(d.object.code === 2){
+          if (d.object.code === 2) {
             store.set('orderList', d.object.orderList);
             nextModal = modal({
               legend: 'legend3',
@@ -165,7 +164,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
               ]
             })
           }
-          if(d.object.code === 3){
+          if (d.object.code === 3) {
             store.set('orderList', d.object.orderList);
             nextModal = modal({
               legend: 'legend3',
@@ -213,15 +212,15 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
       type: 'POST',
       dataType: 'json',
       data: {
-        name        : name,
-        IDCardNo    : IDCardNo,
-        termid      : config.termid,
-        redirectUrl : request.uploadIDCard,
-        merchantId  : new Date().getTime()
+        name: name,
+        IDCardNo: IDCardNo,
+        termid: config.termid,
+        redirectUrl: request.uploadIDCard,
+        merchantId: new Date().getTime()
       }
     })
       .done(function (d) {
-        
+
         if (d.code === 0) {
 
           console.log(d)
@@ -241,7 +240,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
   function upload(data, Url) {
 
     data.redirectUrl = request.updateOrder
-    data.merchantId = new Date().getTime()
+    data.merchantId = new Date().getTime();
 
     console.log(data);
 
@@ -254,35 +253,35 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
       .done(function (d) {
         if (d.code == 0) {
           console.log('订单更新成功');
-          store.set('outOrderNo',d.object.id);
+          store.set('outOrderNo', d.object.id);
           view.router.loadPage(Url);
         } else {
           console.log(d);
-          Toast({text:d.message});
+          Toast({text: d.message});
           view.router.loadPage('index.html');
         }
       })
       .fail(function (d) {
-        Toast({text:'操作失败'});
+        Toast({text: '操作失败'});
         view.router.loadPage('index.html');
       })
 
   }
 
-  $('#name').on('input',function () {
+  $('#name').on('input', function () {
     throttled()
   })
 
-  $('#IDCardNo').on('input',function () {
+  $('#IDCardNo').on('input', function () {
     throttled()
   })
 
   let throttled = _.throttle(function () {
 
-    if(!($('#name').val() === '') && !($('#IDCardNo').val() === '')){
+    if (!($('#name').val() === '') && !($('#IDCardNo').val() === '')) {
       $('#identifyStep1-submit').removeAttr('disabled').removeClass('disabled');
-    }else {
-      $('#identifyStep1-submit').attr('disabled','disabled').addClass('disabled');
+    } else {
+      $('#identifyStep1-submit').attr('disabled', 'disabled').addClass('disabled');
     }
 
   }, 500)

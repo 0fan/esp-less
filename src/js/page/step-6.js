@@ -162,7 +162,7 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
                       time: 5
                     }).on('close', () => {
                       m.destory()
-                      view.router.loadPage('Inform-step1.html')
+                      upload(order,'Inform-step1.html')
                     })
                   })
                 }
