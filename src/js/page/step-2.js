@@ -126,7 +126,7 @@ $(document).on('pageInit', '.page[data-page=identify-step1]', () => {
                   text: '继续办理',
                   onClick: function () {
                     nextModal.destory();
-                    upload(order, 'reprint-notice.html');
+                    upload(order,'deposit-step1.html');
                   }
                 },
                 {
