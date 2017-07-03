@@ -16,7 +16,8 @@ let request = {
   bankcardSigning     : 'portal/terminal/user/bankCardSign.json',            // 用户银行卡签约
   getNotification     : 'portal/terminal/contract/getNotification.html',     // 获取告知书地址
   getIDCardAfterStep  : 'portal/terminal/user/nextStep/get.json',            // 刷完身份证下一步操作获取
-  getMonitoringConfig : 'portal/terminal/config/down.json'                   // 获取监控配置
+  getMonitoringConfig : 'portal/terminal/config/down.json',                   // 获取监控配置
+  refund              : 'portal/terminal/capital/operation/refund.json'      //退款操作
 }
 
 export default request

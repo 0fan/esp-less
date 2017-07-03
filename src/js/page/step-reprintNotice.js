@@ -41,6 +41,21 @@ $(document).on('pageInit', '.page[data-page=reprint-notice]', () => {
 
     return
   }
+  // bankName
+  //   :
+  //   "工商银行"
+  // icNo
+  //   :
+  //   "1498800066274"
+  // orderId
+  //   :
+  //   "170630131745010509"
+  // payAmount
+  //   :
+  //   "0"
+  // tradeDate
+  //   :
+  //   "2017-06-30 13:17:57"
 
   $.each(orderList,function (i,p) {
     html += `<div class="esp-table-content-row">
