@@ -46,83 +46,9 @@
       }
 
     }
-    .bank-logo{
-      display: inline-block;
-      width: @bank-logo-width;
-      height: @bank-logo-height;
-      overflow: hidden;
-
-      i {
-        display: inline-block;
-        width: @bank-logo-width;
-        height: @bank-logo-height;
-        position: relative;
-        left: 0;
-        border-right: @bank-logo-width solid transparent;
-        filter: drop-shadow(@bank-logo-reverse-color @bank-logo-width 0);
-        background-repeat: no-repeat;
-        background-position: left @bank-logo-height;
-        background-image: data-uri('../img/bank-logo.png');
-      }
-
-      &.bohai i {
-        background-position: left 0;
-      }
-      &.guangfa i {
-        background-position: left -@bank-logo-height  * 1;
-      }
-      &.hengfeng i {
-        background-position: left -@bank-logo-height  * 2;
-      }
-      &.huaxia i {
-        background-position: left -@bank-logo-height  * 3;
-      }
-      &.jiaotong i {
-        background-position: left -@bank-logo-height  * 4;
-      }
-      &.chongqingnongcunshangye i {
-        background-position: left -@bank-logo-height  * 5;
-      }
-      &.pingan i {
-        background-position: left -@bank-logo-height  * 6;
-      }
-      &.pufa i {
-        background-position: left -@bank-logo-height  * 7;
-      }
-      &.xingye i {
-        background-position: left -@bank-logo-height  * 8;
-      }
-      &.zhaoshang i {
-        background-position: left -@bank-logo-height  * 9;
-      }
-      &.zheshang i {
-        background-position: left -@bank-logo-height  * 10;
-      }
-      &.gongshang i {
-        background-position: left -@bank-logo-height  * 11;
-      }
-      &.guangda i {
-        background-position: left -@bank-logo-height  * 12;
-      }
-      &.jianshe i {
-        background-position: left -@bank-logo-height  * 13;
-      }
-      &.minsheng i {
-        background-position: left -@bank-logo-height  * 14;
-      }
-      &.nongye i {
-        background-position: left -@bank-logo-height  * 15;
-      }
-      &.zhongguo i {
-        background-position: left -@bank-logo-height  * 16;
-      }
-      &.zhongxin i {
-        background-position: left -@bank-logo-height  * 17;
-      }
-      
-    }
+    
   }
-  
+
   .right {
     a + a {
       margin-left: 10px;
@@ -149,6 +75,87 @@
       font-size: 24px;
     }
   }
+}
+
+.bank-logo.bank-logo-reverse i,
+.esp-card .bank-logo i{
+  left: -@bank-logo-width;;
+}
+
+.bank-logo{
+  display: inline-block;
+  width: @bank-logo-width;
+  height: @bank-logo-height;
+  overflow: hidden;
+
+  i {
+    display: inline-block;
+    width: @bank-logo-width;
+    height: @bank-logo-height;
+    position: relative;
+    left: 0;
+    border-right: @bank-logo-width solid transparent;
+    filter: drop-shadow(@bank-logo-reverse-color @bank-logo-width 0);
+    background-repeat: no-repeat;
+    background-position: left @bank-logo-height;
+    background-image: data-uri('../img/bank-logo.png');
+  }
+
+  &.bohai i {
+    background-position: left 0;
+  }
+  &.guangfa i {
+    background-position: left -@bank-logo-height  * 1;
+  }
+  &.hengfeng i {
+    background-position: left -@bank-logo-height  * 2;
+  }
+  &.huaxia i {
+    background-position: left -@bank-logo-height  * 3;
+  }
+  &.jiaotong i {
+    background-position: left -@bank-logo-height  * 4;
+  }
+  &.chongqingnongcunshangye i {
+    background-position: left -@bank-logo-height  * 5;
+  }
+  &.pingan i {
+    background-position: left -@bank-logo-height  * 6;
+  }
+  &.pufa i {
+    background-position: left -@bank-logo-height  * 7;
+  }
+  &.xingye i {
+    background-position: left -@bank-logo-height  * 8;
+  }
+  &.zhaoshang i {
+    background-position: left -@bank-logo-height  * 9;
+  }
+  &.zheshang i {
+    background-position: left -@bank-logo-height  * 10;
+  }
+  &.gongshang i {
+    background-position: left -@bank-logo-height  * 11;
+  }
+  &.guangda i {
+    background-position: left -@bank-logo-height  * 12;
+  }
+  &.jianshe i {
+    background-position: left -@bank-logo-height  * 13;
+  }
+  &.minsheng i {
+    background-position: left -@bank-logo-height  * 14;
+  }
+  &.nongye i {
+    background-position: left -@bank-logo-height  * 15;
+  }
+  &.zhongguo i {
+    background-position: left -@bank-logo-height  * 16;
+  }
+  &.zhongxin i {
+    background-position: left -@bank-logo-height  * 17;
+  }
+  
 }
 
 /* ========== navbar reverse ========== */
