@@ -10,3 +10,25 @@
     margin-right: 10px;
   }
 }
+.esp-row{
+  .esp-btn-block{
+    &.esp-btn-link{
+      color: #fff;
+      background: @brand-primary;
+    }
+    &.disabled,
+    &[disabled] {
+      &,
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        background: transparent;
+        color: #aaa;
+        .box-shadow(none);
+        .scale(1);
+      }
+    }
+  }
+}
