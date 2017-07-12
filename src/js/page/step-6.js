@@ -37,28 +37,29 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
 
   $('#sureDeposit').click(function (e) {
     e.preventDefault;
-    let a
-    a = modal({
-      legend: 'legend8',
-      status: 'primary',
-      title: '是否付款给开发商?',
-      action: [
-        {
-          text: '是',
-          onClick: () => {
-            a.destory()
-            surePay();
-          }
-        },
-        {
-          text: '否',
-          onClick: () => {
-            a.destory()
-          }
-        }
-      ]
-    });
-  });
+    //   let a
+    //   a = modal({
+    //     legend: 'legend8',
+    //     status: 'primary',
+    //     title: '是否付款给开发商?',
+    //     action: [
+    //       {
+    //         text: '是',
+    //         onClick: () => {
+    //           a.destory()
+    //           surePay();
+    //         }
+    //       },
+    //       {
+    //         text: '否',
+    //         onClick: () => {
+    //           a.destory()
+    //         }
+    //       }
+    //     ]
+    //   });
+    // });
+    surePay();
     function surePay() {
       let m1
       m1 = modal({
@@ -69,8 +70,8 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
 
       let order = { // 更新订单
         payStatus: 0,
-        orderId:  outOrderNo,
-        icNo:icNo,
+        orderId: outOrderNo,
+        icNo: icNo,
         termId: config.termid,
         bankNum: accountNo,
         ebank: EbankNo,
@@ -78,28 +79,28 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
         tradeAmount: propertiesForSaleType.price
       }
 
-      let data  = { // 接口参数
-        type           : 1,
-        channel        : 'xingye',
-        equalMoney     : 0.0,
-        termId         : config.termid,
-        icNo           : icNo,
-        bankNum        : accountNo,
-        bankName       : bankName,
-        phone          : phoneNum,
-        realName       : accountName,
-        yzm            : identifyCode,
-        idcardNo       : IDCardNo,
-        outOrderNo     : outOrderNo,
-        louPanId       : propertiesForSale.id,
-        price          : propertiesForSaleType.price,
-        goodsName      : propertiesForSaleType.name,
-        tradeAmount    : propertiesForSaleType.price,
-        yinPayPrice    : propertiesForSaleType.price,
-        type           : propertiesForSaleType.type,
-        fangyuanTypeId : propertiesForSaleType.id,
-        redirectUrl    : request.createOrder,
-        merchantId     : propertiesForSale.duId
+      let data = { // 接口参数
+        type: 1,
+        channel: 'xingye',
+        equalMoney: 0.0,
+        termId: config.termid,
+        icNo: icNo,
+        bankNum: accountNo,
+        bankName: bankName,
+        phone: phoneNum,
+        realName: accountName,
+        yzm: identifyCode,
+        idcardNo: IDCardNo,
+        outOrderNo: outOrderNo,
+        louPanId: propertiesForSale.id,
+        price: propertiesForSaleType.price,
+        goodsName: propertiesForSaleType.name,
+        tradeAmount: propertiesForSaleType.price,
+        yinPayPrice: propertiesForSaleType.price,
+        type: propertiesForSaleType.type,
+        fangyuanTypeId: propertiesForSaleType.id,
+        redirectUrl: request.createOrder,
+        merchantId: propertiesForSale.duId
       }
 
       $.ajax({
@@ -145,12 +146,12 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                  redirectUrl   : request.getOrderStatus,
-                  merchantId    : new Date().getTime(),
-                  parentOrderId : store.get('parentOrderId')
+                  redirectUrl: request.getOrderStatus,
+                  merchantId: new Date().getTime(),
+                  parentOrderId: store.get('parentOrderId')
                 },
               })
-                .done(function(d) {
+                .done(function (d) {
                   let code = d.code
                   console.log(d)
 
@@ -182,7 +183,7 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
                           time: 5
                         }).on('close', () => {
                           m.destory()
-                          upload(order,'Inform-step1.html')
+                          upload(order, 'Inform-step1.html')
                         })
                       })
                     }
@@ -242,10 +243,10 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
 
                   }
                 })
-                .fail(function() {
+                .fail(function () {
                   console.log("error");
                 })
-                .always(function() {
+                .always(function () {
                   console.log("complete");
                 })
 
@@ -266,35 +267,36 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
 
         })
     }
-  // 更新订单状态
-  function upload(data, Url) {
-    data.redirectUrl = request.updateOrder
-    data.merchantId = new Date().getTime()
-    console.log(data)
-    $.ajax({
-      url: url.test + request.allRequest,
-      type: 'POST',
-      dataType: 'json',
-      data: data,
-    })
-      .done(function (d) {
-        if (d.code === 0) {
-          console.log('订单更新成功')
-          store.set('outOrderNo',d.object.id);
-          view.router.loadPage(Url);
-        } else {
-          console.log(d);
-          toast({text:d.message});
+
+    // 更新订单状态
+    function upload(data, Url) {
+      data.redirectUrl = request.updateOrder
+      data.merchantId = new Date().getTime()
+      console.log(data)
+      $.ajax({
+        url: url.test + request.allRequest,
+        type: 'POST',
+        dataType: 'json',
+        data: data,
+      })
+        .done(function (d) {
+          if (d.code === 0) {
+            console.log('订单更新成功')
+            store.set('outOrderNo', d.object.id);
+            view.router.loadPage(Url);
+          } else {
+            console.log(d);
+            toast({text: d.message});
+            view.router.loadPage('index.html');
+          }
+        })
+        .fail(function (d) {
+          toast({text: '操作失败'});
           view.router.loadPage('index.html');
-        }
-      })
-      .fail(function (d) {
-        toast({text:'操作失败'});
-        view.router.loadPage('index.html');
-      })
-  }
+        })
+    }
 
 
-  
+  })
 
 })
