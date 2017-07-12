@@ -69,7 +69,6 @@ $(document).on('pageInit', '.page[data-page=deposit-step1]', () => {
       })
 
       let order = { // 更新订单
-        payStatus: 0,
         orderId: outOrderNo,
         icNo: icNo,
         termId: config.termid,
