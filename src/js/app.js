@@ -5,7 +5,7 @@ import './utility/card'    // 控制开卡信息
 import './utility/form'    // 控制输入框提示
 import './utility/match'   // 校验工具
 import './utility/code'   // 验证码
-import './utility/shield.js' // 屏蔽右键
+import './utility/shield' // 屏蔽右键
 
 // component
 import Toast from './widget/toast'
