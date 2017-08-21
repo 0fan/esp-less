@@ -43,6 +43,9 @@
         background-repeat: no-repeat;
         background-position: left center;
         background-image: data-uri('../img/brand.png');
+        &.hengfeng{
+          background-image: data-uri('../img/bankBrand_hengfeng_white.png');
+        }
       }
 
     }
@@ -162,7 +165,9 @@
 .navbar.navbar-reverse{
   background: @logo-reverse-bg;
   color: #fff;
-
+  &.hengfeng{
+    background: @brand-hengfeng;
+  }
   .left {
     .logo {
       i {
@@ -181,7 +186,7 @@
   }
 
   &:after{
-    background: @logo-reverse-bg;
+    background: @brand-hengfeng;
   }
 }
 
