@@ -91,7 +91,7 @@
   &.anime5, // 升级动画
   &.anime-5,
   &.anime-upgrade {
-    background-image: url('../img/upgrade.png');
+    background-image: data-uri('../img/ani_upgrade.png');
     animation: anime5 steps(37) 1.5s infinite;
   }
   &.anime6, // 开卡动画
@@ -99,14 +99,20 @@
   &.anime-openCard,
   &.anime-opencard,
   &.anime-open-card {
-    background-image: url('../img/open-card.png');
-    animation: anime6 steps(75) 1.5s infinite;
+    background-image: data-uri('../img/ani_open_account.png');
+    animation: anime6 steps(45) 1.5s infinite;
   }
   &.anime7, // 打印动画
   &.anime-7,
   &.anime-print {
-    background-image: url('../img/stamp.png');
-    animation: anime7 steps(75) 1.5s infinite;
+    background-image: data-uri('../img/ani_print.png');
+    animation: anime7 steps(45) 1.5s infinite;
+  }
+  &.anime8, // 存入存款
+  &.anime-8,
+  &.anime-deposit {
+    background-image: data-uri('../img/ani_deposit.png');
+    animation: anime8 steps(50) 1.5s infinite;
   }
 }
 
@@ -155,7 +161,7 @@
     background-position: 0 0;
   }
   100% {
-    background-position: 0 -22500px;
+    background-position: 0 -13500px;
   }
 }
 @keyframes anime7 {
@@ -163,6 +169,14 @@
     background-position: 0 0;
   }
   100% {
-    background-position: 0 -22500px;
+    background-position: 0 -13500px;
+  }
+}
+@keyframes anime8 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -15000px;
   }
 }
