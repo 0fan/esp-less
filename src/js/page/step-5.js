@@ -285,4 +285,163 @@ $(document).on('pageInit', '.page[data-page=identify-step4]', () => {
         view.router.loadPage('index.html');
       })
   }
+
+  // 合同
+  $('#contract1').on('click', function(e) {
+    e.preventDefault()
+
+    var $contractModal = $(`<div class="contractModal">
+                            <div class="contractModal-dialog">
+                              <div class="contractModal-content">
+                                <iframe name='protocol' src="protocol.html" frameborder="0" width="100%" height="100%"></iframe>
+                              </div>
+                              <div class="contractModal-dialog-footer">
+                                <div class="contractModal-close esp-btn esp-btn-sm">关闭</div>
+                                <div class="contractModal-control _pre" disabled><i class="icon icon-material icon-expandless"></i></div>
+                                <div class="contractModal-control _next"><i class="icon icon-material icon-expandmore"></i></div>
+                              </div>
+                            </div>
+                            <div class="contractModal-mask"></div>
+                          </div>`)
+
+    var $iframe  = $('iframe', $contractModal),
+        $content = $('.contractModal-content', $contractModal),
+        iframe_h = 880,
+        $pre     = $('.contractModal-control._pre', $contractModal),
+        $next    = $('.contractModal-control._next', $contractModal)
+
+    $iframe.on('load', function() {
+      var h = $(window.frames[0].document).height()
+
+      $contractModal.on('click', '.contractModal-control._pre', function() {
+        var top = $(window.frames[0].document).scrollTop()
+        
+        $next.removeAttr('disabled')
+
+        if (top - iframe_h <= 0) {
+          $(window.frames[0].document).scrollTop(0)
+
+          $pre.attr('disabled', true)
+          $next.removeAttr('disabled')
+        } else {
+          $(window.frames[0].document).scrollTop(top - iframe_h)
+        }
+
+      })
+
+      $contractModal.on('click', '.contractModal-control._next', function() {
+        var top = $(window.frames[0].document).scrollTop()
+
+        $pre.removeAttr('disabled')
+
+        if (top + iframe_h >= h) {
+          $(window.frames[0].document).scrollTop(h)
+
+          $next.attr('disabled', true)
+          $pre.removeAttr('disabled')
+        } else {
+          $(window.frames[0].document).scrollTop(top + iframe_h)
+        }
+      })
+
+    })
+
+    $contractModal.on('click', '.contractModal-close', function(e) {
+      e.preventDefault()
+
+      $contractModal.off().removeClass('in')
+      setTimeout(() => {
+        $contractModal.remove()
+      }, 300)
+
+    })
+
+    
+
+    $contractModal.appendTo('body')
+
+    $contractModal[0].offsetWidth
+
+    $contractModal.addClass('in')
+
+  })
+
+  $('#contract2').on('click', function(e) {
+    e.preventDefault()
+
+    var $contractModal = $(`<div class="contractModal">
+                            <div class="contractModal-dialog">
+                              <div class="contractModal-content">
+                                <iframe name='protocol' src="rules.html" frameborder="0" width="100%" height="100%"></iframe>
+                              </div>
+                              <div class="contractModal-dialog-footer">
+                                <div class="contractModal-close esp-btn esp-btn-sm">关闭</div>
+                                <div class="contractModal-control _pre" disabled><i class="icon icon-material icon-expandless"></i></div>
+                                <div class="contractModal-control _next"><i class="icon icon-material icon-expandmore"></i></div>
+                              </div>
+                            </div>
+                            <div class="contractModal-mask"></div>
+                          </div>`)
+
+    var $iframe  = $('iframe', $contractModal),
+        $content = $('.contractModal-content', $contractModal),
+        iframe_h = 880,
+        $pre     = $('.contractModal-control._pre', $contractModal),
+        $next    = $('.contractModal-control._next', $contractModal)
+
+    $iframe.on('load', function() {
+      var h = $(window.frames[0].document).height()
+
+      $contractModal.on('click', '.contractModal-control._pre', function() {
+        var top = $(window.frames[0].document).scrollTop()
+        
+        $next.removeAttr('disabled')
+
+        if (top - iframe_h <= 0) {
+          $(window.frames[0].document).scrollTop(0)
+
+          $pre.attr('disabled', true)
+          $next.removeAttr('disabled')
+        } else {
+          $(window.frames[0].document).scrollTop(top - iframe_h)
+        }
+
+      })
+
+      $contractModal.on('click', '.contractModal-control._next', function() {
+        var top = $(window.frames[0].document).scrollTop()
+
+        $pre.removeAttr('disabled')
+
+        if (top + iframe_h >= h) {
+          $(window.frames[0].document).scrollTop(h)
+
+          $next.attr('disabled', true)
+          $pre.removeAttr('disabled')
+        } else {
+          $(window.frames[0].document).scrollTop(top + iframe_h)
+        }
+      })
+
+    })
+
+    $contractModal.on('click', '.contractModal-close', function(e) {
+      e.preventDefault()
+
+      $contractModal.off().removeClass('in')
+      setTimeout(() => {
+        $contractModal.remove()
+      }, 300)
+
+    })
+
+    
+
+    $contractModal.appendTo('body')
+
+    $contractModal[0].offsetWidth
+
+    $contractModal.addClass('in')
+
+  })
 })
