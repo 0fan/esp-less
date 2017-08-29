@@ -30,41 +30,41 @@ $(document).on('pageInit', '.page[data-page=index]', () => {
   // store.clearAll();
   var open = {'identifier': config.termid}
 
-  $.ajax({
-    url: url.test + request.allRequest,
-    type: 'POST',
-    dataType: 'json',
-    data: {
-      merchantId: new Date().getTime(),
-      redirectUrl: request.getBuild,
-      termid: config.termid
-    },
-  })
-    .done(function (d) {
+  // $.ajax({
+  //   url: url.test + request.allRequest,
+  //   type: 'POST',
+  //   dataType: 'json',
+  //   data: {
+  //     merchantId: new Date().getTime(),
+  //     redirectUrl: request.getBuild,
+  //     termid: config.termid
+  //   },
+  // })
+  //   .done(function (d) {
 
-      if (d.code === 0){
-        console.log(d)
-        isInit=true
-        $('.toolbar .name > span').text(d.object.propertiesForSale.address)
-        $('.toolbar .tel > span').text(d.object.propertiesForSale.picPhone)
-        $('.j-inner').removeClass('disabled').removeAttr('disabled')
-        store.set('propertiesForSale',d.object.propertiesForSale)
-        open.buildingId = d.object.propertiesForSale.id
-        canOpen(open)
-      }
-    })
-    .fail(function (d) {
-      toast({text:d.message})
-    })
-    .always(function () {
-      if (!isInit) {
-        modal({
-          legend: 'anime-upgrade',
-          status: 'primary',
-          title: '正在和服务器取得连接...',
-        })
-      }
-    })
+  //     if (d.code === 0){
+  //       console.log(d)
+  //       isInit=true
+  //       $('.toolbar .name > span').text(d.object.propertiesForSale.address)
+  //       $('.toolbar .tel > span').text(d.object.propertiesForSale.picPhone)
+  //       $('.j-inner').removeClass('disabled').removeAttr('disabled')
+  //       store.set('propertiesForSale',d.object.propertiesForSale)
+  //       open.buildingId = d.object.propertiesForSale.id
+  //       canOpen(open)
+  //     }
+  //   })
+  //   .fail(function (d) {
+  //     toast({text:d.message})
+  //   })
+  //   .always(function () {
+  //     if (!isInit) {
+  //       modal({
+  //         legend: 'anime-upgrade',
+  //         status: 'primary',
+  //         title: '正在和服务器取得连接...',
+  //       })
+  //     }
+  //   })
 
 
 })
