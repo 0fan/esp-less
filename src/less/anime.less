@@ -120,6 +120,18 @@
     background-image: data-uri('../img/ani_pos.png');
     animation: anime9 steps(75) 1.5s infinite;
   }
+  &.anime10,
+  &.anime-10,
+  &.anime-in {
+    background-image: data-uri('../img/ani_in.png');
+    animation: anime10 steps(75) 1.5s infinite;
+  }
+  &.anime11,
+  &.anime-11,
+  &.anime-out {
+    background-image: data-uri('../img/ani_out.png');
+    animation: anime11 steps(75) 1.5s infinite;
+  }
 }
 
 @keyframes anime1 {
@@ -187,6 +199,22 @@
   }
 }
 @keyframes anime9 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -22500px;
+  }
+}
+@keyframes anime10 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -22500px;
+  }
+}
+@keyframes anime11 {
   0% {
     background-position: 0 0;
   }
