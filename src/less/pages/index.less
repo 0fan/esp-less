@@ -35,7 +35,28 @@
   width: 360px;
   border-radius: 10px;
   box-shadow: 0px 6px 21.6px 2.4px rgba(0, 140, 227, 0.2);
-  margin: 0 25px;
+  margin: 0 42px;
+  position: relative;
+
+  img {
+    border-radius: 10px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-left: 6px solid #00ABFB;
+    border-bottom: 6px solid #00ABFB;
+    transform: rotate(-135deg);
+    right: -50px;
+    top: 184px;
+  }
+
+  &:last-child:after {
+    display: none;
+  }
 }
 .index-inner{
   text-align: center;

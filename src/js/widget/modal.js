@@ -117,6 +117,8 @@ class Modal extends Widget {
 
   bindUI() {
     
+    var that = this
+
     if (this.cfg.mask && this.cfg.clickMaskHide) {
       this.boundingBox.on('click', '.esp-modal-mask', (e) => {
         this.destory()
@@ -125,7 +127,7 @@ class Modal extends Widget {
 
     for (let i = 0, len = this.cfg.action.length; i < len; i++) {
       this.boundingBox.on('click', '.esp-modal-btn:nth-child(' + (i + 1) + ')', (e) => {
-        this.cfg.action[i].onClick && this.cfg.action[i].onClick()
+        this.cfg.action[i].onClick && this.cfg.action[i].onClick(that)
       })
     }
     

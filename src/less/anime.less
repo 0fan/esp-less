@@ -114,6 +114,12 @@
     background-image: data-uri('../img/ani_deposit.png');
     animation: anime8 steps(50) 1.5s infinite;
   }
+  &.anime9, // 存入存款
+  &.anime-9,
+  &.anime-pos {
+    background-image: data-uri('../img/ani_pos.png');
+    animation: anime9 steps(75) 1.5s infinite;
+  }
 }
 
 @keyframes anime1 {
@@ -178,5 +184,13 @@
   }
   100% {
     background-position: 0 -15000px;
+  }
+}
+@keyframes anime9 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -22500px;
   }
 }
