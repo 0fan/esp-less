@@ -7,7 +7,7 @@
 .esp-anime {
   // border-radius: 10px;
   width: @anime-wdith;
-  height: @anime-height;
+  min-height: @anime-height;
   background-repeat: no-repeat;
   background-position: top center;
   transform: scale(1.15);
@@ -16,7 +16,7 @@
 
   &.esp-anime-sm {
     width: @anime-sm-width;
-    height: @anime-sm-height;
+    min-height: @anime-sm-height;
     transform: scale(1);
   }
 
@@ -132,6 +132,14 @@
     background-image: data-uri('../img/ani_out.png');
     animation: anime11 steps(75) 1.5s infinite;
   }
+  &.anime12,
+  &.anime-12,
+  &.anime-upgrade2 {
+
+    height: 360px;
+    background-image: data-uri('../img/ani_upgrade2.png');
+    animation: anime12 steps(50) 1.5s infinite;
+  }
 }
 
 @keyframes anime1 {
@@ -220,5 +228,13 @@
   }
   100% {
     background-position: 0 -22500px;
+  }
+}
+@keyframes anime12 {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 -18000px;
   }
 }
