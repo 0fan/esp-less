@@ -167,6 +167,10 @@
   color: #fff;
   &.hengfeng{
     background: @brand-hengfeng;
+
+    &:after{
+      background: @brand-hengfeng;
+    }
   }
   .left {
     .logo {
@@ -185,9 +189,7 @@
     color: #fff;
   }
 
-  &:after{
-    background: @brand-hengfeng;
-  }
+  
 }
 
 .toolbar {
@@ -268,7 +270,7 @@
   bottom: 0;
   width: @sidebar-width;
   background: @sidebar-default-bg;
-  border-right: 1px solid #ddd;
+  border-right: 2px solid #d8d8d8;
   z-index: 500;
   .transform(translate(-100%, 0));
 
