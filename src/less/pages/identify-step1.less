@@ -18,19 +18,26 @@
       border-radius: 12px;
       .box-shadow(0px 8px 30.4px 1.6px rgba(0, 157, 230, 0.2));
       flex-shrink: 0;
-      margin: 30px;
+      margin: 30px 37.5px;
       position: relative;
       overflow: hidden;
       background-repeat: no-repeat;
       background-position: bottom 80px center;
-
       .user-select(none);
       .transition(all .15s);
+      .switchProject-items_name{
+        font-size: 26px;
+        color: @brand-primary;
+        padding: 20px 20px 0 20px;
+        line-height: 1;
+      }
       img{
         margin-left:10px;
         margin-top: 10px;
       }
       .info {
+        font-size: 48px;
+        font-family: DIN-Medium;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -41,7 +48,6 @@
         color: #fff;
         text-align: center;
         padding: 0 20px;
-        font-size: @font-size-h4;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -105,9 +111,8 @@
   .identifyStep1-popup-title {
     font-size: 42px;
     text-align: center;
-    line-height: 1.35;
     margin-bottom: 130px;
-    color: #2e3032;
+    color: @brand-primary;
   }
   .identifyStep1-continue {
     text-align: right;
