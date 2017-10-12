@@ -31,6 +31,7 @@
       height: @logo-height;
       overflow: hidden;
       margin-right: 40px;
+      position: relative;
 
       i {
         display: inline-block;
@@ -46,6 +47,17 @@
         &.hengfeng{
           background-image: data-uri('../img/bankBrand_hengfeng_white.png');
         }
+      }
+
+      &:after {
+        content: attr(data-version);
+        position: absolute;
+        top: 6px;
+        left: 278px;
+        font-size: 26px;
+        line-height: 1;
+        color: #C9CACA;
+        font-weight: 400;
       }
 
     }
@@ -176,6 +188,10 @@
     .logo {
       i {
         left: -@logo-width;
+      }
+
+      &:after {
+        color: #fff;
       }
     }
     .bank-logo{
