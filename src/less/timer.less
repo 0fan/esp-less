@@ -15,14 +15,14 @@
     .transform(scale(1));
   }
 
-  > svg{
+  > svg {
 
     circle {
       .transition(all linear 1s);
     }
   }
 
-  > .esp-timer-count{
+  > .esp-timer-count {
     position: absolute;
     top: 0;
     right: 0;
@@ -41,7 +41,6 @@
 
 }
 
-
 .esp-timer2 {
   position: absolute;
   z-index: 99999;
@@ -54,12 +53,14 @@
     .transform(scale(1));
   }
 }
+
 .esp-timer2-wrap {
   float: left;
   width: 52px;
   height: 52px;
   position: relative;
 }
+
 .esp-timer2-prev {
   position: absolute;
   width: 46px;
@@ -70,6 +71,7 @@
   left: 3px;
   box-sizing: border-box;
 }
+
 .esp-timer2-prev:before {
   content: '';
   position: absolute;
@@ -81,6 +83,7 @@
   left: 50%;
   margin-left: -6px;
 }
+
 .esp-timer2-prev:after {
   content: '';
   position: absolute;
@@ -92,6 +95,7 @@
   right: -1px;
   transform: rotate(-45deg);
 }
+
 .esp-timer2-prev-second {
   position: absolute;
   width: 2px;
@@ -104,6 +108,7 @@
   transform-origin: bottom;
   animation: around 20s linear infinite;
 }
+
 .esp-timer2-title {
   margin-left: 52px;
   font-size: 42px;
@@ -113,15 +118,19 @@
   padding-top: 8px;
   padding-left: 10px;
 }
+
 .esp-timer2-title:after {
   content: 's';
   margin-left: 5px;
 }
+
 @keyframes around {
-  0 {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+
 }
